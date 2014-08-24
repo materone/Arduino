@@ -1,44 +1,9 @@
+#include <dht.h>
 #include <Wire.h>
 #include <SeeedOLED.h>
 #include <avr/pgmspace.h>
-//const int buttonPin = 7;     // the number of the pushbutton pin
-const int a = 1;
-const int b = 0;
-const int c = 11;
-const int d = 12;
-const int e = 13;
-const int f = 3;
-const int g = 5;
-const int p = 6;
-const int pins[] = {a,b,c,d,e,f,g,p};
-//const int pins[] = {0,1,3,5,6,11,12,13};      // the number port of the board pin
-//const int pinsLED[] = {6,7,9,10,5,4,2,1};//the pins in LED(bafgpcde)764219a5
-//display code lib
-const int nd[][7]={
-  //0
-  {a,b,c,d,e,f},
-  //1
-  {b,c},
-  //2
-  {a,b,d,e,g},
-  //3
-  {a,b,c,d,g},
-  //4
-  {b,c,f,g},
-  //5
-  {a,f,g,c,d},
-  //6
-  {a,f,g,c,d,e},
-  //7
-  {a,b,c},
-  //8
-  {a,b,c,d,e,f,g},
-  //9
-  {a,b,c,d,f,g},
-  //p dot
-  {p}
-};
-const int ndsize[]={6,2,5,5,4,5,6,3,7,6,1};
+#include <SPI.h>
+#include <Ethernet.h>
 
 static unsigned char fontDatas[11][32] PROGMEM={
   //超
@@ -218,12 +183,28 @@ static unsigned char fontDigital[11][32] PROGMEM = {
   }
 };
 
-void setup() {
-  //init display led
+dht DHT;
+#define DHT11_PIN 3 //put the sensor in the digital pin 3
+long t,h,count=0;
+#if defined(WIZ550io_WITH_MACADDRESS) // Use assigned MAC address of WIZ550io
+;
+#else
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+#endif  
+IPAddress ip(192,168,199,177);
+
+// Initialize the Ethernet server library
+// with the IP address and port you want to use 
+// (port 80 is default for HTTP):
+EthernetServer server(80);
+
+void setup()
+{
   Wire.begin();	
   SeeedOled.init();  //initialze SEEED OLED display  
   DDRB|=0x21;        
   PORTB |= 0x21;
+  Serial.begin(9600);
   //init display
   SeeedOled.init();                       //initialze SEEED OLED display
   SeeedOled.clearDisplay();               // clear the screen and set start position to top left corner
@@ -254,33 +235,185 @@ void setup() {
   SeeedOled.drawBitmap(fontDatas[10],16);
   SeeedOled.drawBitmap(fontDatas[9] + 16,16);
   SeeedOled.drawBitmap(fontDatas[10] + 16,16);
-  // put your setup code here, to run once:
-  for(int i = 0 ;i < 8;i++){
-    pinMode(pins[i], OUTPUT); 
+  
+  //init network
+  #if defined(WIZ550io_WITH_MACADDRESS)
+  Ethernet.begin(ip);
+  #else
+    Ethernet.begin(mac, ip);
+  #endif  
+  server.begin();
+  Serial.print("server is at ");
+  Serial.println(Ethernet.localIP());
+}
+void loop()
+{
+  //testTemperature();
+  //delay(100);
+  //testHumidity();
+  //delay(100);
+  startWebSvr();
+  count++;
+  //Serial.println(count);
+}
+void startWebSvr(){
+  EthernetClient client = server.available();
+  if (client) {
+    Serial.println("new client");
+    // an http request ends with a blank line
+    boolean currentLineIsBlank = true;
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+        // if you've gotten to the end of the line (received a newline
+        // character) and the line is blank, the http request has ended,
+        // so you can send a reply
+        if (c == '\n' && currentLineIsBlank) {
+          testTemperature();
+          testHumidity();
+          // send a standard http response header
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: text/html");
+          client.println("Connection: close");  // the connection will be closed after completion of the response
+	  //client.println("Refresh: 5");  // refresh the page automatically every 5 sec
+          client.println();
+          client.println("<!DOCTYPE HTML>");
+          client.println("<html>");
+          client.print("Temp:");
+          client.print(t);
+          client.println("<BR>");
+          client.print("Humi:");
+          client.print(h);
+          client.println("<BR>");
+          client.println("</html>");
+          break;
+        }
+        if (c == '\n') {
+          // you're starting a new line
+          currentLineIsBlank = true;
+        } 
+        else if (c != '\r') {
+          // you've gotten a character on the current line
+          currentLineIsBlank = false;
+        }
+      }
+    }
+    // give the web browser time to receive the data
+    delay(1);
+    // close the connection:
+    client.stop();
+    Serial.println("client disonnected");
+  }
+}
+void testTemperature(){
+  //begin measure d and t
+  int chk = DHT.read11(DHT11_PIN);
+  switch (chk)
+  {
+    case 0:  Serial.print("OK,\t"); break;
+    case -1: Serial.print("Checksum error,\t"); break;
+    case -2: Serial.print("Time out error,\t"); break;
+    default: Serial.print("Unknown error,\t"); break;
+  }
+ 
+ // DISPLAT DATA
+  Serial.print(DHT.humidity,1);
+  Serial.print(",\t");
+  Serial.println(DHT.temperature,1);
+ 
+  //display in lcd page 5,6 col 16
+  SeeedOled.setBitmapRect(3,4,64,111);
+  unsigned char char_buffer[3]="";
+  unsigned char i = 0;
+  unsigned char f = 0;
+  long long_num = DHT.temperature;
+  t = long_num;
+
+  //SeeedOled.sendCommand(SeeedOLED_Display_Off_Cmd); 	//display off
+  //clear digi zone 3
+  for(i=0;i<96;i++){
+    SeeedOled.setHorizontalMode();
+    SeeedOled.sendData(0x00);
+  }
+  
+  i=0;
+
+  if (long_num == 0) {
+    f=1;    
+    SeeedOled.setBitmapRect(3,4,64,79);
+    SeeedOled.drawBitmap(fontDigital[0],32);
   } 
-  black();
+  else{
+    while (long_num > 0) 
+    {
+      char_buffer[i++] = long_num % 10;
+      long_num /= 10;
+    }
+    f=f+i;
+    for(; i > 0; i--)
+    {
+      //Serial.print(char_buffer[i-1]);       
+      SeeedOled.setBitmapRect(3,4,112-i*16,128-i*16);
+      SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32);      
+      //putChar('0'+ char_buffer[i - 1]);
+    }
+  }
+  //SeeedOled.sendCommand(SeeedOLED_Display_On_Cmd); 	//display off
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  for(int n = 0;n <=10 ;n++){
-    showdig(n);  
-    delay(2000);
-    black();
-    delay(500);
+void testHumidity(){
+  //begin measure d and t
+  int chk = DHT.read11(DHT11_PIN);
+  switch (chk)
+  {
+    case 0:  Serial.print("OK,\t"); break;
+    case -1: Serial.print("Checksum error,\t"); break;
+    case -2: Serial.print("Time out error,\t"); break;
+    default: Serial.print("Unknown error,\t"); break;
   }
+ 
+ // DISPLAT DATA
+  Serial.print(DHT.humidity,1);
+  Serial.print(",\t");
+  Serial.println(DHT.temperature,1);
+ 
+  //display in lcd page 5,6 col 16
+  SeeedOled.setBitmapRect(6,7,64,111);
+  unsigned char char_buffer[3]="";
+  unsigned char i = 0;
+  unsigned char f = 0;
+  long long_num = DHT.humidity;
+  h = long_num;
+
+  //SeeedOled.sendCommand(SeeedOLED_Display_Off_Cmd); 	//display off
+  //clear digi zone 3
+  for(i=0;i<96;i++){
+    SeeedOled.setHorizontalMode();
+    SeeedOled.sendData(0x00);
+  }
+  
+  i=0;
+
+  if (long_num == 0) {
+    f=1;    
+    SeeedOled.setBitmapRect(6,7,64,79);
+    SeeedOled.drawBitmap(fontDigital[0],32);
+  } 
+  else{
+    while (long_num > 0) 
+    {
+      char_buffer[i++] = long_num % 10;
+      long_num /= 10;
+    }
+    f=f+i;
+    for(; i > 0; i--)
+    {
+      //Serial.print(char_buffer[i-1]);       
+      SeeedOled.setBitmapRect(6,7,112-i*16,128-i*16);
+      SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32);      
+    }
+  }
+  //SeeedOled.sendCommand(SeeedOLED_Display_On_Cmd); 	//display off
 }
 
-void showdig(int num){
-  if(num <0 || num >10) return;
-  black();  
-  for(int i = 0;i < ndsize[num];i++){
-    digitalWrite(nd[num][i],HIGH);
-  }
-}
-
-void black(){
-  for(int i=0;i<8;i++){
-    digitalWrite(pins[i], LOW); 
-  }
-}

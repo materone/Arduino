@@ -2,6 +2,20 @@
 #include <Wire.h>
 #include <SeeedOLED.h>
 #include <avr/pgmspace.h>
+#include <SPI.h>
+#include <Ethernet.h>
+
+#include <SD.h>
+
+// set up variables using the SD utility library functions:
+//Sd2Card card;
+//SdVolume volume;
+
+// change this to match your SD shield or module;
+// Arduino Ethernet shield: pin 4
+// Adafruit SD shields and modules: pin 10
+// Sparkfun SD shield: pin 8
+const int chipSelect = 4;
 
 static unsigned char fontDatas[11][32] PROGMEM={
   //超
@@ -184,6 +198,26 @@ static unsigned char fontDigital[11][32] PROGMEM = {
 dht DHT;
 #define DHT11_PIN 3 //put the sensor in the digital pin 3
 long t,h;
+#if defined(WIZ550io_WITH_MACADDRESS) // Use assigned MAC address of WIZ550io
+;
+#else
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+#endif  
+IPAddress ip(192,168,199,177);
+IPAddress gwip(192,168,199,1);
+IPAddress snip(255,255,255,0);
+IPAddress myDns(192,168,199,1);
+
+// Initialize the Ethernet server library
+// with the IP address and port you want to use 
+// (port 80 is default for HTTP):
+EthernetServer server(80);
+EthernetClient webClient;
+
+char reqserver[] = "materonep001.sinaapp.com";
+unsigned long lastConnectionTime = 0;          // last time you connected to the server, in milliseconds
+boolean lastConnected = false;                 // state of the connection last time through the main loop
+const unsigned long postingInterval = 60*1000;  // delay between updates, in milliseconds
 
 void setup()
 {
@@ -222,14 +256,183 @@ void setup()
   SeeedOled.drawBitmap(fontDatas[10],16);
   SeeedOled.drawBitmap(fontDatas[9] + 16,16);
   SeeedOled.drawBitmap(fontDatas[10] + 16,16);
+  
+  //init network
+  #if defined(WIZ550io_WITH_MACADDRESS)
+  Ethernet.begin(ip, myDns, gwip, snip);
+  #else
+    Ethernet.begin(mac, ip, myDns, gwip, snip);
+  #endif  
+  server.begin();
+  Serial.print("server is at ");
+  Serial.println(Ethernet.localIP());
+  Serial.println(Ethernet.subnetMask());  
+  Serial.println(Ethernet.gatewayIP());
+  Serial.println(Ethernet.dnsServerIP());
+  
 }
+void sdcard(){
+  /*
+  //init SDCard
+  pinMode(10, OUTPUT);     // change this to 53 on a mega
+
+
+  // we'll use the initialization code from the utility libraries
+  // since we're just testing if the card is working!
+  if (!card.init(SPI_HALF_SPEED, chipSelect)) {
+    Serial.println("initialization failed. Things to check:");
+    Serial.println("* is a card is inserted?");
+    Serial.println("* Is your wiring correct?");
+    Serial.println("* did you change the chipSelect pin to match your shield or module?");
+    return;
+  } else {
+    Serial.println("Wiring is correct and a card is present.");
+  }
+
+  // print the type of card
+  Serial.print("\nCard type: ");
+  switch (card.type()) {
+    case SD_CARD_TYPE_SD1:
+      Serial.println("SD1");
+      break;
+    case SD_CARD_TYPE_SD2:
+      Serial.println("SD2");
+      break;
+    case SD_CARD_TYPE_SDHC:
+      Serial.println("SDHC");
+      break;
+    default:
+      Serial.println("Unknown");
+  }
+
+  // Now we will try to open the 'volume'/'partition' - it should be FAT16 or FAT32
+  if (!volume.init(card)) {
+    Serial.println("Could not find FAT16/FAT32 partition.\nMake sure you've formatted the card");
+    return;
+  }
+
+
+  // print the type and size of the first FAT-type volume
+  uint32_t volumesize;
+  Serial.print("\nVolume type is FAT");
+  Serial.println(volume.fatType(), DEC);
+  Serial.println();
+
+  volumesize = volume.blocksPerCluster();    // clusters are collections of blocks
+  volumesize *= volume.clusterCount();       // we'll have a lot of clusters
+  volumesize *= 512;                            // SD card blocks are always 512 bytes
+  Serial.print("Volume size (bytes): ");
+  Serial.println(volumesize);
+  Serial.print("Volume size (Kbytes): ");
+  volumesize /= 1024;
+  Serial.println(volumesize);
+  Serial.print("Volume size (Mbytes): ");
+  volumesize /= 1024;
+  Serial.println(volumesize);
+  */
+}
+
 void loop()
 {
-  testTemperature();
-  delay(2000);
-  testHumidity();
-  delay(2000);
+  //testTemperature();
+  //delay(100);
+  //testHumidity();
+  //delay(100);
+  
+  startWebSvr();
 }
+void startWebSvr(){
+  EthernetClient client = server.available();
+  if (client) {
+    Serial.println("new client");
+    // an http request ends with a blank line
+    boolean currentLineIsBlank = true;
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+        // if you've gotten to the end of the line (received a newline
+        // character) and the line is blank, the http request has ended,
+        // so you can send a reply
+        if (c == '\n' && currentLineIsBlank) {
+          testTemperature();
+          testHumidity();
+          // send a standard http response header
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: text/html");
+          client.println("Connection: close");  // the connection will be closed after completion of the response
+	  //client.println("Refresh: 5");  // refresh the page automatically every 5 sec
+          client.println();
+          client.println("<!DOCTYPE HTML>");
+          client.println("<html>");
+          client.print("Temp:");
+          client.print(t);
+          client.println("<BR>");
+          client.print("Humi:");
+          client.print(h);
+          client.println("<BR>");
+          client.println("</html>");
+          break;
+        }
+        if (c == '\n') {
+          // you're starting a new line
+          currentLineIsBlank = true;
+        } 
+        else if (c != '\r') {
+          // you've gotten a character on the current line
+          currentLineIsBlank = false;
+        }
+      }
+    }
+    // give the web browser time to receive the data
+    delay(1);
+    // close the connection:
+    client.stop();
+    Serial.println("client disonnected");
+    webReq();
+  }
+}
+
+void webReq(){
+  //upload data
+  if (webClient.connect(reqserver, 80)) {
+    Serial.println("connecting...");
+    // send the HTTP PUT request:
+    webClient.print("GET /homestatus.php?t=");
+    webClient.print(t);
+    webClient.print("&h=");
+    webClient.print(h);    
+    webClient.println(" HTTP/1.1");
+    webClient.println("Host: materonep001.sinaapp.com");
+    webClient.println("User-Agent: arduino-ethernet");
+    webClient.println("Connection: close");
+    webClient.println();
+
+    // note the time that the connection was made:
+    lastConnectionTime = millis();
+  } 
+  else {
+    // if you couldn't make a connection:
+    Serial.println("web connection failed");
+    Serial.println("web disconnecting.");
+    webClient.stop();
+  }  
+  delay(2000);
+  while (webClient.available()) {
+    char c = webClient.read();
+    Serial.print(c);
+  }
+
+  // if there's no net connection, but there was one last time
+  // through the loop, then stop the client:
+  if (!webClient.connected() ) {
+    Serial.println();
+    Serial.println("web disconnecting.");
+    webClient.stop();
+  }
+  //delay(60*60*1000);
+}
+
 void testTemperature(){
   //begin measure d and t
   int chk = DHT.read11(DHT11_PIN);
@@ -277,7 +480,7 @@ void testTemperature(){
     f=f+i;
     for(; i > 0; i--)
     {
-      Serial.print(char_buffer[i-1]);       
+      //Serial.print(char_buffer[i-1]);       
       SeeedOled.setBitmapRect(3,4,112-i*16,128-i*16);
       SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32);      
       //putChar('0'+ char_buffer[i - 1]);
@@ -333,7 +536,7 @@ void testHumidity(){
     f=f+i;
     for(; i > 0; i--)
     {
-      Serial.print(char_buffer[i-1]);       
+      //Serial.print(char_buffer[i-1]);       
       SeeedOled.setBitmapRect(6,7,112-i*16,128-i*16);
       SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32);      
     }
