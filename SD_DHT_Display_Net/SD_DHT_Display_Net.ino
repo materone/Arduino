@@ -217,8 +217,8 @@ EthernetClient webClient;
 char reqserver[] = "materonep001.sinaapp.com";
 unsigned long lastConnectionTime = 0;          // last time you connected to the server, in milliseconds
 boolean lastConnected = false;                 // state of the connection last time through the main loop
-const unsigned long postingInterval = 60*1000;  // delay between updates, in milliseconds
-
+const unsigned long postingInterval = 60*60*1000;  // delay between updates, in milliseconds
+boolean first = true;
 void setup()
 {
   Wire.begin();	
@@ -340,6 +340,10 @@ void loop()
   //delay(100);
   
   startWebSvr();
+  if((millis() - lastConnectionTime) > postingInterval|| first){
+    webReq();
+    first = false;
+  }
 }
 void startWebSvr(){
   EthernetClient client = server.available();
