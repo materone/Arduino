@@ -401,11 +401,7 @@ void loop()
   //delay(100);
   
   startWebSvr();
-  Serial.print((millis() - lastConnectionTime));
-  Serial.print(" > ");
-  Serial.print(postingInterval);
-  Serial.print(" IS ");
-  Serial.println((millis() - lastConnectionTime) > postingInterval);
+  
   if(((millis() - lastConnectionTime) > postingInterval)|| first){
     webReq();
     ReadDS3231();
@@ -418,6 +414,7 @@ void loop()
     first = false;
   }
 }
+
 void startWebSvr(){
   EthernetClient client = server.available();
   if (client) {
