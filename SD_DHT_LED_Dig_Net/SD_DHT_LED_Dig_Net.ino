@@ -285,7 +285,9 @@ void setup()
   SeeedOled.deactivateScroll();           // deactivete Scroll (might be activated by previous test case)
   SeeedOled.setNormalDisplay();           // Non-inverted Display 
   //SeeedOled.setHorizontalMode();                // Page mode to start with
-
+  //set time head:
+  //SeeedOled.setBitmapRect(7,7,16,112);
+  //SeeedOled.putString("Time:");
   //print title
   SeeedOled.setBitmapRect(0,1,0,127);
   //p0
@@ -297,18 +299,18 @@ void setup()
     SeeedOled.drawBitmap(fontDatas[i] + 16,16);
   }
   //wendu
-  SeeedOled.setBitmapRect(3,4,16,47);
+  SeeedOled.setBitmapRect(2,3,16,47);
   SeeedOled.drawBitmap(fontDatas[8],16);
   SeeedOled.drawBitmap(fontDatas[10],16);
   SeeedOled.drawBitmap(fontDatas[8] + 16,16);
   SeeedOled.drawBitmap(fontDatas[10] + 16,16);
   
   //shidu  
-  SeeedOled.setBitmapRect(6,7,16,47);
+  SeeedOled.setBitmapRect(4,5,16,47);
   SeeedOled.drawBitmap(fontDatas[9],16);
   SeeedOled.drawBitmap(fontDatas[10],16);
   SeeedOled.drawBitmap(fontDatas[9] + 16,16);
-  SeeedOled.drawBitmap(fontDatas[10] + 16,16);
+  SeeedOled.drawBitmap(fontDatas[10] + 16,16); 
   
   //init network
   #if defined(WIZ550io_WITH_MACADDRESS)
@@ -327,8 +329,7 @@ void setup()
   for(int i = 0 ;i < 8;i++){
     pinMode(pins[i], OUTPUT); 
   } 
-  black();    
-
+  black();   
   testTemperature();
   testHumidity();
 }
@@ -403,6 +404,8 @@ void loop()
   startWebSvr();
   
   if(((millis() - lastConnectionTime) > postingInterval)|| first){
+    testTemperature();
+    testHumidity();
     webReq();
     ReadDS3231();
     for(int n = 0;n <=10 ;n++){
@@ -525,8 +528,8 @@ void testTemperature(){
   Serial.print(",\t");
   Serial.println(DHT.temperature,1);
  
-  //display in lcd page 5,6 col 16
-  SeeedOled.setBitmapRect(3,4,64,111);
+  //display in lcd page 4,5 col 16
+  SeeedOled.setBitmapRect(2,3,64,111);
   unsigned char char_buffer[3]="";
   unsigned char i = 0;
   unsigned char f = 0;
@@ -544,7 +547,7 @@ void testTemperature(){
 
   if (long_num == 0) {
     f=1;    
-    SeeedOled.setBitmapRect(3,4,64,79);
+    SeeedOled.setBitmapRect(2,3,64,79);
     SeeedOled.drawBitmap(fontDigital[0],32);
   } 
   else{
@@ -557,7 +560,7 @@ void testTemperature(){
     for(; i > 0; i--)
     {
       //Serial.print(char_buffer[i-1]);       
-      SeeedOled.setBitmapRect(3,4,112-i*16,128-i*16);
+      SeeedOled.setBitmapRect(2,3,112-i*16,128-i*16);
       SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32);      
       //putChar('0'+ char_buffer[i - 1]);
     }
@@ -581,8 +584,8 @@ void testHumidity(){
   Serial.print(",\t");
   Serial.println(DHT.temperature,1);
  
-  //display in lcd page 5,6 col 16
-  SeeedOled.setBitmapRect(6,7,64,111);
+  //display in lcd page 4,5 col 16
+  SeeedOled.setBitmapRect(4,5,64,111);
   unsigned char char_buffer[3]="";
   unsigned char i = 0;
   unsigned char f = 0;
@@ -600,7 +603,7 @@ void testHumidity(){
 
   if (long_num == 0) {
     f=1;    
-    SeeedOled.setBitmapRect(6,7,64,79);
+    SeeedOled.setBitmapRect(4,5,64,79);
     SeeedOled.drawBitmap(fontDigital[0],32);
   } 
   else{
@@ -613,7 +616,7 @@ void testHumidity(){
     for(; i > 0; i--)
     {
       //Serial.print(char_buffer[i-1]);       
-      SeeedOled.setBitmapRect(6,7,112-i*16,128-i*16);
+      SeeedOled.setBitmapRect(4,5,112-i*16,128-i*16);
       SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32);      
     }
   }
@@ -627,8 +630,7 @@ void ReadDS3231()
   hour=Clock.getHour(h12, PM);
   date=Clock.getDate();
   month=Clock.getMonth(Century);
-  year=Clock.getYear();
-  
+  year=Clock.getYear();  
   temperature=Clock.getTemperature();
   
   Serial.print("20");
@@ -647,6 +649,27 @@ void ReadDS3231()
   Serial.print("Temperature=");
   Serial.print(temperature); 
   Serial.print('\n');
+        
+  SeeedOled.setBitmapRect(7,7,8,120);
+  
+  drawNum(month);
+  SeeedOled.putString("/");
+  drawNum(date);
+  SeeedOled.putString(" ");
+  drawNum(hour);
+  SeeedOled.putString(":");
+  drawNum(minute);
+  SeeedOled.putString(":");
+  drawNum(second);
+}
+
+void drawNum(int i){
+  //only print two bit
+  if(i>99)return;
+  char s[2];
+  if(i<10)  SeeedOled.putString("0");
+  itoa(i,s,10);
+  SeeedOled.putString(s);
 }
 
 void showdig(int num){
