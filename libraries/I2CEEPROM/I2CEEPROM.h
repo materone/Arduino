@@ -29,6 +29,9 @@
 #endif
 
 #define I2CEEPROM_Address 0x50
+#define I2CEEPROM_PAGES 0x200
+#define I2CEEPROM_BYTES_PER_PAGE 0x40
+
 
 class I2CEEPROMClass
 {

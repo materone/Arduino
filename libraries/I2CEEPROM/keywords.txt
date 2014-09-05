@@ -21,3 +21,5 @@ readBuffer	KEYWORD2
 # Constants (LITERAL1)
 #######################################
 I2CEEPROM_Address	LITERAL1
+I2CEEPROM_PAGES	LITERAL1
+I2CEEPROM_BYTES_PER_PAGE	LITERAL1
