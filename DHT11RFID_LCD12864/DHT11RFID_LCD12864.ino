@@ -332,7 +332,7 @@ void testHumidity(){
     {
       Serial.print(char_buffer[i-1]);       
       SeeedOled.setBitmapRect(6,7,112-i*16,128-i*16);
-      SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32);      
+      SeeedOled.drawBitmap(fontDigital[char_buffer[i-1]],32,true);      
     }
   }
   //SeeedOled.sendCommand(SeeedOLED_Display_On_Cmd); 	//display off

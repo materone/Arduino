@@ -1,0 +1,79 @@
+#######################################
+# Syntax Coloring Map For Seeed OLED
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+addressingMode	KEYWORD1
+SeeedOled	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init	KEYWORD1
+setNormalDisplay	KEYWORD1
+setInverseDisplay	KEYWORD1
+setBitmapRect	KEYWORD1
+sendCommand	KEYWORD1
+setPageMode	KEYWORD1
+setHorizontalMode	KEYWORD1
+setTextXY	KEYWORD1
+clearDisplay	KEYWORD1
+setBrightness	KEYWORD1
+putChar	KEYWORD1
+putString	KEYWORD1
+putHZChar   KEYWORD1
+putNumber	KEYWORD1
+putFloat	KEYWORD1
+drawBitmap	KEYWORD1
+chipErase	KEYWORD1
+setHorizontalScrollProperties	KEYWORD1
+setVerticalScrollProperties KEYWORD1
+activateScroll	KEYWORD1
+deactivateScroll	KEYWORD1
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+Scroll_Left	LITERAL1
+Scroll_Right	LITERAL1
+
+Scroll_2Frames	LITERAL1
+Scroll_3Frames	LITERAL1
+Scroll_4Frames	LITERAL1
+Scroll_5Frames	LITERAL1
+Scroll_25Frames	LITERAL1
+Scroll_64Frames	LITERAL1
+Scroll_128Frames	LITERAL1
+Scroll_256Frames	LITERAL1
+SeeedOLED_Max_X         LITERAL1
+SeeedOLED_Max_Y         LITERAL1
+
+PAGE_MODE           LITERAL1
+HORIZONTAL_MODE         LITERAL1
+
+
+SeeedOLED_Address       LITERAL1
+SeeedOLED_Command_Mode      LITERAL1
+SeeedOLED_Data_Mode     LITERAL1
+SeeedOLED_Display_Off_Cmd   LITERAL1
+SeeedOLED_Display_On_Cmd    LITERAL1
+SeeedOLED_Normal_Display_Cmd    LITERAL1
+SeeedOLED_Inverse_Display_Cmd   LITERAL1
+SeeedOLED_Activate_Scroll_Cmd   LITERAL1
+SeeedOLED_Dectivate_Scroll_Cmd  LITERAL1
+SeeedOLED_Set_Brightness_Cmd    LITERAL1
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+SeeedOLED	KEYWORD2
+
+
+

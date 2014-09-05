@@ -204,7 +204,7 @@ void setup() {
       i2ceeprom.writeByte(addr++, pgm_read_byte(&fontDatas[i][j]));
       Serial.print(pgm_read_byte(&fontDatas[i][j]), HEX);
       Serial.print("\t");
-      delay(50);
+      delay(5);
     }
     Serial.println();
   }
@@ -215,7 +215,7 @@ void setup() {
       i2ceeprom.writeByte(addr++, pgm_read_byte(&fontDigital[i][j]));
       Serial.print(pgm_read_byte(&fontDigital[i][j]), HEX);
       Serial.print("\t");
-      delay(50);
+      delay(5);
     }
     Serial.println();
   }
