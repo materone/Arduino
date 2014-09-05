@@ -17,7 +17,7 @@
 // Sparkfun SD shield: pin 8
 const int chipSelect = 4;
 
-static unsigned char fontDatas[11][32] PROGMEM={
+static const unsigned char fontDatas[11][32] PROGMEM={
   //超
   {
     0x40,0x48,0x48,0xFF,0x48,0x48,0x82,0x42,
@@ -105,7 +105,7 @@ static unsigned char fontDatas[11][32] PROGMEM={
 };
 
 //0-9 :
-static unsigned char fontDigital[11][32] PROGMEM = {
+static const unsigned char fontDigital[11][32] PROGMEM = {
   //0
   {
     0x00,0x00,0x00,0x00,0xF0,0xF8,0x0C,0x04,

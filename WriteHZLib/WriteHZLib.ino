@@ -2,7 +2,17 @@
 #include <I2CEEPROM.h>
 #include <avr/pgmspace.h>
 
-static unsigned char fontDatas[11][32] PROGMEM = {
+static const unsigned char fontDatas1[1][32] = {
+  //超
+  {
+    0x40, 0x48, 0x48, 0xFF, 0x48, 0x48, 0x82, 0x42,
+    0x3E, 0x02, 0x22, 0x42, 0x3F, 0x02, 0x00, 0x00,
+    0x40, 0x3F, 0x10, 0x1F, 0x22, 0x42, 0x40, 0x5F,
+    0x51, 0x51, 0x51, 0x51, 0x5F, 0x60, 0x20, 0x00
+  }
+};
+
+static const unsigned char fontDatas[11][32] PROGMEM = {
   //超
   {
     0x40, 0x48, 0x48, 0xFF, 0x48, 0x48, 0x82, 0x42,
@@ -90,7 +100,7 @@ static unsigned char fontDatas[11][32] PROGMEM = {
 };
 
 //0-9 :
-static unsigned char fontDigital[11][32] PROGMEM = {
+static const unsigned char fontDigital[11][32] PROGMEM = {
   //0
   {
     0x00, 0x00, 0x00, 0x00, 0xF0, 0xF8, 0x0C, 0x04,
@@ -185,36 +195,48 @@ void setup() {
   Wire.begin();
   Serial.begin(9600);
   Serial.println("Write Data to eeprom!");
-  int addr = 704;
-  /*
+  int addr = 0;
+  
   //write fontdata
+  /*
   for (int i = 0; i < 11; i++) {
     for (int j = 0; j < 32; j++) {
-      i2ceeprom.writeByte(addr++, (unsigned char)pgm_read_byte(fontDatas[i][j]));
-      Serial.print(pgm_read_byte(fontDatas[i][j]), HEX);
+      i2ceeprom.writeByte(addr++, pgm_read_byte(&fontDatas[i][j]));
+      Serial.print(pgm_read_byte(&fontDatas[i][j]), HEX);
+      Serial.print("\t");
+      delay(50);
     }
+    Serial.println();
   }
-  Serial.println();
+  
   //write fontdigital
   for (int i = 0; i < 11; i++) {
     for (int j = 0; j < 32; j++) {
-      i2ceeprom.writeByte(addr++, (unsigned char)pgm_read_byte(fontDigital[i][j]));
-      Serial.print(pgm_read_byte(fontDatas[i][j]), HEX);
+      i2ceeprom.writeByte(addr++, pgm_read_byte(&fontDigital[i][j]));
+      Serial.print(pgm_read_byte(&fontDigital[i][j]), HEX);
+      Serial.print("\t");
+      delay(50);
     }
+    Serial.println();
   }
-  Serial.println();
   */
-
   //read byre
+  readtest(0,704);
+}
+
+void readtest(int start,int len){
+  if(len == 0)len = 704;
   Serial.println("Read Data from eeprom!");
-  Serial.println(addr, DEC);
-  int mid = addr/2;
-  for (int i = 0; i < addr; i++) {
-    if(i== mid){
-      Serial.println();
-      Serial.println(i,DEC);
-    }
+  //Serial.println(len, DEC);
+  //int mid = len/2;
+  for (int i = start; i < len + start; i++) {
+//    if(i== (start + mid)){
+//      Serial.println();
+//      Serial.println(i,DEC);
+//    }
     Serial.print(i2ceeprom.readByte(i), HEX);
+    Serial.print("\t");
+    if(i%8==0 && i>8) Serial.println();
   }
 }
 
