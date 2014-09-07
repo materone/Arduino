@@ -2,15 +2,22 @@
 #include <dht.h>
 #include <Wire.h>
 #include <SeeedOLED.h>
+#include <SoftwareSerial.h>
 
 //超声波距离探测仪温湿度0123456789:
 unsigned char fontBuff[32];
 dht DHT;
 #define DHT11_PIN 4 //put the sensor in the digital pin 4
 
+//RFID Data
+SoftwareSerial SoftSerial(0, 1);
+unsigned char buffer[64]; // buffer array for data recieve over serial port
+int count=0;     // counter for buffer array 
+
 void setup()
 {
   Wire.begin();	
+  SoftSerial.begin(9600);               // the SoftSerial baud rate 
   SeeedOled.init();  //initialze SEEED OLED display  
   DDRB|=0x21;        
   PORTB |= 0x21;
@@ -52,6 +59,23 @@ void loop()
   delay(2000);
   testHumidity();
   delay(2000);
+  //for RFID Read
+  Serial.print("Begin RFID Module:");
+  Serial.println(millis());
+  if (SoftSerial.available())              // if date is comming from softwareserial port ==> data is comming from SoftSerial shield
+  {    
+  Serial.println("Begin RFID Read Module");
+    while(SoftSerial.available())          // reading data into char array 
+    {
+      buffer[count++]=SoftSerial.read();     // writing data into array
+      if(count == 64)break;
+    }
+    Serial.write(buffer,count);            // if no data transmission ends, write buffer to hardware serial port
+    clearBufferArray();              // call clearBufferArray function to clear the storaged data from the array
+    count = 0;                       // set counter of while loop to zero
+  }
+ // if (Serial.available())            // if data is available on hardwareserial port ==> data is comming from PC or notebook
+ //   SoftSerial.write(Serial.read());       // write it to the SoftSerial shield
 }
 /**
 *  Get Font Data from eeprom 256Kb
@@ -168,5 +192,16 @@ void testHumidity(){
     }
   }
   //SeeedOled.sendCommand(SeeedOLED_Display_On_Cmd); 	//display off
+}
+
+/*
+* function to clear buffer array
+*/
+void clearBufferArray()              
+{
+  for (int i=0; i<count;i++)
+  { 
+    buffer[i]=NULL;
+  }                  // clear all index of array with command NULL
 }
 

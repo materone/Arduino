@@ -2,15 +2,31 @@
 #include <dht.h>
 #include <Wire.h>
 #include <SeeedOLED.h>
+#include <SoftwareSerial.h>
+
+#include "pitches.h"
+
+// notes in the melody:
+int melody[] = {
+  NOTE_C4, NOTE_G3,NOTE_G3, NOTE_A3, NOTE_G3,0, NOTE_B3, NOTE_C4};
+
+// note durations: 4 = quarter note, 8 = eighth note, etc.:
+int noteDurations[] = {4,8,8,4,4,4,4,4 };
 
 //超声波距离探测仪温湿度0123456789:
 unsigned char fontBuff[32];
 dht DHT;
 #define DHT11_PIN 4 //put the sensor in the digital pin 4
 
+//RFID Data
+SoftwareSerial SoftSerial(2, 3);
+unsigned char buffer[64]; // buffer array for data recieve over serial port
+int count=0;     // counter for buffer array 
+
 void setup()
 {
   Wire.begin();	
+  SoftSerial.begin(9600);               // the SoftSerial baud rate 
   SeeedOled.init();  //initialze SEEED OLED display  
   DDRB|=0x21;        
   PORTB |= 0x21;
@@ -52,7 +68,46 @@ void loop()
   delay(2000);
   testHumidity();
   delay(2000);
+  //for RFID Read
+  Serial.print("Begin RFID Module:");
+  Serial.println(millis());
+  if (SoftSerial.available())              // if date is comming from softwareserial port ==> data is comming from SoftSerial shield
+  {    
+  Serial.println("Begin RFID Read Module");
+    while(SoftSerial.available())          // reading data into char array 
+    {
+      buffer[count++]=SoftSerial.read();     // writing data into array
+      if(count == 64)break;
+    }
+    Serial.write(buffer,count);            // if no data transmission ends, write buffer to hardware serial port
+    clearBufferArray();              // call clearBufferArray function to clear the storaged data from the array
+    count = 0;                       // set counter of while loop to zero
+    beep();    
+  }
+ // if (Serial.available())            // if data is available on hardwareserial port ==> data is comming from PC or notebook
+ //   SoftSerial.write(Serial.read());       // write it to the SoftSerial shield
 }
+
+//bee
+void beep(){
+  Serial.println("Bee ...");
+  // iterate over the notes of the melody:
+  for (int thisNote = 0; thisNote < 8; thisNote++) {
+    // to calculate the note duration, take one second 
+    // divided by the note type.
+    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+    int noteDuration = 1000/noteDurations[thisNote];
+    tone(6, melody[thisNote],noteDuration);
+
+    // to distinguish the notes, set a minimum time between them.
+    // the note's duration + 30% seems to work well:
+    int pauseBetweenNotes = noteDuration * 1.30;
+    delay(pauseBetweenNotes);
+    // stop the tone playing:
+    noTone(6);
+  }
+}
+
 /**
 *  Get Font Data from eeprom 256Kb
 */
@@ -168,5 +223,16 @@ void testHumidity(){
     }
   }
   //SeeedOled.sendCommand(SeeedOLED_Display_On_Cmd); 	//display off
+}
+
+/*
+* function to clear buffer array
+*/
+void clearBufferArray()              
+{
+  for (int i=0; i<count;i++)
+  { 
+    buffer[i]=NULL;
+  }                  // clear all index of array with command NULL
 }
 
