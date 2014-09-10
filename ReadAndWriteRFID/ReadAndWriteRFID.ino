@@ -117,8 +117,7 @@ void loop()
         Serial.println(status, HEX);
         Serial.print(F("Some Read Error\n"));
       }
-
-      rfid.halt();
     }
+    rfid.halt();
   }
 }
