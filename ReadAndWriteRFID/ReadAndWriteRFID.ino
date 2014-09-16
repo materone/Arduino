@@ -8,7 +8,7 @@ RFID rfid(10, 5);   //D10--读卡器MOSI引脚、D5--读卡器RST引脚
 //4字节卡序列号，第5字节为校验字节
 unsigned char serNum[5];
 //写卡数据
-unsigned char writeDate[16] = {'G', 'e', 'e', 'k', '-', 'W', 'o', 'r', 'k', 'S', 'h', 'o', 'p', 0, 0, 0};
+unsigned char writeDate[16] = {'T', 'o', 'n', 'y', '-', 'W', 'o', 'r', 'k', 'S', 'h', 'o', 'p', ';', ']', 0};
 //原扇区A密码，16个扇区，每个扇区密码6Byte
 unsigned char sectorKeyA[16][16] = {
   {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
