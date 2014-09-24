@@ -1,20 +1,20 @@
+#include <AltSoftSerial.h>
 #include <SeeedOLED.h>
 #include <Wire.h>
-#include <SoftwareSerial.h>
 #include <HardwareSerial.h>
 
-#define SERIAL_BUFFER_SIZE 256
+#define SERIAL_BUFFER_SIZE 512
 
 char c;
 bool flag = true;
 String data;
-SoftwareSerial sPort(5, 6);
+AltSoftSerial sPort;
 unsigned int cnt = 0;
 unsigned int tCnt = 0;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  sPort.begin(9600);
+  sPort.begin(115200);
   delay(1000);
   sPort.println("Begin Test");
   //Serial.println("AT+RST");
