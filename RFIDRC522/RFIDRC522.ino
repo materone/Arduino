@@ -1,7 +1,10 @@
 #include <SPI.h>
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
 
 #define uchar unsigned char
 #define uint unsigned int
+LiquidCrystal_I2C lcd(0x27,16,2); 
 
 //data array maxium length
 #define MAX_LEN 16
@@ -11,7 +14,11 @@
 /////////////////////////////////////////////////////////////////////
 const int chipSelectPin = 10;
 const int NRSTPD = 5;
-
+//D5                  <------------->             RST    (这个脚不接貌似也可以)
+//D10                 <------------->             SDA   (在RC522中即为CS)
+//D11                 <------------->             MOSI
+//D12                 <------------->             MISO
+//D13                 <------------->             SCK
 
 
 //MF522 command bits
@@ -123,6 +130,7 @@ uchar serNum[5];
 void setup() 
 { 
     Serial.begin(57600); 
+    lcd.init(); 
     
     SPI.begin();
     
@@ -131,6 +139,8 @@ void setup()
     pinMode(NRSTPD,OUTPUT); // Set digital pin 5 , Not Reset and Power-down
     
     MFRC522_Init(); 
+   // lcd.init();
+   // lcd.backlight();
 }
 
 
@@ -162,6 +172,7 @@ void loop()
         Serial.print("The card's number is: ");
         memcpy(serNum, str, 5);
         ShowCardID(serNum);
+        //lcd.print((char *)str);
     
         // Check people associated with card ID
         uchar* id = serNum;
