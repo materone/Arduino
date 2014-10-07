@@ -13,7 +13,7 @@ void setup() {
   Serial.begin(9600);
   serWifi.begin(9600);
   getDHT();
-  tStart = micros();
+  tStart = millis();
   serWifi.println("AT+CWLAP");
   delay(10);
   joinAP();
@@ -24,9 +24,8 @@ void loop() {
   // put your main code here, to run repeatedly:
   // Serial.println("get info");
   getWifiInfo();
-  //
-  if ((micros() - tStart) >= 3600000) {
-    tStart = micros();
+  if ((millis() - tStart) >= 3600000) {
+    tStart = millis();
     getDHT();
     update();
   }
