@@ -16,14 +16,14 @@ void loop() {
   // Serial.println("get info");
   if (serWifi.available()) {
     data = "";
-    Serial.print("WiFi:") ;
+    //Serial.print("WiFi:") ;
     while (serWifi.available()) {
       c = char(serWifi.read());
       data += c;
       //Serial.write(c);
       delay(1);
     }
-    Serial.println(data);
+    Serial.print(data);
   }
 
   if (Serial.available()) {
