@@ -1,0 +1,230 @@
+/*
+ ESP8266 WiFi Module by UART.
+ 原始版本来自于: https://github.com/534659123/OCOROBOT-WIFI-ESP8266-arduino-library
+ 但该版本只用于Ocrobot的模块，其AT指令已被修改.
+ 
+ 本程序适用于ESP8266的官方指令集和Ocrobot的指令集。
+ 但在用于软件串口时，波特率只支持9600版本，并且需要独立供电（3.3V,300MA）。
+ 推荐“吉锐工作室”的模块：
+    http://shop100260103.taobao.com/?spm=a230r.7195193.1997079397.2.U1Lcmj
+ 
+ 技术交流QQ群：ESP8266模块芯片代理，120693138。
+ 
+ Author:OpenThings@163.com,2014.09.18.
+ */
+
+/*TODO List:
+ 处理函数的进一步精炼。
+ 命令超时的处理。
+ 看门狗执行硬件自动复位。
+ 处理函数的正确状态返回。
+ 一个AT指令合并为一行发送。
+ waitData采用重载方式来写。
+ 反向移植回Ocrobot的板子。可以用宏定义实现兼容。
+ WebServer,REST服务进行连接设置。
+ MQTT协议的支持。
+ 本软件版本的查询。
+ */
+
+#ifndef __ESP8266SERIAL_H__
+#define __ESP8266SERIAL_H__
+#include <Arduino.h>
+#include "SoftSerial.h"
+
+#define    OPEN          0
+#define    WEP           1
+#define    WAP_PSK       2
+#define    WAP2_PSK      3
+#define    WAP_WAP2_PSK  4
+
+#define    TCP     1
+#define    tcp     1
+#define    UDP     0
+#define    udp     0
+
+#define    OPEN    1
+#define    CLOSE   0
+
+#define    STA     1
+#define    AP      2
+#define    AT+STA  3
+
+#define SERIAL_TX_BUFFER_SIZE 128
+#define SERIAL_RX_BUFFER_SIZE 128
+
+/*===================================================
+ ESP8266,官方AT指令表：
+*/
+#ifdef ESP8266_AT
+#define AT 		"AT"		//OK：测试是否正常运行。
+#define AT_RST		"AT+RST"	//OK,ready：重新启动。
+#define AT_GMR		"AT+GMR"	//OK：查看固件版本。
+
+//返回值，状态码
+#define OK 		"OK"
+#define ERROR		"ERROR"
+#define LINKED		"Linked"
+#define UNLINK		"Unlink"
+
+//连接到无线接入点
+#define AT_CWMODE_GET	"AT+CWMODE?"	//OK：选择WiFi模式，1为网卡，2为AP，3为网卡＋AP。
+#define AT_CWMODE_SET	"AT+CWMODE="	//1/2/3=>OK
+#define	AT_CWJAP_GET	"AT+CWJAP?"	//OK：当前连接到的AP。
+#define AT_CWLAP	"AT+CWLAP"	//OK：列出可用的AP。
+#define AT_CWJAP_SET	"AT+CWJAP="	//"SSID","PWD"＝>OK：连接无线接入点。
+#define AT_CWQAP	"AT+CWQAP"	//OK：退出与AP的连接。
+
+//作为接入点，设置信息。
+#define AT_CWSAP_GET	"AT+CWSAP?"	//AP接入点参数查询。
+#define AT_CWSAP_SET	"AT+CWSAP="	//"SSID","PWD",6,4=>OK：作为AP的接入点参数。
+
+//建立TCP/IP网络连接。 
+#define AT_CIPSTART	"AT+CIPSTART="	//"UDP","IP",Port=>OK：建立TCP/UDP连接。
+#define AT_CIFSR	"AT+CIFSR"	//获取本模块的IP地址。
+#define AT_CIPSTATUS	"AT+CIPSTATUS"	//OK，获得当前连接状态。
+
+//发送数据。
+#define AT_CIPSEND	"AT+CIPSEND="	//count=>">"：设置发送区宽度。
+// +IPD 接收到的网络数据。
+//    1)单路连接时 (+CIPMUX=0) +IPD,<len>:<data>
+//    2)多路连接时 (+CIPMUX=1) +IPD,<id>,<len>:<data>
+
+//断开连接。					// ">"Msg => SEND OK：发送字符。
+#define AT_CIPCLOSE	"AT+CIPCLOSE"	//OK,Unlink：断开连接。
+
+//建立IPServer，接收外部客户端连接。
+#define AT_CIPMUX_GET	"AT+CIPMUX?"	//OK：查询多连接设置.
+#define AT_CIPMUX	"AT+CIPMUX="	//OK：启用多连接，后续连接时需指明连接ID.
+#define AT_CIPSERVER	"AT+CIPSERVER"	//0/1，Port>OK：设置为服务器。
+#define AT_CIPMODE	"AT+CIPMODE="	//0/1=>OK：设置模块传输模式，1为透传。
+#define AT_CIPSTO	"AT+CIPSTO="	//T(0~28800)=>OK：设置服务器超时时间。
+#endif
+//===================================
+
+/*==================================================== 
+ 透传模式：
+ AT+CIPSTART="UDP","IP",Port
+ AT+CIPMODE=1=>OK,
+ AT＋CIPSEND >
+ 发送单个数据包+++退出透传模式。
+=====================================================*/
+
+/*===================================================
+ ESP8266,Ocrobot版，AT指令表：
+*/
+#ifdef ESP8266_AT_OCROBOT
+#define AT 		"AT"		//OK：测试是否正常运行。
+#define AT_RST		"AT+Reset"	//OK,ready：重新启动。
+#define AT_GMR		"AT+GMR"	//OK：查看固件版本。
+
+//返回信息标识码
+#define T_OK		"done"
+#define T_ERROR		"RROR"
+#define T_LINKOK	"Link is builded"
+#define T_ONE		"one"
+#define T_LINKED	"Linked"
+#define T_NOLINK	"Link is not"
+#define T_CANTCLOSE	"Cant close"
+#define T_RESTART	"we must restart"
+#define T_UNLINK	"Unlink"
+#define T_SENDOK	"SEND OK"
+#define T_NOT		"not"
+#define T_CONNECTED	"ALEAY CONNECT"
+#define T_LINKTYPEERROR	"Linktyp ERROR"
+#define T_NOCHANGE	"nochange"
+#define T_READY		"OCROBOT WIFI ready!!!"
+
+//连接到无线接入点
+#define AT_CWMODE_GET	"AT+MODE?"	//OK：选择WiFi模式，1为网卡，2为AP，3为网卡＋AP。
+#define AT_CWMODE_SET	"AT+MODE="	//1/2/3=>OK
+#define	AT_CWJAP_GET	"AT+JoinAP?"	//OK：当前连接到的AP。
+#define AT_CWLAP	"AT+ShowAP"	//OK：列出可用的AP。
+#define AT_CWJAP_SET	"AT+JoinAP="	//"SSID","PWD"＝>OK：连接无线接入点。
+#define AT_CWQAP	"AT+ExtAP"	//OK：退出与AP的连接。
+
+//作为接入点，设置信息。
+#define AT_CWSAP	"AT+SAP?"	//查询当前AP的配置。
+#define AT_CWSAP	"AT+SAP="	//"SSID","PWD",6,4=>OK：作为AP的接入点参数。
+
+//建立TCP/IP网络连接。 
+#define AT_CIPSTART	"AT+NewSTA="	//"UDP","IP",Port=>OK：建立TCP/UDP连接。
+#define AT_CIFSR	"AT+ShowIP"	//获取本模块的IP地址。
+#define AT_CIPSTATUS	"AT+ShowSTA"	//OK，获得当前连接状态。
+
+//发送数据。
+#define AT_CIPSEND	"AT+Update="	//count=>">"：设置发送区宽度。
+// +IPD 接收到的网络数据。
+//    1)单路连接时 (+CIPMUX=0) +IPD,<len>:<data>
+//    2)多路连接时 (+CIPMUX=1) +IPD,<id>,<len>:<data>
+
+//断开连接。					// ">"Msg => SEND OK：发送字符。
+#define AT_CIPCLOSE	"AT+CLOSE"	//OK,Unlink：断开连接。
+#define AT_CIPCLOSE_MUX	"AT+CLOSE="	//OK,Unlink：断开连接。
+
+//建立IPServer，接收外部客户端连接。
+#define AT_CIPMUX_GET	"AT+MUX?"	//OK：查询多连接设置.
+#define AT_CIPMUX	"AT+MUX="	//OK：启用多连接，后续连接时需指明连接ID.
+#define AT_CIPSERVER	"AT+Server"	//0/1，Port>OK：设置为服务器。
+#define AT_CIPMODE	"AT+CIPMODE="	//0/1=>OK：设置模块传输模式，1为透传。
+#define AT_CIPSTO	"AT+CIPSTO="	//T(0~28800)=>OK：设置服务器超时时间。
+#endif
+//=======================================
+
+
+class esp8266
+{
+  public:
+    unsigned long timeFree,timeLast,timeInterval = 10000;
+    const int pin_RESET = 9;
+
+     esp8266(void);
+	//String begin(void);
+     //SoftSerial espSerial;
+    bool init(long bandrate,uint8_t rx=10,uint8_t tx=11);
+    void bridge();
+
+    //=====================
+    void runAT(String strAT);
+    void runAT_End(String strAT);
+    
+    String waitData(String Tag1, String Tag2,String Tag3,String Tag4);
+    String waitData();
+    String waitData(String strTag);
+    String waitData(String strTag1, String strTag2);
+    
+    String waitOK();
+    String waitInput();
+    String waitSendFinish();
+        
+    /*=================esp8266serial功能指令=================*/
+    String isOK();
+    String Version(void);
+    void Reset(void);    //重启模块
+    void HardReset(void);
+
+    String showMode(void);   //查询模块目前模式
+    void confMode(byte a);   //设置模块的模式
+    String showAP(void);   //返回esp8266serial列表
+    String showJAP(void);  //返回目前连接的esp8266serial接入点信息
+    void confJAP(String ssid , String pwd);    //配置登陆esp8266serial接入点
+    void quitAP(void);    //退出当前esp8266serial连接
+    String showSAP(void);     //显示ap模式下的模块的ssid 密码 通道号 以及加密方式
+    void confSAP(String ssid , String pwd , byte chl , byte ecn);       //配置ap模式下的网络参数 ssid 密码 通道号 以及加密方式
+
+    /*================TCP/IP指令================*/
+    String showStatus(void);    //查询链接状态
+    String showMux(void);       //查询目前的链接模式（单链接or多链接）
+    void confMux(boolean a);    //设置链接模式（单链接【0】or多链接【1】）
+    void newMux(byte type, String addr, int port);   //创建 tcp或者udp链接（单路模式)
+    void newMux(byte id, byte type, String addr, int port);   //创建 tcp或者udp链接（多路模式)（id:0-4） 0号可以连接客户端和服务器，其他只能连接服务器
+    void Send(String str);  //单路模式发送数据
+    void Send(byte id, String str);  //多路模式发送数据
+    void closeMux(void);   //关闭tcp或udp （单路模式）
+    void closeMux(byte id); //关闭tcp货udp （多路模式）
+    String showIP(void);    //显示本机目前获取的ip地址
+    void confServer(byte mode, int port);  //配置服务器
+
+};
+
+#endif
+

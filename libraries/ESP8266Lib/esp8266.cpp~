@@ -1,0 +1,498 @@
+//#include "SoftSerial.h"
+#include <Arduino.h>
+#include <SoftSerial.h>
+
+//#define    espSerial Serial
+
+#include "esp8266.h"
+
+SoftSerial espSerial; // RX, TX
+
+//String esp8266::begin(void)
+
+esp8266::esp8266(void)
+{
+	//等待串口连接。只有 Leonardo 需要。
+  	//while (!espSerial){
+     	//}
+}
+
+bool esp8266::init(long bandrate,uint8_t rx,uint8_t tx)
+{	
+    espSerial.init(rx,tx);
+    espSerial.begin(bandrate);
+    
+    pinMode(pin_RESET, OUTPUT);	
+    return true;
+}
+
+//建立硬串口（USB）与软件串口的透传通道。
+//模块调试和测试是非常有用哦！
+void esp8266::bridge() // run over and over
+{
+    if (espSerial.available())
+    {
+        Serial.write(espSerial.read());
+    }
+    if (Serial.available())
+    {
+        espSerial.write(Serial.read());
+    }
+}
+
+//发送AT指令。
+void esp8266::runAT(String strAT)
+{
+    espSerial.print(strAT);
+}
+
+void esp8266::runAT_End(String strAT)
+{
+    espSerial.println(strAT);
+}
+
+//===================================
+//处理返回值，通用函数。
+//等待返回结果，此时输入会“Busy”，然后挂起。
+String esp8266::waitData(String Tag1, String Tag2,String Tag3,String Tag4)
+{
+    String data;
+    while (1)
+    {
+	//if  (waitTimeout(2000) == true)  break;  //如果超时，则直接退出。		
+        if(espSerial.available()>0)
+        {
+            char a = espSerial.read();
+            data = data + a;
+	    timeLast = millis();	    
+        }
+	else
+	{
+	    timeFree = millis();
+	}
+/*
+	Serial.print("GET,");
+	Serial.print(Tag1);
+	Serial.print(",");
+	Serial.print(Tag2);
+	Serial.print(":");
+	Serial.println(data);
+	delay(200);
+*/
+	//超时处理。
+	Serial.print("T,");
+	Serial.print(String(timeFree));
+	Serial.print(",");
+	Serial.println(String(timeLast));
+	delay(500);
+	if ((timeFree>timeLast)&&(timeFree-timeLast)>timeInterval) break;
+		
+	//找到任何一个标识符即退出。
+        if ((Tag1!="")&&(data.indexOf(Tag1) != -1)) break;
+	if ((Tag2!="")&&(data.indexOf(Tag2) != -1)) break;
+	if ((Tag3!="")&&(data.indexOf(Tag3) != -1)) break;
+	if ((Tag4!="")&&(data.indexOf(Tag4) != -1)) break;	
+
+    }
+    return data;
+}
+
+//---------------------------------
+String esp8266::waitOK()
+{
+    return waitData("OK","error","O","K");
+}
+
+String esp8266::waitInput()
+{
+    return waitData(">","","","");
+}
+
+String esp8266::waitSendFinish()
+{
+    return waitData("Send OK","","","");
+}
+
+//如果没有等到OK，会一直挂起。
+//后续考虑：加入超时机制，超时自动退出，并重启模块。
+String esp8266::waitData()
+{
+    Serial.println("waitData...");
+    return waitData("Send OK","error","","");
+}
+
+//等待自定义Tag.
+String  esp8266::waitData(String strTag)
+{
+    return waitData("OK","error",strTag,"");
+}
+
+String  esp8266::waitData(String strTag1,String strTag2)
+{
+    return waitData("OK","error",strTag1,strTag2);
+}
+
+//==================================
+String esp8266::isOK()
+{
+    runAT_End("AT");
+    return waitOK();
+}
+
+/*===================================
+ * esp8266 Firmware Version
+ ===================================*/
+String esp8266::Version(void)
+{
+    runAT_End("AT+GMR");
+    return waitOK();
+}
+
+/*===================================
+ * 重启esp8266芯片
+ ===================================*/
+void esp8266::Reset(void)
+{
+    runAT_End("AT+RST");
+    waitOK();
+}
+
+//Using D_PIN_9 to RST,Signal LOW to reset.
+void esp8266::HardReset(void)
+{
+    digitalWrite(pin_RESET, LOW);
+    delay(1000);
+    digitalWrite(pin_RESET, HIGH);
+} 
+
+/*********************************************
+                   esp8266功能指令
+ *********************************************
+ 
+/*==============================
+ 查询目前esp8266模块的工作模式
+===============================*/
+String esp8266::showMode()
+{
+    //return "showMode.";
+    String data;
+    runAT_End("AT+CWMODE?");  //发送AT指令
+    data = waitOK();
+    
+    if(data.indexOf("1")!=-1)
+    {
+        return "Station";
+    }
+    else if(data.indexOf("2")!=-1)
+    {
+        return "AP";
+    }
+    else if(data.indexOf("3")!=-1)
+    {
+        return "AP+Station";
+    }
+}
+
+/*================================
+ 配置esp8266模块的工作模式(需要重启后方可生效)(done)
+ ================================*/
+void esp8266::confMode(byte aMode)
+{
+    String data;
+    runAT("AT+CWMODE=");  //发送AT指令
+    runAT_End(String(aMode));
+    data = waitData("no change");
+}
+
+/*===================================
+ * 返回（字符串）当前esp8266搜索到的接入点信息(只能在)
+ * 加密类型、SSID、信号强度
+ ===================================*/
+String esp8266::showAP(void)
+{
+    runAT_End("AT+CWLAP");  //发送AT指令
+
+    String data;
+    data = waitData("OK","error","","");
+    if (data.indexOf("error")!=-1)
+    {
+        return "ERROR";
+    }
+    else
+    {/*
+        char head[4] = {0x0D,0x0A};                 //头部多余字符串
+        char tail[7] = {0x0D,0x0A,0x0D,0x0A};       //尾部多余字符串
+        data.replace("AT+ShowAP","");
+        data.replace("done","");
+        data.replace("+ShowAP","esp8266");
+        data.replace(head,"");
+        data.replace(tail,"");
+       */ return data;
+    }
+ }
+
+/*===================================
+ * 查询返回目前连接的esp8266接入点信息  （done）
+===================================*/
+String esp8266::showJAP(void)
+{
+    runAT_End("AT+CWJAP?");  //发送AT指令
+    
+    String data;
+    data = waitOK();
+    char head[4] = {0x0D,0x0A};   //头部多余字符串
+    char tail[7] = {0x0D,0x0A,0x0D,0x0A};        //尾部多余字符串
+    data.replace("AT+JoinAP?","");
+    data.replace("+JoinAP","AP");
+    data.replace("done","");
+    data.replace(head,"");
+    data.replace(tail,"");
+    return data;
+}
+
+/*=======================================
+ * 配置登陆网络需要的ssid名称以及密码(未验证，未测试)
+ =======================================*/
+void esp8266::confJAP(String ssid , String pwd)
+{
+    runAT("AT+CWJAP=");
+    runAT("\"");     //"ssid"
+    runAT(ssid);
+    runAT("\"");
+    runAT(",");
+    runAT("\"");      //"pwd"
+    runAT(pwd);
+    runAT_End("\"");
+    waitOK();
+}
+
+/*=============================================
+ * 退出目前登录的esp8266节点
+ ============================================*/
+void esp8266::quitAP(void)
+{
+    runAT_End("AT+CWQAP");
+    waitOK();
+}
+
+/*===============================================
+ * AP模式下的网络配置
+==============================================*/
+String esp8266::showSAP()
+{
+    runAT_End("AT+CWSAP?");  //发送AT指令
+    
+    String data;
+    data = waitOK();
+    char head[4] = {0x0D,0x0A};   //头部多余字符串
+    char tail[7] = {0x0D,0x0A,0x0D,0x0A};        //尾部多余字符串
+    data.replace("AT+SAP?","");
+    data.replace("+SAP","mySAP");
+    data.replace("done","");
+    data.replace(head,"");
+    data.replace(tail,"");
+    return data;
+}
+
+/*==============================================
+ * 设置AP模式下的SSID 密码 信道 加密方式等信息  
+ * 只能用于ap模式或者ap+Station模式下，重启芯片后生效.
+================================================*/
+void esp8266::confSAP(String ssid , String pwd , byte chl , byte ecn)
+{
+    runAT("AT+CWSAP=");  //发送AT指令
+    runAT("\"");     //"ssid"
+    runAT(ssid);
+    runAT("\"");
+    runAT(",");
+    runAT("\"");      //"pwd"
+    runAT(pwd);
+    runAT("\"");
+    runAT(",");
+    runAT(String(chl));
+    runAT(",");
+    runAT_End(String(ecn));
+    waitOK();
+}
+
+
+/*********************************************
+                   TPC/IP功能指令
+ *********************************************/
+
+/*==============================================
+ * 获取目前的链接状态
+ * <ID>  0-4
+ * <type>  tcp or udp
+ * <addr>  ip
+ * <port>  port number
+===============================================*/
+String esp8266::showStatus(void)
+{
+    runAT_End("AT+CIPSTATUS");  //发送AT指令
+
+    String data;
+    data = waitOK();
+    char head[4] = {0x0D,0x0A};   //头部多余字符串
+    char tail[7] = {0x0D,0x0A,0x0D,0x0A};        //尾部多余字符串
+    data.replace("AT+ShowSTA","");
+    data.replace("done","");
+    data.replace(head,"");
+    data.replace(tail,"");
+    return data;
+}
+
+/*============================================
+ * 查询目前的链接模式（单链接or多链接）
+ ============================================*/
+String esp8266::showMux(void)
+{
+    String data;
+    runAT_End("AT+CIPMUX?");  //发送AT指令
+    data = waitOK();
+    
+    char head[3]={0x0D,0x0A};   //将回显数据处理成需要的格式
+    data.replace("AT+MUX?","");
+    data.replace("+MUX","showMux");
+    data.replace("done","");
+    data.replace(head,"");
+    return data;
+}
+
+/*============================================
+ * 设置链接模式（单链接or多链接）
+==============================================*/
+void esp8266::confMux(boolean aLink)
+{
+    runAT("AT+CIPMUX=");
+    runAT_End(String(aLink));           //发送AT指令
+    waitData("Link is builded");
+}
+
+/*============================================
+ * 建立tcp链接或者注册UDP端口号（单路模式）
+ ===========================================*/
+void esp8266::newMux(byte type, String addr, int port)
+{
+    runAT("AT+CIPSTART=");
+    if (type>0)
+    {
+        runAT("\"TCP\"");
+    }
+    else
+    {
+        runAT("\"UDP\"");
+    }
+    runAT(",");
+    runAT("\"");
+    runAT(addr);
+    runAT("\"");
+    runAT(",");
+    //espSerial.print("\"");
+    runAT_End(String(port));
+    //espSerial.println("\"");
+
+    waitData("ALREAY CONNECT");
+}
+
+/*============================================
+ * 建立tcp链接或者注册UDP端口号（多路模式）（0-4共计5路）
+ =============================================*/
+void esp8266::newMux( byte id, byte type, String addr, int port)
+{
+    runAT("AT+CIPSTART=");
+    runAT( "\"" );
+    runAT( String(id) );
+    runAT( "\"" );
+    if(type>0)
+    {
+        runAT("\"tcp\"");
+    }
+    else
+    {
+        runAT("\"UDP\"");
+    }
+    runAT(",");
+    runAT("\"");
+    runAT(addr);
+    runAT("\"");
+    runAT(",");
+    //espSerial.print("\"");
+    runAT(String(port));
+    //espSerial.println("\"");
+    waitData("ALREAY CONNECT");
+}
+
+/*==============================================
+ * 发送数据(单路模式)
+ ===============================================*/
+void esp8266::Send(String str)
+{
+    runAT("AT+CIPSEND=");
+    //espSerial.print("\"");
+    runAT(String(str.length()));
+    //espSerial.println("\"");
+
+    waitInput();            //等待发送状态就绪。
+    runAT_End(str);         //发送字符串。
+    waitSendFinish();       //等待发送结束。
+}
+
+/*==============================================
+ * 发送数据(多路路模式)
+ ==============================================*/
+void esp8266::Send(byte id, String str)
+{
+    runAT("AT+CIPSEND=");
+    runAT(String(id));
+    runAT(",");
+    runAT_End(String(str.length()));
+
+    waitInput();            //等待发送状态就绪。
+    runAT_End( str ); //发送字符串。
+    waitSendFinish();       //等待发送结束。
+}
+
+/*============================================
+ * 关闭TCP或UDP链接（单路模式）
+ =============================================*/
+void esp8266::closeMux(void)
+{
+    runAT_End("AT+CLOSE");
+    waitData("we must restart");
+}
+
+/*============================================
+ * 关闭TCP或UDP链接（多路模式）
+==============================================*/
+void esp8266::closeMux(byte id)
+{
+    runAT("AT+CLOSE=");
+    runAT_End(String(id));
+    waitData("Link is not","Cant close");
+}
+
+/*===========================================
+ * 获取目前的本机IP地址
+=============================================*/
+String esp8266::showIP(void)
+{
+    runAT_End("AT+CIFSR");  //发送AT指令
+    String data;
+    data = waitOK();
+    return data;
+}
+
+/*===========================================
+ * 配置为服务器
+=============================================*/
+void esp8266::confServer(byte mode, int port)
+{
+    runAT("AT+Server=");  //发送AT指令
+    runAT(String(mode));
+    runAT(",");
+    runAT_End(String(port));
+    waitData("Link is builded");
+}
+
+

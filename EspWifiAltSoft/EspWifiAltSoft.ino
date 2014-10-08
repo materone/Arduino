@@ -8,13 +8,13 @@
 char c;
 bool flag = true;
 String data;
-AltSoftSerial altPort;
+AltSoftSerial altPort(10,11);
 unsigned int cnt = 0;
 unsigned int tCnt = 0;
 void setup() {
   // put your setup code here, to run once:
-  altPort.begin(115200);
-  Serial.begin(115200);
+  altPort.begin(19200);
+  Serial.begin(19200);
   delay(1000);
   Serial.println("Begin Test");
   //altPort.println("AT+RST");

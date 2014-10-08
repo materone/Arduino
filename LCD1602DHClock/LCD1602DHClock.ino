@@ -108,8 +108,8 @@ void ReadDS3231()
   lcd.print(date,DEC);
   lcd.print(weeks[week]);
   lcd.print(" ");
-  lcd.print(hour,DEC);
   if(hour < 10)lcd.print("0");
+  lcd.print(hour,DEC);
   lcd.print(":");
   lcd.print(minute,DEC);
   if(minute < 10)lcd.print("0");
