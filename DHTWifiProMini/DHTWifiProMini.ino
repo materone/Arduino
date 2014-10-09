@@ -18,8 +18,8 @@ void setup() {
   digitalWrite(ledPin, LOW);
   getDHT();
   tStart = millis();
-  serWifi.println("AT+CWLAP");
-  delay(10);
+  //serWifi.println("AT+CWLAP");
+  delay(50);
   joinAP();
   update();
 }
