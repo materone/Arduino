@@ -8,10 +8,14 @@ DHT dht;
 double h;
 double t;
 unsigned long tStart;
+int ledPin = 13;
+boolean ledStatus = false;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   serWifi.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
   getDHT();
   tStart = millis();
   serWifi.println("AT+CWLAP");
@@ -33,6 +37,7 @@ void loop() {
 
 void getWifiInfo() {
   if (serWifi.available()) {
+    digitalWrite(ledPin, HIGH);
     data = "";
     //Serial.print("WiFi:") ;
     while (serWifi.available()) {
@@ -42,9 +47,11 @@ void getWifiInfo() {
       delay(1);
     }
     Serial.print(data);
+    digitalWrite(ledPin, LOW);
   }
 
   if (Serial.available()) {
+    digitalWrite(ledPin, HIGH);
     data = "";
     Serial.print("PC:") ;
     while (Serial.available()) {
@@ -58,6 +65,7 @@ void getWifiInfo() {
     serWifi.print(data);
     //serWifi.println(data);
     delay(100);
+    digitalWrite(ledPin, LOW);
   }
 }
 
@@ -79,42 +87,52 @@ void getDHT() {
   t = dht.temperature;
 }
 void update() {
-  String s;
   Serial.print("In AT Cmd:");
   Serial.print(h, 1);
   Serial.print(",\t");
   Serial.println(t, 1);
   getWifiInfo();
   serWifi.println("AT+CIPMUX=1");
-  delay(2000);
+  delay(200);
   getWifiInfo();
+//  Serial.println("Begin");
   serWifi.println("AT+CIPSTART=1,\"TCP\",\"materonep001.sinaapp.com\",80");
   delay(2000);
   getWifiInfo();
-  s = "GET /homestatus.php?h=";
+  String s = "GET /homestatus.php?h=";
   s = s + h;
   s = s + "&t=";
   s = s + t;
   s = s + " HTTP/1.1\r\n";
   s = s + "host:materonep001.sinaapp.com\r\n\r\n";
+//  Serial.println(s);
+//  Serial.println("End send info");
   String cmd = "AT+CIPSEND=1,";
   cmd += s.length();
   //  Serial.println(cmd);
   //  Serial.println(s);
-  serWifi.println(cmd);
-  delay(200);
-  getWifiInfo();
-  serWifi.print(s);
-  delay(200);
-  getWifiInfo();
-  delay(2000);
+  if (s.length() > 0) {
+    serWifi.println(cmd);
+    delay(200);
+    getWifiInfo();
+    serWifi.print(s);
+    delay(300);
+    getWifiInfo();
+    delay(2000);
+  }
   serWifi.println("AT+CIPCLOSE=1");
   getWifiInfo();
 }
+
 void joinAP() {
   serWifi.println("AT+CWJAP=\"CoolDog\", \"86053436\"");
   delay(8000);
   //rets = wifi.waitData(T_OK, T_READY);
   //Serial.println(rets);
   getWifiInfo();
+}
+
+void blinkLed() {
+  ledStatus ? digitalWrite(ledPin, HIGH) : digitalWrite(ledPin, LOW);
+  ledStatus != ledStatus;
 }
