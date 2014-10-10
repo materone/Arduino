@@ -14,6 +14,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   serWifi.begin(9600);
+    serWifi.setTimeout(2000);
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
   getDHT();
@@ -37,17 +38,22 @@ void loop() {
 
 void getWifiInfo() {
   if (serWifi.available()) {
-    digitalWrite(ledPin, HIGH);
+//    digitalWrite(ledPin, HIGH);
+    char ss[255] = {};
     data = "";
     //Serial.print("WiFi:") ;
-    while (serWifi.available()) {
-      c = char(serWifi.read());
-      data += c;
-      //Serial.write(c);
-      delay(1);
+    //    while (serWifi.available()) {
+    //      c = char(serWifi.read());
+    //      data += c;
+    //      //Serial.write(c);
+    //      delay(1);
+    //    }
+    while (
+      serWifi.readBytes(ss, 255) != 0) {
+      //    Serial.print(data);
+      Serial.println(ss);
     }
-    Serial.print(data);
-    digitalWrite(ledPin, LOW);
+//    digitalWrite(ledPin, LOW);
   }
 
   if (Serial.available()) {
@@ -95,7 +101,7 @@ void update() {
   serWifi.println("AT+CIPMUX=1");
   delay(200);
   getWifiInfo();
-//  Serial.println("Begin");
+  //  Serial.println("Begin");
   serWifi.println("AT+CIPSTART=1,\"TCP\",\"materonep001.sinaapp.com\",80");
   delay(2000);
   getWifiInfo();
@@ -105,8 +111,8 @@ void update() {
   s = s + t;
   s = s + " HTTP/1.1\r\n";
   s = s + "host:materonep001.sinaapp.com\r\n\r\n";
-//  Serial.println(s);
-//  Serial.println("End send info");
+  //  Serial.println(s);
+  //  Serial.println("End send info");
   String cmd = "AT+CIPSEND=1,";
   cmd += s.length();
   //  Serial.println(cmd);
@@ -116,7 +122,7 @@ void update() {
     delay(200);
     getWifiInfo();
     serWifi.print(s);
-    delay(300);
+    //delay(300);
     getWifiInfo();
     delay(2000);
   }
