@@ -1,9 +1,12 @@
 #include <AltSoftSerial.h>
 #include <DHT.h>
+
+#define DHT11_PIN 3 //put the sensor in the digital pin 3
+#define  ledPin  13
+
 AltSoftSerial serWifi;
 String data;
 char c;
-#define DHT11_PIN 3 //put the sensor in the digital pin 3
 DHT dht;
 double h;
 double t;
@@ -12,6 +15,8 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   serWifi.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
   getDHT();
   tStart = millis();
   serWifi.println("AT+CWLAP");
@@ -33,6 +38,7 @@ void loop() {
 
 void getWifiInfo() {
   if (serWifi.available()) {
+    digitalWrite(ledPin, HIGH);
     data = "";
     //Serial.print("WiFi:") ;
     while (serWifi.available()) {
@@ -42,9 +48,11 @@ void getWifiInfo() {
       delay(1);
     }
     Serial.print(data);
+    digitalWrite(ledPin, LOW);
   }
 
   if (Serial.available()) {
+    digitalWrite(ledPin, HIGH);
     data = "";
     Serial.print("PC:") ;
     while (Serial.available()) {
@@ -56,6 +64,7 @@ void getWifiInfo() {
     //Serial3.write(data);
     Serial.print(data);
     serWifi.print(data);
+    digitalWrite(ledPin, LOW);
     //serWifi.println(data);
     delay(100);
   }
