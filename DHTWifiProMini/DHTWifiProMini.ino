@@ -16,7 +16,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   serWifi.begin(9600);
-    serWifi.setTimeout(2000);
+  serWifi.setTimeout(2000);
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
   getDHT();
@@ -41,22 +41,20 @@ void loop() {
 void getWifiInfo() {
   if (serWifi.available()) {
     digitalWrite(ledPin, HIGH);
-
-//    digitalWrite(ledPin, HIGH);
-    char ss[255] = {};
+    //char ss[255] = {};
     data = "";
-    //Serial.print("WiFi:") ;
-    //    while (serWifi.available()) {
-    //      c = char(serWifi.read());
-    //      data += c;
-    //      //Serial.write(c);
-    //      delay(1);
-    //    }
-    while (
-      serWifi.readBytes(ss, 255) != 0) {
-      //    Serial.print(data);
-      Serial.println(ss);
+    Serial.print("WiFi:") ;
+    while (serWifi.available()) {
+      c = char(serWifi.read());
+      data += c;
+      //Serial.write(c);
+      delay(1);
     }
+    //while (
+    //serWifi.readBytes(ss, 255) != 0) {
+    //    Serial.print(data);
+    //Serial.println(ss);
+    //}
     Serial.print(data);
     digitalWrite(ledPin, LOW);
   }
