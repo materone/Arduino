@@ -10,27 +10,29 @@ char c;
 DHT dht;
 double h;
 double t;
-unsigned long tStart;
+unsigned long tStart, timeInterval = 10000, timeFree = 0, timeLast = 0;
 boolean ledStatus = false;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   serWifi.begin(9600);
-  serWifi.setTimeout(2000);
+  //serWifi.setTimeout(2000);
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
   getDHT();
   tStart = millis();
-  //serWifi.println("AT+CWLAP");
+  delay(1000);
+  serWifi.println("AT+CWLAP");
+  Serial.println(waitData("OK", "ERROR", "", ""));
   delay(50);
-  joinAP();
-  update();
+  //joinAP();
+  //update();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   // Serial.println("get info");
-  getWifiInfo();
+  //getWifiInfo();
   if ((millis() - tStart) >= 3600000) {
     tStart = millis();
     getDHT();
@@ -43,7 +45,7 @@ void getWifiInfo() {
     digitalWrite(ledPin, HIGH);
     //char ss[255] = {};
     data = "";
-    Serial.print("WiFi:") ;
+    //Serial.print("WiFi:") ;
     while (serWifi.available()) {
       c = char(serWifi.read());
       data += c;
@@ -146,3 +148,32 @@ void blinkLed() {
   ledStatus ? digitalWrite(ledPin, HIGH) : digitalWrite(ledPin, LOW);
   ledStatus != ledStatus;
 }
+
+String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
+{
+  String ret="";
+  timeLast = millis();
+  while (1)
+  {
+    if (serWifi.available()) {
+      data = "";
+      while (serWifi.available()) {
+        c = char(serWifi.read());
+        data += c;
+        delay(1);
+      }
+      Serial.print(data);
+      ret+=data;
+    }
+    timeFree = millis();
+    if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
+
+    //找到任何一个标识符即退出。
+    if ((Tag1 != "") && (data.indexOf(Tag1) != -1)) break;
+    if ((Tag2 != "") && (data.indexOf(Tag2) != -1)) break;
+    if ((Tag3 != "") && (data.indexOf(Tag3) != -1)) break;
+    if ((Tag4 != "") && (data.indexOf(Tag4) != -1)) break;
+  }
+  return ret;
+}
+
