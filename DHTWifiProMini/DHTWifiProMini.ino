@@ -173,7 +173,7 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
     if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
 
     //找到任何一个标识符即退出。
-    if ((Tag1 != "") && (data.indexOf(Tag1) != -1)) break;
+    if ((Tag1 != "") && (data.indexOf(Tag1) == 0)) break;
     if ((Tag2 != "") && (data.indexOf(Tag2) != -1)) break;
     if ((Tag3 != "") && (data.indexOf(Tag3) != -1)) break;
     if ((Tag4 != "") && (data.indexOf(Tag4) != -1)) break;
