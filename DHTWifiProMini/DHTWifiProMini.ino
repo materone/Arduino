@@ -131,7 +131,8 @@ void update() {
     getWifiInfo();
     serWifi.print(s);
     //delay(300);
-    getWifiInfo();
+    //getWifiInfo();
+    Serial.println(waitData("OK", "", "", ""));
     delay(2000);
   }
   serWifi.println("AT+CIPCLOSE=1");
