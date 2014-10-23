@@ -193,6 +193,7 @@ void connectToAP() {
       Serial.println(ret);
       break;
     }
+    delay((i+1)*1000);
   }
 }
 
