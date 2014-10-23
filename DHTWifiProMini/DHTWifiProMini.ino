@@ -27,12 +27,13 @@ void setup() {
   delay(50);
   //joinAP();
   //update();
+  connectToAP();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   // Serial.println("get info");
-  //getWifiInfo();
+  getWifiInfo();
   if ((millis() - tStart) >= 3600000) {
     tStart = millis();
     getDHT();
@@ -136,12 +137,13 @@ void update() {
   getWifiInfo();
 }
 
-void joinAP() {
-  serWifi.println("AT+CWJAP=\"CoolDog\", \"86053436\"");
-  delay(8000);
+String joinAP() {
+  Serial.println("In JoinAP");
+  serWifi.println("AT+CWJAP=\"CoolDog\",\"86053436\"");
+  //delay(8000);
   //rets = wifi.waitData(T_OK, T_READY);
   //Serial.println(rets);
-  getWifiInfo();
+  return waitData("OK", "ERROR", "", "");
 }
 
 void blinkLed() {
@@ -151,7 +153,7 @@ void blinkLed() {
 
 String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
 {
-  String ret="";
+  String ret = "";
   timeLast = millis();
   while (1)
   {
@@ -163,7 +165,7 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
         delay(1);
       }
       Serial.print(data);
-      ret+=data;
+      ret += data;
     }
     timeFree = millis();
     if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
@@ -175,5 +177,22 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
     if ((Tag4 != "") && (data.indexOf(Tag4) != -1)) break;
   }
   return ret;
+}
+
+void connectToAP() {
+  String ret = "";
+  for (int i = 0; i < 3 ; i++) {
+    serWifi.println("AT+CIFSR");
+    ret = waitData("OK", "", "", "");
+    if (ret.indexOf("0.0.0.0") != -1) {
+      Serial.println("Connetct to AP begin");
+      ret = joinAP();
+      Serial.print("Connetct to AP ret:");
+      Serial.println(ret);
+    } else {
+      Serial.println(ret);
+      break;
+    }
+  }
 }
 
