@@ -25,9 +25,9 @@ void setup() {
   serWifi.println("AT+CWLAP");
   Serial.println(waitData("OK", "ERROR", "", ""));
   delay(50);
-  //joinAP();
-  //update();
   connectToAP();
+  //joinAP();
+  update();
 }
 
 void loop() {
@@ -37,6 +37,7 @@ void loop() {
   if ((millis() - tStart) >= 3600000) {
     tStart = millis();
     getDHT();
+    connectToAP();
     update();
   }
 }
@@ -182,6 +183,7 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
 void connectToAP() {
   String ret = "";
   for (int i = 0; i < 3 ; i++) {
+    Serial.println("In Connect to ap");
     serWifi.println("AT+CIFSR");
     ret = waitData("OK", "", "", "");
     if (ret.indexOf("0.0.0.0") != -1) {
@@ -193,7 +195,7 @@ void connectToAP() {
       Serial.println(ret);
       break;
     }
-    delay((i+1)*1000);
+    delay(1000);
   }
 }
 
