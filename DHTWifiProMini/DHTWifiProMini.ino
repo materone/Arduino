@@ -127,11 +127,13 @@ void update() {
   //  Serial.println(s);
   if (s.length() > 0) {
     serWifi.println(cmd);
-    delay(200);
-    getWifiInfo();
+//    delay(200);
+//    getWifiInfo();
+    Serial.println(waitData(">", "", "", ""));
     serWifi.print(s);
     //delay(300);
     //getWifiInfo();
+    Serial.println(waitData("SEND OK", "", "", ""));    
     Serial.println(waitData("OK", "", "", ""));
     delay(2000);
   }
