@@ -10,7 +10,7 @@ char c;
 DHT dht;
 double h;
 double t;
-unsigned long tStart, timeInterval = 10000, timeFree = 0, timeLast = 0;
+unsigned long tStart, timeInterval = 10000UL, timeFree = 0UL, timeLast = 0UL;
 boolean ledStatus = false;
 void setup() {
   // put your setup code here, to run once:
@@ -34,7 +34,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   // Serial.println("get info");
   getWifiInfo();
-  if ((millis() - tStart) >= 3600000) {
+  if ((millis() - tStart) >= 3600000UL) {
     tStart = millis();
     getDHT();
     connectToAP();
