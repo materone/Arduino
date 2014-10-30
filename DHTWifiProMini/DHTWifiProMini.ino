@@ -22,7 +22,7 @@ void setup() {
   getDHT();
   tStart = millis();
   delay(1000);
-  serWifi.println("AT+CWLAP");
+  serWifi.println("AT+GMR");
   Serial.println(waitData("OK", "ERROR", "", ""));
   delay(50);
   connectToAP();
