@@ -21,7 +21,7 @@ void setup() {
   digitalWrite(ledPin, LOW);
   getDHT();
   tStart = millis();
-  delay(1000);
+  //delay(1000);
   serWifi.println("AT+GMR");
   Serial.println(waitData("OK", "ERROR", "", ""));
   delay(50);
@@ -108,11 +108,13 @@ void update() {
   getWifiInfo();
   serWifi.println("AT+CIPMUX=1");
   delay(200);
-  getWifiInfo();
+  timelog("Wait CIPMUX OK");
+  Serial.println(waitData("OK", "", "", ""));
   //  Serial.println("Begin");
   serWifi.println("AT+CIPSTART=1,\"TCP\",\"materonep001.sinaapp.com\",80");
-  delay(2000);
-  getWifiInfo();
+
+  timelog("Wait CIPStart OK");
+  Serial.println(waitData("OK", "", "", ""));
   String s = "GET /homestatus.php?h=";
   s = s + h;
   s = s + "&t=";
@@ -127,16 +129,21 @@ void update() {
   //  Serial.println(s);
   if (s.length() > 0) {
     serWifi.println(cmd);
-//    delay(200);
-//    getWifiInfo();
+    //    delay(200);
+    //    getWifiInfo();
+    timelog("Wait >");
     Serial.println(waitData(">", "", "", ""));
+    timelog("Wait > END");
     serWifi.print(s);
+    timelog("Wait Return from SVR");
     //delay(300);
     //getWifiInfo();
-    Serial.println(waitData("SEND OK", "", "", ""));    
-    Serial.println(waitData("OK", "", "", ""));
+    Serial.println(waitData("\r\nSEND OK", "", "", ""));
+    timelog("Wait SVR OK");
+    //Serial.println(waitData("\r\n0", "", "", ""));
     delay(2000);
   }
+  timelog("Begin Close conn");
   serWifi.println("AT+CIPCLOSE=1");
   getWifiInfo();
 }
@@ -158,21 +165,39 @@ void blinkLed() {
 String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
 {
   String ret = "";
+  boolean rcvData = false;
   timeLast = millis();
   while (1)
   {
     if (serWifi.available()) {
       data = "";
+      rcvData = true;
       while (serWifi.available()) {
         c = char(serWifi.read());
         data += c;
         delay(1);
       }
-      Serial.print(data);
-      ret += data;
+      Serial.print("=== ");
+      Serial.print(data.length());
+      Serial.print(" ===");
+      Serial.println(data);
+      if(data.length()>250){
+        ret += data.substring(0,249);
+      }else{
+        ret += data;
+      }
     }
-    timeFree = millis();
+    
     if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
+    timeFree = millis();
+    
+    if(!rcvData){
+      continue;
+    }else{
+      rcvData = false;
+    }
+    Serial.print("+++");
+    Serial.println(ret);
 
     //找到任何一个标识符即退出。
     if ((Tag1 != "") && (ret.indexOf(Tag1) != -1)) break;
@@ -200,5 +225,15 @@ void connectToAP() {
     }
     delay(1000);
   }
+}
+void timelog() {
+  timelog("");
+}
+void timelog(String s) {
+  unsigned long t = millis();
+  Serial.print(s);
+  Serial.print(" :[ ");
+  Serial.print(t - tStart);
+  Serial.println(" ]ms");
 }
 
