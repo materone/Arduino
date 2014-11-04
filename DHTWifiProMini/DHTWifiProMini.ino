@@ -138,7 +138,7 @@ void update() {
     timelog("Wait Return from SVR");
     //delay(300);
     //getWifiInfo();
-    Serial.println(waitData("\r\nSEND OK", "", "", ""));
+    Serial.println(waitData("SEND OK", "", "", ""));
     timelog("Wait SVR OK");
     //Serial.println(waitData("\r\n0", "", "", ""));
     delay(2000);
@@ -167,6 +167,7 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
   String ret = "";
   boolean rcvData = false;
   timeLast = millis();
+  int cnt = 0;
   while (1)
   {
     if (serWifi.available()) {
@@ -174,15 +175,22 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
       rcvData = true;
       while (serWifi.available()) {
         c = char(serWifi.read());
+        if(cnt++>100){
+          delay(1);
+          continue;
+        }
         data += c;
         delay(1);
       }
+      cnt = 0;
       Serial.print("=== ");
       Serial.print(data.length());
       Serial.print(" ===");
       Serial.println(data);
-      if(data.length()>250){
-        ret += data.substring(0,249);
+      if(data.length()>100){
+        Serial.print("====Trunked====");
+        ret += data.substring(0,99);
+        Serial.println(ret.length());
       }else{
         ret += data;
       }
