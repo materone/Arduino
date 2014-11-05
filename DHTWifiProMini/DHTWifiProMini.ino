@@ -140,8 +140,9 @@ void update() {
     //getWifiInfo();
     Serial.println(waitData("SEND OK", "", "", ""));
     timelog("Wait SVR OK");
-    //Serial.println(waitData("\r\n0", "", "", ""));
-    delay(2000);
+    //Serial.println(waitData("OK", "", "", ""));
+    //timelog("Wait SVR RET OK");
+    delay(1000);
   }
   timelog("Begin Close conn");
   serWifi.println("AT+CIPCLOSE=1");
@@ -196,8 +197,8 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
       }
     }
     
-    if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
     timeFree = millis();
+    if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
     
     if(!rcvData){
       continue;
