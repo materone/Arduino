@@ -1,4 +1,4 @@
-#include <AltSoftSerial.h>
+﻿#include <AltSoftSerial.h>
 #include <DHT.h>
 
 #define DHT11_PIN 3 //put the sensor in the digital pin 3
@@ -105,7 +105,7 @@ void update() {
   Serial.print(h, 1);
   Serial.print(",\t");
   Serial.println(t, 1);
-  getWifiInfo();
+  //getWifiInfo();
   serWifi.println("AT+CIPMUX=1");
   delay(200);
   timelog("Wait CIPMUX OK");
@@ -140,9 +140,9 @@ void update() {
     //getWifiInfo();
     Serial.println(waitData("SEND OK", "", "", ""));
     timelog("Wait SVR OK");
-    Serial.println(waitData("OK", "", "", ""));
-    timelog("Wait SVR RET OK");
-    delay(2000);
+    //Serial.println(waitData("OK", "", "", ""));
+    //timelog("Wait SVR RET OK");
+    delay(1000);
   }
   timelog("Begin Close conn");
   serWifi.println("AT+CIPCLOSE=1");
@@ -194,8 +194,8 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
       cnt = 0;
     }
     
-    if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
     timeFree = millis();
+    if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
     
     if(!rcvData){
       continue;
