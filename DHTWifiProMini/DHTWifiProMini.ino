@@ -140,7 +140,8 @@ void update() {
     //getWifiInfo();
     Serial.println(waitData("SEND OK", "", "", ""));
     timelog("Wait SVR OK");
-    //Serial.println(waitData("\r\n0", "", "", ""));
+    Serial.println(waitData("OK", "", "", ""));
+    timelog("Wait SVR RET OK");
     delay(2000);
   }
   timelog("Begin Close conn");
@@ -150,7 +151,7 @@ void update() {
 
 String joinAP() {
   Serial.println("In JoinAP");
-  serWifi.println("AT+CWJAP=\"CoolDog\",\"86053436\"");
+  serWifi.println("AT+CWJAP=\"CoolMi\",\"26856204\"");
   //delay(8000);
   //rets = wifi.waitData(T_OK, T_READY);
   //Serial.println(rets);
@@ -182,18 +183,15 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
         data += c;
         delay(1);
       }
-      cnt = 0;
       Serial.print("=== ");
-      Serial.print(data.length());
+      Serial.print(cnt);
       Serial.print(" ===");
       Serial.println(data);
-      if(data.length()>100){
+      if(cnt>100){
         Serial.print("====Trunked====");
-        ret += data.substring(0,99);
-        Serial.println(ret.length());
-      }else{
-        ret += data;
       }
+      ret += data;
+      cnt = 0;
     }
     
     if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
