@@ -1,4 +1,4 @@
-#include <AltSoftSerial.h>
+﻿#include <AltSoftSerial.h>
 #include <DHT.h>
 
 #define DHT11_PIN 3 //put the sensor in the digital pin 3
@@ -151,7 +151,7 @@ void update() {
 
 String joinAP() {
   Serial.println("In JoinAP");
-  serWifi.println("AT+CWJAP=\"CoolDog\",\"86053436\"");
+  serWifi.println("AT+CWJAP=\"CoolMi\",\"26856204\"");
   //delay(8000);
   //rets = wifi.waitData(T_OK, T_READY);
   //Serial.println(rets);
