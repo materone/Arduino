@@ -1,4 +1,4 @@
-﻿#include <AltSoftSerial.h>
+#include <AltSoftSerial.h>
 #include <DHT.h>
 
 #define DHT11_PIN 3 //put the sensor in the digital pin 3
