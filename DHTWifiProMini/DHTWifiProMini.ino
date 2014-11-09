@@ -105,7 +105,7 @@ void update() {
   Serial.print(h, 1);
   Serial.print(",\t");
   Serial.println(t, 1);
-  getWifiInfo();
+  //getWifiInfo();
   serWifi.println("AT+CIPMUX=1");
   delay(200);
   timelog("Wait CIPMUX OK");
@@ -176,33 +176,29 @@ String waitData(String Tag1, String Tag2, String Tag3, String Tag4)
       rcvData = true;
       while (serWifi.available()) {
         c = char(serWifi.read());
-        if(cnt++>100){
-          delay(1);
-          continue;
+        if (cnt++ < 100) {
+          data += c;
         }
-        data += c;
-        delay(1);
+        Serial.print(c);
+        //delay(1);
       }
-      cnt = 0;
+      Serial.println();
       Serial.print("=== ");
-      Serial.print(data.length());
-      Serial.print(" ===");
-      Serial.println(data);
-      if(data.length()>100){
-        Serial.print("====Trunked====");
-        ret += data.substring(0,99);
-        Serial.println(ret.length());
-      }else{
-        ret += data;
+      Serial.print(cnt);
+      Serial.println(" ===");
+      //Serial.println(data);
+      if (cnt > 100) {
+        Serial.println("====Trunked====");
       }
+      ret += data;
+      cnt = 0;
     }
-    
     timeFree = millis();
     if ((timeFree > timeLast) && (timeFree - timeLast) > timeInterval) break;
-    
-    if(!rcvData){
+
+    if (!rcvData) {
       continue;
-    }else{
+    } else {
       rcvData = false;
     }
     Serial.print("+++");
