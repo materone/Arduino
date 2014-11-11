@@ -140,8 +140,8 @@ void update() {
     //getWifiInfo();
     Serial.println(waitData("SEND OK", "", "", ""));
     timelog("Wait SVR OK");
-    //Serial.println(waitData("OK", "", "", ""));
-    //timelog("Wait SVR RET OK");
+    Serial.println(waitData("Date", "", "", ""));
+    timelog("Wait SVR  Get HTTP RET OK");
     delay(1000);
   }
   timelog("Begin Close conn");
@@ -151,7 +151,8 @@ void update() {
 
 String joinAP() {
   Serial.println("In JoinAP");
-  serWifi.println("AT+CWJAP=\"CoolMi\",\"26856204\"");
+  //serWifi.println("AT+CWJAP=\"CoolMi\",\"26856204\"");
+  serWifi.println("AT+CWJAP=\"CoolDog\",\"86053436\"");
   //delay(8000);
   //rets = wifi.waitData(T_OK, T_READY);
   //Serial.println(rets);
