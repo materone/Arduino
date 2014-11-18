@@ -13,7 +13,8 @@ uint8_t bmpDepth, bmpImageoffset;
 Sd2Card card;
 SdVolume volume;
 SdFile root;
-
+int files = 1000;
+char bmpfchar[18];
 void setup()
 {
   pinMode(11, INPUT);
@@ -66,22 +67,21 @@ void loop()
 {
   /*
    */
-  char bmpfiles[][18] =
-  {
-    "1.bmp", "2.bmp", "3.bmp",
-    "4.bmp", "5.bmp", "6.bmp",
-    "7.bmp", "8.bmp", "9.bmp",
-    "10.bmp", "11.bmp", "12.bmp",
-    "13.bmp", "14.bmp"
-  };
-  for (unsigned char i = 0; i < 14; i++)
+  
+  for (unsigned char i = 1; i < 111; i++)
   {
     //TFT_BL_OFF;
-    bmpFile = SD.open(bmpfiles[i]);
+    sprintf(bmpfchar,"%i.bmp",i);
+    //bmpf = i + ".bmp";
+    //bmpf.toCharArray(bmpfchar,bmpf.length()+1);
+    bmpFile = SD.open(bmpfchar);
     if (! bmpFile)
     {
       Serial.println("didnt find image");
-      while (1);
+      Serial.println(bmpfchar);
+      //delay(1000);
+      continue;
+      //while (1);
     }
 
     if (! bmpReadHeader(bmpFile)) {
@@ -100,7 +100,7 @@ void loop()
     bmpdraw(bmpFile, 0, y);
     bmpFile.close();
     //TFT_BL_ON;
-    delay(5000);
+    delay(3000);
   }
 }
 
@@ -158,9 +158,9 @@ void bmpdraw(File f, int x, int y)
       Tft.setPixel(239 - (i + y), j + x, p);
     }
   }
-  delay(2000);
+  delay(1000);
   scrollV();
-  delay(2000);
+  delay(1000);
   Serial.print(millis() - time, DEC);
   Serial.println(" ms");
 }
