@@ -16,6 +16,7 @@ SdFile root;
 int files = 1000;
 char bmpfchar[18];
 boolean color18 = true;
+boolean feed = true;
 void setup()
 {
   pinMode(11, INPUT);
@@ -101,11 +102,11 @@ void loop()
     Serial.print(bmpWidth, DEC);
     Serial.print(", ");
     Serial.println(bmpHeight, DEC);
-    int y = 0;
-    if (bmpHeight <= 240) {
-      y = (240 - bmpHeight) / 2;
-    }
-    bmpdraw(bmpFile, 0, y);
+    int x=0,y = 0;
+    y = (320 - bmpHeight)/2;
+    x = (240 - bmpWidth)/2;
+    bmpdraw(bmpFile, x, y);
+    if(bmpWidth%4 == 0) feed = false;
     bmpFile.close();
     //TFT_BL_ON;
     delay(3000);
@@ -163,7 +164,7 @@ void bmpdraw(File f, int x, int y)
         // write out the 16 bits of color
         Tft.setPixel(239 - (i + y), j + x, p);
       } else {
-        Tft.setXY(239 - (i + y), j + x);
+        Tft.setXY(j + x,319 - (i + y) );
         /*
         Tft.WRITE_DATA(p&0xFC);
         Tft.WRITE_DATA(g&0xFC);
@@ -176,6 +177,10 @@ void bmpdraw(File f, int x, int y)
         SPI.transfer(b&0xFC);
         TFT_CS_HIGH;
       }
+    }
+    if(feed){
+      char buf[3];
+      bmpFile.read(buf,bmpWidth%4);
     }
   }
   //TFT_CS_HIGH;

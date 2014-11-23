@@ -15,7 +15,8 @@ SdVolume volume;
 SdFile root;
 int files = 1000;
 char bmpfchar[18];
-boolean color18 = true;
+boolean color18 = false;
+boolean feed = true;
 void setup()
 {
   pinMode(11, INPUT);
@@ -33,6 +34,8 @@ void setup()
     Tft.WRITE_DATA(0x66);
   }
   unsigned char c = Tft.Read_Register(0x0C, 1);
+  Serial.println(c, HEX);
+  c = Tft.Read_Register(0x0B, 1);
   Serial.println(c, HEX);
   /*
   Tft.sendCMD(0X53);
@@ -76,7 +79,6 @@ void loop()
    */
 
   for (unsigned char i = 1; i < 140; i++)
-  //for (unsigned char i = 140; i > 0; i--)
   {
     //TFT_BL_OFF;
     sprintf(bmpfchar, "%i.bmp", i);
@@ -102,9 +104,10 @@ void loop()
     Serial.print(", ");
     Serial.println(bmpHeight, DEC);
     int y = 0;
-    if (bmpHeight <= 240) {
-      y = (240 - bmpHeight) / 2;
+    if (bmpWidth < 240) {
+      y = (240 - bmpWidth) / 2;
     }
+    if(bmpWidth%4 == 0) feed = false;
     bmpdraw(bmpFile, 0, y);
     bmpFile.close();
     //TFT_BL_ON;
@@ -135,9 +138,14 @@ void bmpdraw(File f, int x, int y)
   uint8_t sdbuffer[3 * BUFFPIXEL];  // 3 * pixels to buffer
   uint8_t buffidx = 3 * BUFFPIXEL;
 
-  for (i = 0; i < bmpHeight; i++)
+  Tft.setCol(y, bmpWidth + y - 1);
+  Tft.setPage(x, bmpHeight - 1);
+  Tft.sendCMD(0x2c);
+  TFT_DC_HIGH;
+  TFT_CS_LOW;
+  for (i = 0; i < bmpWidth; i++)
   {
-    for (j = bmpWidth - 1; j >= 0; j--)
+    for (j = 0; j < bmpHeight; j++)
     {
       // read more pixels
       if (buffidx >= 3 * BUFFPIXEL)
@@ -163,26 +171,33 @@ void bmpdraw(File f, int x, int y)
         // write out the 16 bits of color
         Tft.setPixel(239 - (i + y), j + x, p);
       } else {
-        Tft.setXY(239 - (i + y), j + x);
         /*
+        Tft.setXY(239 - (i + y), j + x);
         Tft.WRITE_DATA(p&0xFC);
         Tft.WRITE_DATA(g&0xFC);
         Tft.WRITE_DATA(b&0xFC);
         */
-        TFT_DC_HIGH;
-        TFT_CS_LOW;
+        //TFT_DC_HIGH;
+        //TFT_CS_LOW;
         SPI.transfer(p&0xFC);
         SPI.transfer(g&0xFC);
         SPI.transfer(b&0xFC);
-        TFT_CS_HIGH;
+        //TFT_CS_HIGH;
       }
     }
+    //pad last bit,for bmp must 4 * byte per line
+    /*
+    if(feed){
+      char buf[3];
+      bmpFile.read(buf,bmpWidth%4);
+    }
+    */
   }
-  //TFT_CS_HIGH;
-  Tft.drawString(bmpfchar, 0, 0, 2, 0x00FF);
-  delay(100);
+  TFT_CS_HIGH;
+  Tft.drawString(bmpfchar, 0, 0, 2, 0xFF00);
+  delay(1000);
   scrollV();
-  delay(100);
+  delay(1000);
   Serial.print(millis() - time, DEC);
   Serial.println(" ms");
 }
