@@ -103,12 +103,11 @@ void loop()
     Serial.print(bmpWidth, DEC);
     Serial.print(", ");
     Serial.println(bmpHeight, DEC);
-    int y = 0;
-    if (bmpWidth < 240) {
-      y = (240 - bmpWidth) / 2;
-    }
+    int x=0,y = 0;
+    y = (320 - bmpHeight)/2;
+    x = (240 - bmpWidth)/2;
     if(bmpWidth%4 == 0) feed = false;
-    bmpdraw(bmpFile, 0, y);
+    bmpdraw(bmpFile, x, y);
     bmpFile.close();
     //TFT_BL_ON;
     delay(3000);
