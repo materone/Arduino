@@ -25,7 +25,7 @@
 #define FONT_SPACE 6
 #define FONT_X 8
 #define FONT_Y 8
-
+#define log(s) Serial.print(s) ;Serial.print('\t')
 void TFT::sendCMD(INT8U index)
 {
     TFT_DC_LOW;
@@ -83,6 +83,19 @@ INT8U TFT::Read_Register(INT8U Addr, INT8U xParameter)
     data = SPI.transfer(0);
     TFT_CS_HIGH;
     return data;
+}
+
+void TFT::rcvData(INT8U cmd,INT8U *buf,INT8U size){
+    TFT_DC_LOW;
+    TFT_CS_LOW;
+    SPI.transfer(cmd);
+    TFT_DC_HIGH;
+    //SPI.transfer(0);
+    for (int i = 0; i < size; ++i)
+    {
+        buf[i] = SPI.transfer(i+1);
+    }
+    TFT_CS_HIGH;
 }
 
 void TFT::TFTinit (void)
@@ -146,8 +159,9 @@ void TFT::TFTinit (void)
 
 	sendCMD(0x36);    	// Memory Access Control 
 	WRITE_DATA(0x48);  	//C8	   //48 68绔栧睆//28 E8 妯睆
-
-	sendCMD(0x3A);    
+    //WRITE_DATA(0xAC);
+	
+    sendCMD(0x3A);    
 	WRITE_DATA(0x55); 
 
 	sendCMD(0xB1);    
@@ -201,6 +215,12 @@ void TFT::TFTinit (void)
 
 	sendCMD(0x11);    	//Exit Sleep 
 	delay(120); 
+    uint8_t buf[4];
+    rcvData(0x09,buf,4);
+    for(uint8_t idx=0;idx<4;idx++){
+        log(idx);
+        Serial.println(buf[idx], HEX);  
+    }  
 
 	sendCMD(0x29);    //Display on 
 	sendCMD(0x2c);   
@@ -300,7 +320,8 @@ void TFT::fillScreen(void)
 
     TFT_DC_HIGH;
     TFT_CS_LOW;
-    for(INT16U i=0; i<38400; i++)
+    //57600 for 18bit color; 38400 for 16bit
+    for(INT16U i=0; i<57600; i++)
     {
         SPI.transfer(0);
         SPI.transfer(0);
@@ -308,6 +329,63 @@ void TFT::fillScreen(void)
         SPI.transfer(0);
     }
     TFT_CS_HIGH;
+}
+
+void TFT::fillScreen18(void)
+{
+    Tft.setCol(0, 239);
+    Tft.setPage(0, 319);
+    Tft.sendCMD(0X3A);
+    Tft.WRITE_DATA(0x66);
+
+    //unsigned char c ;
+    uint8_t buf[4];
+    Tft.rcvData(0x09,buf,4);
+    for(uint8_t idx=0;idx<4;idx++){
+        log(idx);
+        Serial.println(buf[idx], HEX);  
+    }  
+
+    Tft.sendCMD(0x2c);                                                  /* start to write to display ra */
+    uint8_t r=0x00,g=0x00,b=0x00;                                                                        /* m                            */
+
+    TFT_DC_HIGH;
+    TFT_CS_LOW;
+    //76800 for 18 bit color ; 51200 for 16bit
+    Serial.println("begin fill 18");
+    for(uint32_t i=0; i<76800; i++)
+    {        
+        SPI.transfer(0);
+        SPI.transfer(0);
+        SPI.transfer(0);
+    }
+    for(uint32_t i=0; i<76800; i++)
+    {        
+        switch (i){
+            case 0:
+                r=0xfc;
+                g=0x00;
+                b=0x00;
+                break; 
+            case 25600:
+                r=0x00;
+                g=0xfc;
+                b=0x00;
+                break;
+            case 51200:
+                r=0x00;
+                g=0x00;
+                b=0xfc;
+                break;
+        } 
+        
+        SPI.transfer(r);
+        SPI.transfer(g);
+        SPI.transfer(b);
+    }
+     Serial.println("end fill 18");
+    TFT_CS_HIGH;
+    delay(1000);
 }
 
 

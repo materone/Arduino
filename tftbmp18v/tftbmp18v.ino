@@ -1,21 +1,20 @@
 #include <SD.h>
 #include <SPI.h>
-#include "TFTv2.h"
-File bmpFile;
+#include <TFTv2.h>
 
+#define chipSelect 4
+#define BUFFPIXEL 3*72
+File bmpFile;
 //unsigned char saved_spimode;
 int bmpWidth, bmpHeight;
 uint8_t bmpDepth, bmpImageoffset;
-
-#define chipSelect 4
-
 //set up variables using the SD utility library functions:
 Sd2Card card;
 SdVolume volume;
 SdFile root;
-int files = 1000;
+uint16_t files = 1000;
 char bmpfchar[18];
-boolean color18 = false;
+boolean color18 = true;
 boolean feed = true;
 void setup()
 {
@@ -33,57 +32,41 @@ void setup()
     Tft.sendCMD(0X3A);
     Tft.WRITE_DATA(0x66);
   }
-  unsigned char c = Tft.Read_Register(0x0C, 1);
+  uint8_t c = Tft.Read_Register(0x0C, 1);
   Serial.println(c, HEX);
   c = Tft.Read_Register(0x0B, 1);
   Serial.println(c, HEX);
-  /*
-  Tft.sendCMD(0X53);
-  Tft.WRITE_DATA(0x6c);
-  c = Tft.Read_Register(0x54, 1);
-  Serial.println(c, HEX);
-  Tft.sendCMD(0X51);
-  Tft.WRITE_DATA(0x80);
-  c = Tft.Read_Register(0x52, 1);
-  Serial.println(c, HEX);
-  c = Tft.Read_Register(0xda, 1);
-  Serial.println(c, HEX);
-  c = Tft.Read_Register(0xd3, 1);
-  Serial.println(c, HEX);
-  c = Tft.Read_Register(0xd3, 2);
-  Serial.println(c, HEX);
-  c = Tft.Read_Register(0xd3, 3);
-  Serial.println(c, HEX);
-  */
-  //SPI.setClockDivider(SPI_CLOCK_DIV4);
-  //SDcard_info();
-  /**/
+
+  uint8_t buf[4];
+  Tft.rcvData(0x0B, buf, 1);
+  for (uint8_t idx = 0; idx < 1; idx++) {
+    log(idx);
+    Serial.println(buf[idx], HEX);
+  }
+  Tft.rcvData(0x0C, buf, 1);
+  for (uint8_t idx = 0; idx < 1; idx++) {
+    log(idx);
+    Serial.println(buf[idx], HEX);
+  }
   DDRB |= 0x04;
-  card.init(SPI_FULL_SPEED, chipSelect); //SPI_QUARTER_SPEED   SPI_HALF_SPEED, SPI_FULL_SPEED,
+  //SPI_QUARTER_SPEED   SPI_HALF_SPEED, SPI_FULL_SPEED,
+  card.init(SPI_FULL_SPEED, chipSelect);
   if (!SD.begin(chipSelect)) //SPI_QUARTER_SPEED,
   { //53 is used as chip select pin
     Serial.println("failed!");
     while (1);
   }
   Serial.println("SD OK!");
-
-  Tft.setCol(0, 239);
-  Tft.setPage(0, 319);
-  Tft.sendCMD(0x2c);//start to write to display ram
   TFT_BL_ON;
 }
 
 void loop()
 {
-  /*
-   */
-
-  for (unsigned char i = 1; i < 140; i++)
+  for (uint16_t i = 1; i < 141; i++)
   {
     //TFT_BL_OFF;
+    i = 3;
     sprintf(bmpfchar, "%i.bmp", i);
-    //bmpf = i + ".bmp";
-    //bmpf.toCharArray(bmpfchar,bmpf.length()+1);
     bmpFile = SD.open(bmpfchar);
     if (! bmpFile)
     {
@@ -103,14 +86,20 @@ void loop()
     Serial.print(bmpWidth, DEC);
     Serial.print(", ");
     Serial.println(bmpHeight, DEC);
-    int x=0,y = 0;
-    y = (320 - bmpHeight)/2;
-    x = (240 - bmpWidth)/2;
-    if(bmpWidth%4 == 0) feed = false;
+    uint16_t x = 0, y = 0;
+    if (bmpWidth < 240);
+    x = (240 - bmpWidth) / 2;
+    if (bmpHeight < 320)
+      y = (320 - bmpHeight) / 2;
+    if (bmpWidth % 4 == 0) {
+      feed = false;
+    } else {
+      feed = true;
+    }
     bmpdraw(bmpFile, x, y);
     bmpFile.close();
     //TFT_BL_ON;
-    delay(3000);
+    delay(1000);
   }
 }
 
@@ -121,82 +110,106 @@ void loop()
 // more RAM but makes the drawing a little faster. 20 pixels' worth
 // is probably a good place
 
-
-#define BUFFPIXEL 72
-
-void bmpdraw(File f, int x, int y)
+void bmpdraw(File f, uint8_t x, uint8_t y)
 {
   Tft.fillScreen();
   bmpFile.seek(bmpImageoffset);
 
   uint32_t time = millis();
-  uint16_t p;
-  uint8_t g, b;
-  int i, j;
+  uint8_t  p, g, b;
+  uint16_t i, j;
 
-  uint8_t sdbuffer[3 * BUFFPIXEL];  // 3 * pixels to buffer
-  uint8_t buffidx = 3 * BUFFPIXEL;
+  uint8_t sdbuffer[BUFFPIXEL];  // 3 * pixels to buffer
+  uint8_t buffidx = BUFFPIXEL;
 
-  Tft.setCol(y, bmpWidth + y - 1);
-  Tft.setPage(x, bmpHeight - 1);
+  Tft.setCol(x, bmpWidth + x - 1);
+  Tft.setPage(y, bmpHeight + y - 1);
+
+  uint8_t buf[4];
+  Tft.rcvData(0x09, buf, 4);
+  for (uint8_t idx = 0; idx < 4; idx++) {
+    log(idx);
+    Serial.println(buf[idx], HEX);
+  }
   Tft.sendCMD(0x2c);
   TFT_DC_HIGH;
   TFT_CS_LOW;
-  for (i = 0; i < bmpWidth; i++)
+  for (i = 0; i < bmpHeight; i++)
   {
-    for (j = 0; j < bmpHeight; j++)
+    if (i < bmpHeight / 3) {
+      p = 0xFF;
+      g = 0;
+      b = 0;
+    } else if (i >= bmpHeight / 3 && i < bmpHeight * 2 / 3) {
+      p = 0;
+      g = 0xFF;
+      b = 0;
+    } else {
+      p = 0;
+      g = 0;
+      b = 0;
+    }
+    for (j = 0; j < bmpWidth; j++)
     {
       // read more pixels
-      if (buffidx >= 3 * BUFFPIXEL)
+      if (buffidx >= BUFFPIXEL)
       {
-        bmpFile.read(sdbuffer, 3 * BUFFPIXEL);
+        bmpFile.read(sdbuffer, BUFFPIXEL);
         buffidx = 0;
       }
-
       // convert pixel from 888 to 565
-      b = sdbuffer[buffidx++];     // blue
-      g = sdbuffer[buffidx++];     // green
-      p = sdbuffer[buffidx++];     // red
-      if (!color18) {
-        p >>= 3;
-        p <<= 6;
-
-        g >>= 2;
-        p |= g;
-        p <<= 5;
-
-        b >>= 3;
-        p |= b;
-        // write out the 16 bits of color
-        Tft.setPixel(239 - (i + y), j + x, p);
+      // if(i%9<3){
+      //   p=0x0;g=0x0;b=0xFF;
+      // }else if(i%9<6){
+      //  p=0x0;g=0xFF;b=0x0;
+      // }else{
+      //   p=0xFF;g=0x0;b=0x0;
+      // }
+      //      }else{
+//      b = sdbuffer[buffidx++];     // blue
+//      g = sdbuffer[buffidx++];     // green
+//      p = sdbuffer[buffidx++];     // red
+      //buffidx+=3;
+      //      Serial.print(b,HEX);
+      //      Serial.print(g,HEX);
+      //      Serial.print(p,HEX);
+      SPI.transfer(p & 0xFC);
+      SPI.transfer(g & 0xFC); //&0xFC
+      SPI.transfer(b & 0xFC);
+    }
+//    Serial.println(i);
+//    delay(100);
+//    if (i % 100 == 0)delay(1000);
+    //pad last bit,for bmp must 4 * byte per line
+    if (feed) {
+      uint8_t pad = bmpWidth % 4;
+      if (buffidx >=  BUFFPIXEL) {
+        bmpFile.seek(bmpFile.position() + pad);
+      } else if (pad == 3) {
+        buffidx += 3;
       } else {
-        /*
-        Tft.setXY(239 - (i + y), j + x);
-        Tft.WRITE_DATA(p&0xFC);
-        Tft.WRITE_DATA(g&0xFC);
-        Tft.WRITE_DATA(b&0xFC);
-        */
-        //TFT_DC_HIGH;
-        //TFT_CS_LOW;
-        SPI.transfer(p&0xFC);
-        SPI.transfer(g&0xFC);
-        SPI.transfer(b&0xFC);
-        //TFT_CS_HIGH;
+        memmove(sdbuffer + buffidx, sdbuffer + buffidx + pad, BUFFPIXEL - pad - buffidx);
+        //        Serial.print(bmpFile.position());
+        //        Serial.print('\t');
+        //if(p+b+g>0)
+        Serial.println(i);
+        bmpFile.read(sdbuffer + BUFFPIXEL - pad, pad);
+        //bmpFile.seek(bmpFile.position() + pad);
+        if(p+b+g>0){
+          Serial.print("Some mistake\t");
+          Serial.println(i);
+        }
+        //        Serial.println(bmpFile.position());
       }
     }
-    //pad last bit,for bmp must 4 * byte per line
-    /*
-    if(feed){
-      char buf[3];
-      bmpFile.read(buf,bmpWidth%4);
-    }
-    */
   }
   TFT_CS_HIGH;
-  Tft.drawString(bmpfchar, 0, 0, 2, 0xFF00);
-  delay(1000);
-  scrollV();
-  delay(1000);
+  char s1[14 + sizeof(bmpfchar)];
+  sprintf(s1, "%s %i * %i", bmpfchar, bmpWidth, bmpHeight);
+  Tft.drawString(s1, 0, 0, 2, 0xFF00);
+  delay(100);
+  //scrollV();
+  delay(100);
   Serial.print(millis() - time, DEC);
   Serial.println(" ms");
 }
@@ -249,8 +262,8 @@ boolean bmpReadHeader(File f) {
 }
 
 /*********************************************/
-// These read data from the SD card file and convert them to big endian
-// (the data is stored in little endian format!)
+// These read data from the SD card file and convert them
+// to big endian(the data is stored in little endian format!)
 
 // LITTLE ENDIAN!
 uint16_t read16(File f)

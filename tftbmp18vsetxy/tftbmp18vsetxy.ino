@@ -57,7 +57,8 @@ void setup()
   //SDcard_info();
   /**/
   DDRB |= 0x04;
-  card.init(SPI_FULL_SPEED, chipSelect); //SPI_QUARTER_SPEED   SPI_HALF_SPEED, SPI_FULL_SPEED,
+  //SPI_QUARTER_SPEED   SPI_HALF_SPEED, SPI_FULL_SPEED,
+  card.init(SPI_FULL_SPEED, chipSelect); 
   if (!SD.begin(chipSelect)) //SPI_QUARTER_SPEED,
   { //53 is used as chip select pin
     Serial.println("failed!");
@@ -80,7 +81,7 @@ void loop()
   //for (unsigned char i = 140; i > 0; i--)
   {
     //TFT_BL_OFF;
-    i=3;//for test only
+    //i=3;//for test only
     sprintf(bmpfchar, "%i.bmp", i);
     //bmpf = i + ".bmp";
     //bmpf.toCharArray(bmpfchar,bmpf.length()+1);    
@@ -104,7 +105,9 @@ void loop()
     Serial.print(", ");
     Serial.println(bmpHeight, DEC);
     int x=0,y = 0;
+    if(bmpHeight<320)
     y = (320 - bmpHeight)/2;
+    if(bmpWidth<240);
     x = (240 - bmpWidth)/2;
     if(bmpWidth%4 == 0){
       feed = false;
@@ -114,7 +117,7 @@ void loop()
     bmpdraw(bmpFile, x, y);
     bmpFile.close();
     //TFT_BL_ON;
-    delay(3000);
+    delay(100);
   }
 }
 
@@ -137,8 +140,6 @@ void bmpdraw(File f, int x, int y)
   uint16_t p;
   uint8_t g, b;
   int i, j;
-  uint16_t idxP = 0;
-  uint16_t idxF = 0;
 
   uint8_t sdbuffer[BUFFPIXEL];  // 3 * pixels to buffer
   uint8_t buffidx = BUFFPIXEL;
@@ -148,10 +149,9 @@ void bmpdraw(File f, int x, int y)
     for (j = bmpWidth - 1; j >= 0; j--)
     {
       // read more pixels
-      idxP++;
       if (buffidx >= BUFFPIXEL)
       {
-        idxF += bmpFile.read(sdbuffer, BUFFPIXEL);
+        bmpFile.read(sdbuffer, BUFFPIXEL);
         buffidx = 0;
       }
 
@@ -186,46 +186,22 @@ void bmpdraw(File f, int x, int y)
         TFT_CS_HIGH;
       }
     }
-    if(feed){
-      Serial.print("In feed :");
-      Serial.print("\t");
-      Serial.print(idxP,DEC);
-      Serial.print("\t");
-      Serial.print(idxF,DEC);
-      Serial.print("\t");
-      Serial.print(buffidx,DEC);
-      Serial.print("\t");
-      Serial.print(sdbuffer[buffidx-1],DEC);
-      Serial.print("\t");
-      Serial.print(sdbuffer[buffidx],DEC);
-      Serial.print("\t");
-      Serial.println(sdbuffer[buffidx+1],DEC);
-      char buf[3];      
+    if(feed){    
       uint8_t pad = bmpWidth%4;
-      uint8_t i1;
-      uint8_t i2 = buffidx;
       if(buffidx >=  BUFFPIXEL){
-        Serial.println("In Buffpixl");
-        bmpFile.read(buf,pad);
+        bmpFile.seek(bmpFile.position()+pad);
       }else if(pad == 3){
-        Serial.println("In Pad 3");
         buffidx += 3;
       }else{
-        Serial.println("In Pad 1,2");
-        for(i1=buffidx + pad;i1++;i1<BUFFPIXEL){
-          sdbuffer[i2++]=sdbuffer[i1];
-        }
-        Serial.println("In Pad 1,2 stage 0");
-        for(i1=BUFFPIXEL - pad;i1++;i1<BUFFPIXEL){
-          sdbuffer[i1]=bmpFile.read();
-        }
-        Serial.println("In Pad 1,2 stage 1");
+        memmove(sdbuffer+buffidx,sdbuffer+buffidx+pad,BUFFPIXEL-pad-buffidx);
+        bmpFile.read(sdbuffer+BUFFPIXEL-pad,pad);
       }
-      Serial.println("End feed");
     }
   }
   //TFT_CS_HIGH;
-  Tft.drawString(bmpfchar, 0, 0, 2, 0x00FF);
+  char s1[14+sizeof(bmpfchar)];
+  sprintf(s1,"%s %i * %i",bmpfchar,bmpWidth,bmpHeight);
+  Tft.drawString(s1, 0, 0, 2, 0xFF00);
   delay(100);
   scrollV();
   delay(100);

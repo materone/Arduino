@@ -19,8 +19,10 @@ sendCMD	KEYWORD2
 WRITE_Package	KEYWORD2
 WRITE_DATA	KEYWORD2
 sendData	KEYWORD2
+rcvData	KEYWORD2
 Read_Register	KEYWORD2
 fillScreen	KEYWORD2
+fillScreen18	KEYWORD2
 drawChar	KEYWORD2
 drawString	KEYWORD2
 fillRectangle	KEYWORD2

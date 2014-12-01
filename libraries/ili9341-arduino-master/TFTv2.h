@@ -118,6 +118,7 @@ extern INT8U simpleFont[][8];
 
 class TFT
 {
+	
 public:
 	void TFTinit (void);
 	void setCol(INT16U StartCol,INT16U EndCol);
@@ -129,8 +130,10 @@ public:
 	void WRITE_DATA(INT8U data);
 	void sendData(INT16U data);
 	INT8U Read_Register(INT8U Addr,INT8U xParameter);
+	void rcvData(INT8U cmd,INT8U *buf,INT8U size);
 	void fillScreen(INT16U XL,INT16U XR,INT16U YU,INT16U YD,INT16U color);
 	void fillScreen(void);
+	void fillScreen18(void);
 	INT8U readID(void);
 
 	void drawChar(INT8U ascii,INT16U poX, INT16U poY,INT16U size, INT16U fgcolor);
