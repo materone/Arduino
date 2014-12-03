@@ -77,11 +77,11 @@ void loop()
   /*
    */
 
-  for (unsigned char i = 1; i < 140; i++)
+  for (unsigned char i = 137; i < 140; i++)
   //for (unsigned char i = 140; i > 0; i--)
   {
     //TFT_BL_OFF;
-    //i=3;//for test only
+    //i=1;//38;//for test only
     sprintf(bmpfchar, "%i.bmp", i);
     //bmpf = i + ".bmp";
     //bmpf.toCharArray(bmpfchar,bmpf.length()+1);    
@@ -178,6 +178,9 @@ void bmpdraw(File f, int x, int y)
         Tft.WRITE_DATA(g&0xFC);
         Tft.WRITE_DATA(b&0xFC);
         */
+//      Serial.print(p,HEX);
+//      Serial.print(g,HEX);
+//      Serial.print(b,HEX);
         TFT_DC_HIGH;
         TFT_CS_LOW;
         SPI.transfer(p&0xFC);

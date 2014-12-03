@@ -65,7 +65,7 @@ void loop()
   for (uint16_t i = 1; i < 141; i++)
   {
     //TFT_BL_OFF;
-    i = 3;
+    i = 138;
     sprintf(bmpfchar, "%i.bmp", i);
     bmpFile = SD.open(bmpfchar);
     if (! bmpFile)
@@ -136,17 +136,17 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
   TFT_CS_LOW;
   for (i = 0; i < bmpHeight; i++)
   {
-    if (i < bmpHeight / 3) {
+    if (i < bmpHeight / 2) {
       p = 0xFF;
-      g = 0;
-      b = 0;
-    } else if (i >= bmpHeight / 3 && i < bmpHeight * 2 / 3) {
+      g = 0xF2;
+      b = 0x00;
+    } else if (i >= bmpHeight / 2 && i < bmpHeight * 2 / 3) {
       p = 0;
       g = 0xFF;
       b = 0;
     } else {
-      p = 0;
-      g = 0;
+      p = 0xFF;
+      g = 0x00;
       b = 0;
     }
     for (j = 0; j < bmpWidth; j++)
@@ -166,18 +166,22 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
       //   p=0xFF;g=0x0;b=0x0;
       // }
       //      }else{
-//      b = sdbuffer[buffidx++];     // blue
-//      g = sdbuffer[buffidx++];     // green
-//      p = sdbuffer[buffidx++];     // red
+      if (i >= bmpHeight / 2 && i < bmpHeight * 2 / 3) {
+        b = 0xFF & sdbuffer[buffidx++];     // blue
+        g = 0xFF & sdbuffer[buffidx++];     // green
+        p = 0xFF & sdbuffer[buffidx++];     // red
+      }
       //buffidx+=3;
-      //      Serial.print(b,HEX);
-      //      Serial.print(g,HEX);
-      //      Serial.print(p,HEX);
+      if(i==0||i==bmpHeight>>1){
+      Serial.print(p,HEX);
+      Serial.print(g,HEX);
+      Serial.print(b,HEX);
+      }
       SPI.transfer(p & 0xFC);
       SPI.transfer(g & 0xFC); //&0xFC
       SPI.transfer(b & 0xFC);
     }
-//    Serial.println(i);
+    Serial.println(i);
 //    delay(100);
 //    if (i % 100 == 0)delay(1000);
     //pad last bit,for bmp must 4 * byte per line
