@@ -353,12 +353,12 @@ void TFT::fillScreen18(void)
     TFT_CS_LOW;
     //76800 for 18 bit color ; 51200 for 16bit
     Serial.println("begin fill 18");
-    for(uint32_t i=0; i<76800; i++)
-    {        
-        SPI.transfer(0);
-        SPI.transfer(0);
-        SPI.transfer(0);
-    }
+    // for(uint32_t i=0; i<76800; i++)
+    // {        
+    //     SPI.transfer(0);
+    //     SPI.transfer(0);
+    //     SPI.transfer(0);
+    // }
     for(uint32_t i=0; i<76800; i++)
     {        
         switch (i){

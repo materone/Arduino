@@ -62,10 +62,10 @@ void setup()
 
 void loop()
 {
-  for (uint16_t i = 1; i < 141; i++)
+  for (uint16_t i = 137; i < 141; i++)
   {
     //TFT_BL_OFF;
-    i = 138;
+    //i = 138;
     sprintf(bmpfchar, "%i.bmp", i);
     bmpFile = SD.open(bmpfchar);
     if (! bmpFile)
@@ -120,10 +120,7 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
   uint16_t i, j;
 
   uint8_t sdbuffer[BUFFPIXEL];  // 3 * pixels to buffer
-  uint8_t buffidx = BUFFPIXEL;
-
-  Tft.setCol(x, bmpWidth + x - 1);
-  Tft.setPage(y, bmpHeight + y - 1);
+  uint8_t buffidx = BUFFPIXEL;  
 
   uint8_t buf[4];
   Tft.rcvData(0x09, buf, 4);
@@ -131,6 +128,8 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
     log(idx);
     Serial.println(buf[idx], HEX);
   }
+  Tft.setCol(x, bmpWidth + x - 1);
+  Tft.setPage(y, bmpHeight + y - 1);
   Tft.sendCMD(0x2c);
   TFT_DC_HIGH;
   TFT_CS_LOW;
@@ -166,24 +165,29 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
       //   p=0xFF;g=0x0;b=0x0;
       // }
       //      }else{
-      if (i >= bmpHeight / 2 && i < bmpHeight * 2 / 3) {
-        b = 0xFF & sdbuffer[buffidx++];     // blue
-        g = 0xFF & sdbuffer[buffidx++];     // green
-        p = 0xFF & sdbuffer[buffidx++];     // red
-      }
-      //buffidx+=3;
-      if(i==0||i==bmpHeight>>1){
-      Serial.print(p,HEX);
-      Serial.print(g,HEX);
-      Serial.print(b,HEX);
-      }
+//      if (i >= bmpHeight / 2 && i < bmpHeight * 2 / 3) {
+//        b = 0xFF & sdbuffer[buffidx++];     // blue
+//        g = 0xFF & sdbuffer[buffidx++];     // green
+//        p = 0xFF & sdbuffer[buffidx++];     // red
+//      }else{
+       if(i>100) buffidx+=3;
+//      }
+//      if (i == 0 || i == bmpHeight >> 1) {
+//        Serial.print(p, HEX);
+//        Serial.print(g, HEX);
+//        Serial.print(b, HEX);
+//      }      
+//      Tft.setXY(j,i);
+//      TFT_DC_HIGH;
+//  TFT_CS_LOW;
       SPI.transfer(p & 0xFC);
       SPI.transfer(g & 0xFC); //&0xFC
       SPI.transfer(b & 0xFC);
+//      TFT_CS_HIGH;
     }
     Serial.println(i);
-//    delay(100);
-//    if (i % 100 == 0)delay(1000);
+    //    delay(100);
+    //    if (i % 100 == 0)delay(1000);
     //pad last bit,for bmp must 4 * byte per line
     if (feed) {
       uint8_t pad = bmpWidth % 4;
@@ -199,7 +203,7 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
         Serial.println(i);
         bmpFile.read(sdbuffer + BUFFPIXEL - pad, pad);
         //bmpFile.seek(bmpFile.position() + pad);
-        if(p+b+g>0){
+        if (p + b + g > 0) {
           Serial.print("Some mistake\t");
           Serial.println(i);
         }
@@ -308,4 +312,3 @@ void scrollV() {
     delay(40);
   }
 }
-
