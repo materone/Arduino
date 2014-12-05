@@ -62,7 +62,7 @@ void setup()
 
 void loop()
 {
-  for (uint16_t i = 137; i < 141; i++)
+  for (uint16_t i = 1; i < 141; i++)
   {
     //TFT_BL_OFF;
     //i = 138;
@@ -120,7 +120,6 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
   uint16_t i, j;
 
   uint8_t sdbuffer[BUFFPIXEL];  // 3 * pixels to buffer
-<<<<<<< HEAD
   uint16_t buffidx = BUFFPIXEL;
 
   Tft.setCol(x, bmpWidth + x - 1);
@@ -132,18 +131,6 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
 //    log(idx);
 //    Serial.println(buf[idx], HEX);
 //  }
-=======
-  uint8_t buffidx = BUFFPIXEL;  
-
-  uint8_t buf[4];
-  Tft.rcvData(0x09, buf, 4);
-  for (uint8_t idx = 0; idx < 4; idx++) {
-    log(idx);
-    Serial.println(buf[idx], HEX);
-  }
-  Tft.setCol(x, bmpWidth + x - 1);
-  Tft.setPage(y, bmpHeight + y - 1);
->>>>>>> origin/master
   Tft.sendCMD(0x2c);
   TFT_DC_HIGH;
   TFT_CS_LOW;
@@ -159,7 +146,6 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
         buffidx = 0;
         TFT_CS_LOW;
       }
-<<<<<<< HEAD
       b = sdbuffer[buffidx++];     // blue
       g = sdbuffer[buffidx++];     // green
       p = sdbuffer[buffidx++];     // red
@@ -167,40 +153,6 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
       SPI.transfer(g ); //&0xFC
       SPI.transfer(b );
     }
-=======
-      // convert pixel from 888 to 565
-      // if(i%9<3){
-      //   p=0x0;g=0x0;b=0xFF;
-      // }else if(i%9<6){
-      //  p=0x0;g=0xFF;b=0x0;
-      // }else{
-      //   p=0xFF;g=0x0;b=0x0;
-      // }
-      //      }else{
-//      if (i >= bmpHeight / 2 && i < bmpHeight * 2 / 3) {
-//        b = 0xFF & sdbuffer[buffidx++];     // blue
-//        g = 0xFF & sdbuffer[buffidx++];     // green
-//        p = 0xFF & sdbuffer[buffidx++];     // red
-//      }else{
-       if(i>100) buffidx+=3;
-//      }
-//      if (i == 0 || i == bmpHeight >> 1) {
-//        Serial.print(p, HEX);
-//        Serial.print(g, HEX);
-//        Serial.print(b, HEX);
-//      }      
-//      Tft.setXY(j,i);
-//      TFT_DC_HIGH;
-//  TFT_CS_LOW;
-      SPI.transfer(p & 0xFC);
-      SPI.transfer(g & 0xFC); //&0xFC
-      SPI.transfer(b & 0xFC);
-//      TFT_CS_HIGH;
-    }
-    Serial.println(i);
-    //    delay(100);
-    //    if (i % 100 == 0)delay(1000);
->>>>>>> origin/master
     //pad last bit,for bmp must 4 * byte per line
     if (feed) {
       uint8_t pad = bmpWidth % 4;
@@ -214,16 +166,7 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
         memmove(sdbuffer + buffidx, sdbuffer + buffidx + pad, BUFFPIXEL - pad - buffidx);
         TFT_CS_HIGH;
         bmpFile.read(sdbuffer + BUFFPIXEL - pad, pad);
-<<<<<<< HEAD
         TFT_CS_LOW;
-=======
-        //bmpFile.seek(bmpFile.position() + pad);
-        if (p + b + g > 0) {
-          Serial.print("Some mistake\t");
-          Serial.println(i);
-        }
-        //        Serial.println(bmpFile.position());
->>>>>>> origin/master
       }
     }
   }
