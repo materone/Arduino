@@ -206,7 +206,7 @@ void bmpdraw(File f, int x, int y)
   sprintf(s1,"%s %i * %i",bmpfchar,bmpWidth,bmpHeight);
   Tft.drawString(s1, 0, 0, 2, 0xFF00);
   delay(100);
-  scrollV();
+  //scrollV();
   delay(100);
   Serial.print(millis() - time, DEC);
   Serial.println(" ms");
