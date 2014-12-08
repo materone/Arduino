@@ -6,7 +6,7 @@
 #include "DallasTemperature.h"
 
 extern "C" {
-   #include "arduino.h"
+ //  #include "arduino.h"
  // #include "WConstants.h"
 }
 

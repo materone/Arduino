@@ -85,6 +85,7 @@ void loop(void) {
     }
   } else {
     byte cfg = (data[4] & 0x60);
+    //Serial.println(cfg,HEX);
     if (cfg == 0x00) raw = raw << 3;  // 9 bit resolution, 93.75 ms
     else if (cfg == 0x20) raw = raw << 2; // 10 bit res, 187.5 ms
     else if (cfg == 0x40) raw = raw << 1; // 11 bit res, 375 ms
