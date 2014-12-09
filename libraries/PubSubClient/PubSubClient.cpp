@@ -12,16 +12,17 @@ PubSubClient::PubSubClient() {
    this->stream = NULL;
 }
 
-PubSubClient::PubSubClient(uint8_t *ip, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), Client& client) {
+PubSubClient::PubSubClient(uint8_t *ip, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), arwifi& client) {
    this->_client = &client;
    this->callback = callback;
    this->ip = ip;
+   this->strip = NULL;
    this->port = port;
    this->domain = NULL;
    this->stream = NULL;
 }
 
-PubSubClient::PubSubClient(char* domain, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), Client& client) {
+PubSubClient::PubSubClient(char *domain, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), arwifi& client) {
    this->_client = &client;
    this->callback = callback;
    this->domain = domain;
@@ -29,16 +30,17 @@ PubSubClient::PubSubClient(char* domain, uint16_t port, void (*callback)(char*,u
    this->stream = NULL;
 }
 
-PubSubClient::PubSubClient(uint8_t *ip, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), Client& client, Stream& stream) {
+PubSubClient::PubSubClient(uint8_t *ip, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), arwifi& client, Stream& stream) {
    this->_client = &client;
    this->callback = callback;
    this->ip = ip;
+   this->strip = NULL;
    this->port = port;
    this->domain = NULL;
    this->stream = &stream;
 }
 
-PubSubClient::PubSubClient(char* domain, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), Client& client, Stream& stream) {
+PubSubClient::PubSubClient(char *domain, uint16_t port, void (*callback)(char*,uint8_t*,unsigned int), arwifi& client, Stream& stream) {
    this->_client = &client;
    this->callback = callback;
    this->domain = domain;
@@ -65,7 +67,7 @@ boolean PubSubClient::connect(char *id, char *user, char *pass, char* willTopic,
       
       if (domain != NULL) {
         result = _client->connect(this->domain, this->port);
-      } else {
+      } else {         
         result = _client->connect(this->ip, this->port);
       }
       

@@ -8,7 +8,8 @@
 #define PubSubClient_h
 
 #include <Arduino.h>
-#include "Client.h"
+//#include "Client.h"
+#include "arwifi.h"
 #include "Stream.h"
 
 // MQTT_MAX_PACKET_SIZE : Maximum packet size
@@ -40,7 +41,7 @@
 
 class PubSubClient {
 private:
-   Client* _client;
+   arwifi* _client;
    uint8_t buffer[MQTT_MAX_PACKET_SIZE];
    uint16_t nextMsgId;
    unsigned long lastOutActivity;
@@ -52,15 +53,16 @@ private:
    boolean write(uint8_t header, uint8_t* buf, uint16_t length);
    uint16_t writeString(char* string, uint8_t* buf, uint16_t pos);
    uint8_t *ip;
+   char* strip;
    char* domain;
    uint16_t port;
    Stream* stream;
 public:
    PubSubClient();
-   PubSubClient(uint8_t *, uint16_t, void(*)(char*,uint8_t*,unsigned int),Client& client);
-   PubSubClient(uint8_t *, uint16_t, void(*)(char*,uint8_t*,unsigned int),Client& client, Stream&);
-   PubSubClient(char*, uint16_t, void(*)(char*,uint8_t*,unsigned int),Client& client);
-   PubSubClient(char*, uint16_t, void(*)(char*,uint8_t*,unsigned int),Client& client, Stream&);
+   PubSubClient(uint8_t *, uint16_t, void(*)(char*,uint8_t*,unsigned int),arwifi& client);
+   PubSubClient(uint8_t *, uint16_t, void(*)(char*,uint8_t*,unsigned int),arwifi& client, Stream&);
+   PubSubClient(char *domain, uint16_t, void(*)(char*,uint8_t*,unsigned int),arwifi& client);
+   PubSubClient(char *domain, uint16_t, void(*)(char*,uint8_t*,unsigned int),arwifi& client, Stream&);
    boolean connect(char *);
    boolean connect(char *, char *, char *);
    boolean connect(char *, char *, uint8_t, uint8_t, char *);

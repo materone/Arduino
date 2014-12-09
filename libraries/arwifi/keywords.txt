@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For arwifi
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+arwifi	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+connect 	KEYWORD2
+disconnect 	KEYWORD2
+joinAP 		KEYWORD2
+quitAP 		KEYWORD2
+read 		KEYWORD2
+write    	KEYWORD2
+waitData 		KEYWORD2
+connected 	KEYWORD2
+available   KEYWORD2
+begin   KEYWORD2
+setTimeout   KEYWORD2
+stop		KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+

@@ -151,8 +151,8 @@ void update() {
 
 String joinAP() {
   Serial.println("In JoinAP");
-  //serWifi.println("AT+CWJAP=\"CoolMi\",\"26856204\"");
-  serWifi.println("AT+CWJAP=\"CoolDog\",\"86053436\"");
+  serWifi.println("AT+CWJAP=\"CoolMi\",\"26856204\"");
+  //serWifi.println("AT+CWJAP=\"CoolDog\",\"86053436\"");
   //delay(8000);
   //rets = wifi.waitData(T_OK, T_READY);
   //Serial.println(rets);
