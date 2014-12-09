@@ -359,30 +359,30 @@ void TFT::fillScreen18(void)
         SPI.transfer(0);
         SPI.transfer(0);
     }
-    for(uint32_t i=0; i<76800; i++)
-    {        
-        switch (i){
-            case 0:
-                r=0xfc;
-                g=0x00;
-                b=0x00;
-                break; 
-            case 25600:
-                r=0x00;
-                g=0xfc;
-                b=0x00;
-                break;
-            case 51200:
-                r=0x00;
-                g=0x00;
-                b=0xfc;
-                break;
-        } 
+    // for(uint32_t i=0; i<76800; i++)
+    // {        
+    //     switch (i){
+    //         case 0:
+    //             r=0xfc;
+    //             g=0x00;
+    //             b=0x00;
+    //             break; 
+    //         case 25600:
+    //             r=0x00;
+    //             g=0xfc;
+    //             b=0x00;
+    //             break;
+    //         case 51200:
+    //             r=0x00;
+    //             g=0x00;
+    //             b=0xfc;
+    //             break;
+    //     } 
         
-        SPI.transfer(r);
-        SPI.transfer(g);
-        SPI.transfer(b);
-    }
+    //     SPI.transfer(r);
+    //     SPI.transfer(g);
+    //     SPI.transfer(b);
+    // }
      Serial.println("end fill 18");
     TFT_CS_HIGH;
     delay(1000);
