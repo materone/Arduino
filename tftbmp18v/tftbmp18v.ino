@@ -1,9 +1,18 @@
 #include <SD.h>
 #include <SPI.h>
 #include <TFTv2.h>
+#include <DS3231.h>
+#include <Wire.h>
 
+DS3231 Clock;
+bool Century = false;
+bool h12;
+bool PM;
+byte ADay, AHour, AMinute, ASecond, ABits;
+byte year, month, date, DoW, hour, minute, second;
+bool ADy, A12h, Apm;
 #define chipSelect 4
-#define BUFFPIXEL 3*200
+#define BUFFPIXEL 3*100
 File bmpFile;
 //unsigned char saved_spimode;
 int bmpWidth, bmpHeight;
@@ -58,10 +67,12 @@ void setup()
   }
   Serial.println("SD OK!");
   TFT_BL_ON;
+  Wire.begin();
 }
 
 void loop()
 {
+  getTime();
   for (uint16_t i = 1; i < 141; i++)
   {
     //TFT_BL_OFF;
@@ -125,12 +136,12 @@ void bmpdraw(File f, uint8_t x, uint8_t y)
   Tft.setCol(x, bmpWidth + x - 1);
   Tft.setPage(y, bmpHeight + y - 1);
 
-//  uint8_t buf[4];
-//  Tft.rcvData(0x09, buf, 4);
-//  for (uint8_t idx = 0; idx < 4; idx++) {
-//    log(idx);
-//    Serial.println(buf[idx], HEX);
-//  }
+  //  uint8_t buf[4];
+  //  Tft.rcvData(0x09, buf, 4);
+  //  for (uint8_t idx = 0; idx < 4; idx++) {
+  //    log(idx);
+  //    Serial.println(buf[idx], HEX);
+  //  }
   Tft.sendCMD(0x2c);
   TFT_DC_HIGH;
   TFT_CS_LOW;
@@ -271,3 +282,20 @@ void scrollV() {
     delay(40);
   }
 }
+
+void getTime(){
+  Clock.getTime(year, month, date, DoW, hour, minute, second);
+  Serial.print(year, DEC);
+  Serial.print("/");
+  Serial.print(month, DEC);
+  Serial.print("/");
+  Serial.print(date, DEC);
+  Serial.print("day of the week :");
+  Serial.println(DoW, DEC);
+  Serial.print(hour, DEC);
+  Serial.print(":");
+  Serial.print(minute, DEC);
+  Serial.print(":");
+  Serial.println(second, DEC);
+}
+
