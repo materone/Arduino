@@ -1,0 +1,22 @@
+https://api.weibo.com/oauth2/authorize?client_id=4257019933&redirect_uri=https://api.weibo.com/oauth2/default.html&response_type=code
+Hit enter when it's done.[Enter]:7faaaac6d81604fafab7b60ce843b340
+0    INFO  [2012-06-20 12:34:49]  code: 7faaaac6d81604fafab7b60ce843b340
+79   DEBUG [2012-06-20 12:34:49]  Request:
+79   DEBUG [2012-06-20 12:34:49]  POSThttps://api.weibo.com/oauth2/access_token
+1105 DEBUG [2012-06-20 12:34:50]  Response:
+1105 DEBUG [2012-06-20 12:34:50]  https StatusCode:200
+1105 DEBUG [2012-06-20 12:34:50]  Server:nginx/1.2.0
+1105 DEBUG [2012-06-20 12:34:50]  Date:Wed, 20 Jun 2012 04:34:50 GMT
+1105 DEBUG [2012-06-20 12:34:50]  Content-Type:text/plain;charset=UTF-8
+1105 DEBUG [2012-06-20 12:34:50]  Content-Length:109
+1106 DEBUG [2012-06-20 12:34:50]  Connection:keep-alive
+1106 DEBUG [2012-06-20 12:34:50]  Pragma:No-cache
+1106 DEBUG [2012-06-20 12:34:50]  Cache-Control:no-cache
+1106 DEBUG [2012-06-20 12:34:50]  Expires:Thu, 01 Jan 1970 00:00:00 GMT
+1106 DEBUG [2012-06-20 12:34:50]  Api-Server-IP:10.75.25.114
+1106 DEBUG [2012-06-20 12:34:50]  X-Varnish:3893591383
+1106 DEBUG [2012-06-20 12:34:50]  Age:0
+1106 DEBUG [2012-06-20 12:34:50]  Via:1.1 varnish
+1183 DEBUG [2012-06-20 12:34:50]  {"access_token":"2.007QhS5Cp2BGeEf0c0577999z3omwD","remind_in":"86399","expires_in":86399,"uid":"2191353942"}
+
+AccessToken [accessToken=2.007QhS5Cp2BGeEf0c0577999z3omwD, expireIn=86399, refreshToken=,uid=2191353942]

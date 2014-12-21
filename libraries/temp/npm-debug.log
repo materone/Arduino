@@ -1,0 +1,1493 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'mongoose' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.28
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ 'mongoose', null ]
+6 verbose cache add name=undefined spec="mongoose" args=["mongoose",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'mongoose',
+7 verbose parsed url   path: 'mongoose',
+7 verbose parsed url   href: 'mongoose' }
+8 silly lockFile f25dbdd3-mongoose mongoose
+9 verbose lock mongoose C:\Users\tony\AppData\Roaming\npm-cache\f25dbdd3-mongoose.lock
+10 silly lockFile f25dbdd3-mongoose mongoose
+11 silly lockFile f25dbdd3-mongoose mongoose
+12 verbose addNamed [ 'mongoose', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 3bb0fc31-mongoose mongoose@
+15 verbose lock mongoose@ C:\Users\tony\AppData\Roaming\npm-cache\3bb0fc31-mongoose.lock
+16 silly addNameRange { name: 'mongoose', range: '*', hasData: false }
+17 verbose url raw mongoose
+18 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose' ]
+19 verbose url resolved https://registry.npmjs.org/mongoose
+20 info trying registry request attempt 1 at 17:57:27
+21 http GET https://registry.npmjs.org/mongoose
+22 http 200 https://registry.npmjs.org/mongoose
+23 silly registry.get cb [ 200,
+23 silly registry.get   { date: 'Tue, 13 May 2014 09:52:36 GMT',
+23 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+23 silly registry.get     etag: '"5IB4DM58XC0ILZRVL6BEMOA0Q"',
+23 silly registry.get     'content-type': 'application/json',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'cache-control': 'max-age=1',
+23 silly registry.get     'content-length': '248926',
+23 silly registry.get     'accept-ranges': 'bytes',
+23 silly registry.get     age: '384',
+23 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-ty68-TYO',
+23 silly registry.get     'x-cache': 'HIT, MISS',
+23 silly registry.get     'x-cache-hits': '1, 0',
+23 silly registry.get     'x-timer': 'S1399974372.424888849,VS0,VS82,VE158,VE384354',
+23 silly registry.get     vary: 'Accept',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 silly addNameRange number 2 { name: 'mongoose', range: '*', hasData: true }
+25 silly addNameRange versions [ 'mongoose',
+25 silly addNameRange   [ '0.0.1',
+25 silly addNameRange     '0.0.2',
+25 silly addNameRange     '0.0.3',
+25 silly addNameRange     '0.0.4',
+25 silly addNameRange     '0.0.5',
+25 silly addNameRange     '1.0.0',
+25 silly addNameRange     '1.0.1',
+25 silly addNameRange     '1.0.2',
+25 silly addNameRange     '0.0.6',
+25 silly addNameRange     '1.0.3',
+25 silly addNameRange     '1.0.4',
+25 silly addNameRange     '1.0.5',
+25 silly addNameRange     '1.0.6',
+25 silly addNameRange     '1.0.7',
+25 silly addNameRange     '1.0.8',
+25 silly addNameRange     '1.0.10',
+25 silly addNameRange     '1.0.11',
+25 silly addNameRange     '1.0.12',
+25 silly addNameRange     '1.0.13',
+25 silly addNameRange     '1.0.14',
+25 silly addNameRange     '1.0.15',
+25 silly addNameRange     '1.0.16',
+25 silly addNameRange     '1.1.0',
+25 silly addNameRange     '1.1.1',
+25 silly addNameRange     '1.1.2',
+25 silly addNameRange     '1.1.3',
+25 silly addNameRange     '1.1.4',
+25 silly addNameRange     '1.1.5',
+25 silly addNameRange     '1.1.6',
+25 silly addNameRange     '1.1.7',
+25 silly addNameRange     '1.1.8',
+25 silly addNameRange     '1.1.9',
+25 silly addNameRange     '1.1.10',
+25 silly addNameRange     '1.1.11',
+25 silly addNameRange     '1.1.12',
+25 silly addNameRange     '1.1.13',
+25 silly addNameRange     '1.1.14',
+25 silly addNameRange     '1.1.15',
+25 silly addNameRange     '1.1.16',
+25 silly addNameRange     '1.1.17',
+25 silly addNameRange     '1.1.18',
+25 silly addNameRange     '1.1.19',
+25 silly addNameRange     '1.1.20',
+25 silly addNameRange     '1.1.21',
+25 silly addNameRange     '1.1.22',
+25 silly addNameRange     '1.1.23',
+25 silly addNameRange     '1.1.24',
+25 silly addNameRange     '1.1.25',
+25 silly addNameRange     '1.2.0',
+25 silly addNameRange     '1.3.0',
+25 silly addNameRange     '1.3.1',
+25 silly addNameRange     '1.3.2',
+25 silly addNameRange     '1.3.3',
+25 silly addNameRange     '1.3.4',
+25 silly addNameRange     '1.3.5',
+25 silly addNameRange     '1.3.6',
+25 silly addNameRange     '1.3.7',
+25 silly addNameRange     '1.4.0',
+25 silly addNameRange     '1.5.0',
+25 silly addNameRange     '1.6.0',
+25 silly addNameRange     '1.7.2',
+25 silly addNameRange     '1.7.3',
+25 silly addNameRange     '1.7.4',
+25 silly addNameRange     '1.8.0',
+25 silly addNameRange     '1.8.1',
+25 silly addNameRange     '1.8.2',
+25 silly addNameRange     '1.8.3',
+25 silly addNameRange     '1.8.4',
+25 silly addNameRange     '2.0.0',
+25 silly addNameRange     '2.0.1',
+25 silly addNameRange     '2.0.2',
+25 silly addNameRange     '2.0.3',
+25 silly addNameRange     '2.0.4',
+25 silly addNameRange     '2.1.0',
+25 silly addNameRange     '2.1.1',
+25 silly addNameRange     '2.1.2',
+25 silly addNameRange     '2.1.3',
+25 silly addNameRange     '2.1.4',
+25 silly addNameRange     '2.2.0',
+25 silly addNameRange     '2.2.1',
+25 silly addNameRange     '2.2.2',
+25 silly addNameRange     '2.2.3',
+25 silly addNameRange     '2.2.4',
+25 silly addNameRange     '2.3.0',
+25 silly addNameRange     '2.3.1',
+25 silly addNameRange     '2.3.2',
+25 silly addNameRange     '2.3.3',
+25 silly addNameRange     '2.3.4',
+25 silly addNameRange     '2.3.5',
+25 silly addNameRange     '2.3.6',
+25 silly addNameRange     '2.3.7',
+25 silly addNameRange     '2.3.8',
+25 silly addNameRange     '2.3.9',
+25 silly addNameRange     '2.3.10',
+25 silly addNameRange     '2.3.11',
+25 silly addNameRange     '2.3.12',
+25 silly addNameRange     '2.3.13',
+25 silly addNameRange     '2.4.0',
+25 silly addNameRange     '2.4.1',
+25 silly addNameRange     '2.4.2',
+25 silly addNameRange     '2.4.3',
+25 silly addNameRange     '2.4.4',
+25 silly addNameRange     '2.4.5',
+25 silly addNameRange     '2.4.6',
+25 silly addNameRange     '2.4.7',
+25 silly addNameRange     '2.4.8',
+25 silly addNameRange     '2.4.9',
+25 silly addNameRange     '2.4.10',
+25 silly addNameRange     '2.5.0',
+25 silly addNameRange     '2.5.1',
+25 silly addNameRange     '2.5.2',
+25 silly addNameRange     '2.5.3',
+25 silly addNameRange     '2.5.4',
+25 silly addNameRange     '2.5.5',
+25 silly addNameRange     '2.5.6',
+25 silly addNameRange     '2.5.7',
+25 silly addNameRange     '2.5.8',
+25 silly addNameRange     '2.5.9',
+25 silly addNameRange     '2.5.10',
+25 silly addNameRange     '2.5.11',
+25 silly addNameRange     '2.5.12',
+25 silly addNameRange     '2.5.13',
+25 silly addNameRange     '2.5.14',
+25 silly addNameRange     '2.6.0',
+25 silly addNameRange     '2.6.1',
+25 silly addNameRange     '2.6.2',
+25 silly addNameRange     '2.6.3',
+25 silly addNameRange     '2.6.4',
+25 silly addNameRange     '2.6.5',
+25 silly addNameRange     '2.6.6',
+25 silly addNameRange     '2.6.7',
+25 silly addNameRange     '2.6.8',
+25 silly addNameRange     '2.7.0',
+25 silly addNameRange     '2.7.1',
+25 silly addNameRange     '2.7.2',
+25 silly addNameRange     '2.7.4',
+25 silly addNameRange     '2.7.3',
+25 silly addNameRange     '3.0.0',
+25 silly addNameRange     '3.0.1',
+25 silly addNameRange     '3.0.2',
+25 silly addNameRange     '2.8.0',
+25 silly addNameRange     '3.0.3',
+25 silly addNameRange     '3.1.0',
+25 silly addNameRange     '2.8.1',
+25 silly addNameRange     '3.1.1',
+25 silly addNameRange     '2.8.2',
+25 silly addNameRange     '2.8.3',
+25 silly addNameRange     '2.9.0',
+25 silly addNameRange     '3.2.0',
+25 silly addNameRange     '2.9.1',
+25 silly addNameRange     '3.2.1',
+25 silly addNameRange     '2.9.2',
+25 silly addNameRange     '3.2.2',
+25 silly addNameRange     '3.3.0',
+25 silly addNameRange     '3.3.1',
+25 silly addNameRange     '2.9.3',
+25 silly addNameRange     '3.4.0',
+25 silly addNameRange     '2.9.4',
+25 silly addNameRange     '2.9.5',
+25 silly addNameRange     '3.5.0',
+25 silly addNameRange     '3.5.1',
+25 silly addNameRange     '3.5.2',
+25 silly addNameRange     '3.5.3',
+25 silly addNameRange     '2.9.6',
+25 silly addNameRange     '2.9.7',
+25 silly addNameRange     '3.5.4',
+25 silly addNameRange     '3.5.5',
+25 silly addNameRange     '2.9.8',
+25 silly addNameRange     '2.9.9',
+25 silly addNameRange     '3.5.6',
+25 silly addNameRange     '3.5.7',
+25 silly addNameRange     '3.5.8',
+25 silly addNameRange     '2.9.10',
+25 silly addNameRange     '3.5.9',
+25 silly addNameRange     '3.6.2',
+25 silly addNameRange     '3.5.10',
+25 silly addNameRange     '3.6.3',
+25 silly addNameRange     '3.5.11',
+25 silly addNameRange     '3.6.4',
+25 silly addNameRange     '3.6.5',
+25 silly addNameRange     '3.6.6',
+25 silly addNameRange     '3.6.7',
+25 silly addNameRange     '3.5.12',
+25 silly addNameRange     '3.6.8',
+25 silly addNameRange     '3.6.9',
+25 silly addNameRange     '3.6.10',
+25 silly addNameRange     '3.5.13',
+25 silly addNameRange     '3.5.14',
+25 silly addNameRange     '3.6.11',
+25 silly addNameRange     '3.6.12',
+25 silly addNameRange     '3.6.13',
+25 silly addNameRange     '3.6.14',
+25 silly addNameRange     '3.6.15',
+25 silly addNameRange     '3.5.15',
+25 silly addNameRange     '3.7.0',
+25 silly addNameRange     '3.6.16',
+25 silly addNameRange     '3.5.16',
+25 silly addNameRange     '3.6.17',
+25 silly addNameRange     '3.7.2',
+25 silly addNameRange     '3.0.0-alpha1',
+25 silly addNameRange     '3.0.0-alpha2',
+25 silly addNameRange     '3.0.0-rc0',
+25 silly addNameRange     '3.6.0-rc0',
+25 silly addNameRange     '3.6.0-rc1',
+25 silly addNameRange     '3.6.18',
+25 silly addNameRange     '3.7.3',
+25 silly addNameRange     '3.6.19',
+25 silly addNameRange     '3.6.20',
+25 silly addNameRange     '3.7.4',
+25 silly addNameRange     '3.8.0',
+25 silly addNameRange     '3.8.1',
+25 silly addNameRange     '3.8.2',
+25 silly addNameRange     '3.8.3',
+25 silly addNameRange     '3.8.4',
+25 silly addNameRange     '3.8.5',
+25 silly addNameRange     '3.8.6',
+25 silly addNameRange     '3.8.7',
+25 silly addNameRange     '3.8.8',
+25 silly addNameRange     '3.8.9' ] ]
+26 verbose addNamed [ 'mongoose', '3.8.9' ]
+27 verbose addNamed [ '3.8.9', '3.8.9' ]
+28 silly lockFile 55122b19-mongoose-3-8-9 mongoose@3.8.9
+29 verbose lock mongoose@3.8.9 C:\Users\tony\AppData\Roaming\npm-cache\55122b19-mongoose-3-8-9.lock
+30 silly lockFile 3c9b5ffa--org-mongoose-mongoose-3-8-9-tgz https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz
+31 verbose lock https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz C:\Users\tony\AppData\Roaming\npm-cache\3c9b5ffa--org-mongoose-mongoose-3-8-9-tgz.lock
+32 verbose addRemoteTarball [ 'https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz',
+32 verbose addRemoteTarball   '7c89d8901d281a6baf911e60617a01131b5798b4' ]
+33 info retry fetch attempt 1 at 17:57:31
+34 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975051679-0.08974863961338997\tmp.tgz
+35 http GET https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz
+36 http 200 https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz
+37 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975051679-0.08974863961338997\tmp.tgz
+38 silly lockFile 33f0df4c-npm-cache-mongoose-3-8-9-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package
+39 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package C:\Users\tony\AppData\Roaming\npm-cache\33f0df4c-npm-cache-mongoose-3-8-9-package.lock
+40 silly lockFile 4e44781f-1679-0-08974863961338997-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975051679-0.08974863961338997\tmp.tgz
+41 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975051679-0.08974863961338997\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\4e44781f-1679-0-08974863961338997-tmp-tgz.lock
+42 silly gunzTarPerm modes [ '755', '644' ]
+43 silly gunzTarPerm extractEntry package.json
+44 silly gunzTarPerm extractEntry .npmignore
+45 silly gunzTarPerm extractEntry README.md
+46 silly gunzTarPerm extractEntry static.js
+47 silly gunzTarPerm extractEntry index.js
+48 silly gunzTarPerm extractEntry website.js
+49 silly gunzTarPerm extractEntry .travis.yml
+50 silly gunzTarPerm extractEntry contRun.sh
+51 silly gunzTarPerm extractEntry lib/aggregate.js
+52 silly gunzTarPerm extractEntry lib/statemachine.js
+53 silly gunzTarPerm extractEntry lib/error.js
+54 silly gunzTarPerm extractEntry lib/index.js
+55 silly gunzTarPerm extractEntry lib/utils.js
+56 silly gunzTarPerm extractEntry lib/model.js
+57 silly gunzTarPerm extractEntry lib/collection.js
+58 silly gunzTarPerm extractEntry lib/query.js
+59 silly gunzTarPerm extractEntry lib/queryhelpers.js
+60 silly gunzTarPerm extractEntry lib/querystream.js
+61 silly gunzTarPerm extractEntry lib/document.js
+62 silly gunzTarPerm extractEntry lib/schematype.js
+63 silly gunzTarPerm extractEntry lib/connectionstate.js
+64 silly gunzTarPerm extractEntry lib/schema.js
+65 silly gunzTarPerm extractEntry lib/connection.js
+66 silly gunzTarPerm extractEntry lib/schemadefault.js
+67 silly gunzTarPerm extractEntry lib/internal.js
+68 silly gunzTarPerm extractEntry lib/virtualtype.js
+69 silly gunzTarPerm extractEntry lib/promise.js
+70 silly gunzTarPerm extractEntry lib/schema/array.js
+71 silly gunzTarPerm extractEntry lib/schema/boolean.js
+72 silly gunzTarPerm extractEntry lib/schema/buffer.js
+73 silly gunzTarPerm extractEntry lib/schema/date.js
+74 silly gunzTarPerm extractEntry lib/schema/documentarray.js
+75 silly gunzTarPerm extractEntry lib/schema/index.js
+76 silly gunzTarPerm extractEntry lib/schema/mixed.js
+77 silly gunzTarPerm extractEntry lib/schema/number.js
+78 silly gunzTarPerm extractEntry lib/schema/objectid.js
+79 silly gunzTarPerm extractEntry lib/schema/string.js
+80 silly gunzTarPerm extractEntry lib/error/cast.js
+81 silly gunzTarPerm extractEntry lib/error/divergentArray.js
+82 silly gunzTarPerm extractEntry lib/error/messages.js
+83 silly gunzTarPerm extractEntry lib/error/missingSchema.js
+84 silly gunzTarPerm extractEntry lib/error/overwriteModel.js
+85 silly gunzTarPerm extractEntry lib/error/validation.js
+86 silly gunzTarPerm extractEntry lib/error/validator.js
+87 silly gunzTarPerm extractEntry lib/error/version.js
+88 silly gunzTarPerm extractEntry lib/types/array.js
+89 silly gunzTarPerm extractEntry lib/types/buffer.js
+90 silly gunzTarPerm extractEntry lib/types/documentarray.js
+91 silly gunzTarPerm extractEntry lib/types/embedded.js
+92 silly gunzTarPerm extractEntry lib/types/index.js
+93 silly gunzTarPerm extractEntry lib/types/objectid.js
+94 silly gunzTarPerm extractEntry lib/drivers/SPEC.md
+95 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/binary.js
+96 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/collection.js
+97 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/connection.js
+98 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/objectid.js
+99 silly gunzTarPerm extractEntry History.md
+100 silly gunzTarPerm extractEntry release-items.md
+101 silly gunzTarPerm extractEntry CONTRIBUTING.md
+102 silly gunzTarPerm extractEntry examples/README.md
+103 silly gunzTarPerm extractEntry examples/doc-methods.js
+104 silly gunzTarPerm extractEntry examples/statics/person.js
+105 silly gunzTarPerm extractEntry examples/statics/statics.js
+106 silly gunzTarPerm extractEntry examples/express/README.md
+107 silly gunzTarPerm extractEntry examples/express/connection-sharing/package.json
+108 silly gunzTarPerm extractEntry examples/express/connection-sharing/README.md
+109 silly gunzTarPerm extractEntry examples/express/connection-sharing/app.js
+110 silly gunzTarPerm extractEntry examples/express/connection-sharing/modelA.js
+111 silly gunzTarPerm extractEntry examples/express/connection-sharing/routes.js
+112 silly gunzTarPerm extractEntry examples/geospatial/package.json
+113 silly gunzTarPerm extractEntry examples/geospatial/geoJSONSchema.js
+114 silly gunzTarPerm extractEntry examples/geospatial/geoJSONexample.js
+115 silly gunzTarPerm extractEntry examples/geospatial/geospatial.js
+116 silly gunzTarPerm extractEntry examples/geospatial/person.js
+117 silly gunzTarPerm extractEntry examples/globalschemas/gs_example.js
+118 silly gunzTarPerm extractEntry examples/globalschemas/person.js
+119 silly gunzTarPerm extractEntry examples/lean/package.json
+120 silly gunzTarPerm extractEntry examples/lean/lean.js
+121 silly gunzTarPerm extractEntry examples/lean/person.js
+122 silly gunzTarPerm extractEntry examples/aggregate/package.json
+123 silly gunzTarPerm extractEntry examples/aggregate/aggregate.js
+124 silly gunzTarPerm extractEntry examples/aggregate/person.js
+125 silly gunzTarPerm extractEntry examples/population/population-across-three-collections.js
+126 silly gunzTarPerm extractEntry examples/population/population-basic.js
+127 silly gunzTarPerm extractEntry examples/population/population-of-existing-doc.js
+128 silly gunzTarPerm extractEntry examples/population/population-of-multiple-existing-docs.js
+129 silly gunzTarPerm extractEntry examples/population/population-options.js
+130 silly gunzTarPerm extractEntry examples/population/population-plain-objects.js
+131 silly gunzTarPerm extractEntry examples/promises/package.json
+132 silly gunzTarPerm extractEntry examples/promises/person.js
+133 silly gunzTarPerm extractEntry examples/promises/promise.js
+134 silly gunzTarPerm extractEntry examples/querybuilder/package.json
+135 silly gunzTarPerm extractEntry examples/querybuilder/person.js
+136 silly gunzTarPerm extractEntry examples/querybuilder/querybuilder.js
+137 silly gunzTarPerm extractEntry examples/replicasets/package.json
+138 silly gunzTarPerm extractEntry examples/replicasets/person.js
+139 silly gunzTarPerm extractEntry examples/replicasets/replica-sets.js
+140 silly gunzTarPerm extractEntry examples/schema/schema.js
+141 silly gunzTarPerm extractEntry examples/schema/storing-schemas-as-json/index.js
+142 silly gunzTarPerm extractEntry examples/schema/storing-schemas-as-json/schema.json
+143 silly gunzTarPerm extractEntry examples/mapreduce/package.json
+144 silly gunzTarPerm extractEntry examples/mapreduce/mapreduce.js
+145 silly gunzTarPerm extractEntry examples/mapreduce/person.js
+146 silly lockFile 33f0df4c-npm-cache-mongoose-3-8-9-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package
+147 silly lockFile 33f0df4c-npm-cache-mongoose-3-8-9-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package
+148 silly lockFile 4e44781f-1679-0-08974863961338997-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975051679-0.08974863961338997\tmp.tgz
+149 silly lockFile 4e44781f-1679-0-08974863961338997-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975051679-0.08974863961338997\tmp.tgz
+150 silly lockFile 3c9b5ffa--org-mongoose-mongoose-3-8-9-tgz https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz
+151 silly lockFile 3c9b5ffa--org-mongoose-mongoose-3-8-9-tgz https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz
+152 silly lockFile 55122b19-mongoose-3-8-9 mongoose@3.8.9
+153 silly lockFile 55122b19-mongoose-3-8-9 mongoose@3.8.9
+154 silly lockFile 3bb0fc31-mongoose mongoose@
+155 silly lockFile 3bb0fc31-mongoose mongoose@
+156 silly resolved [ { name: 'mongoose',
+156 silly resolved     description: 'Mongoose MongoDB ODM',
+156 silly resolved     version: '3.8.9',
+156 silly resolved     author: { name: 'Guillermo Rauch', email: 'guillermo@learnboost.com' },
+156 silly resolved     keywords:
+156 silly resolved      [ 'mongodb',
+156 silly resolved        'document',
+156 silly resolved        'model',
+156 silly resolved        'schema',
+156 silly resolved        'database',
+156 silly resolved        'odm',
+156 silly resolved        'data',
+156 silly resolved        'datastore',
+156 silly resolved        'query',
+156 silly resolved        'nosql',
+156 silly resolved        'orm',
+156 silly resolved        'db' ],
+156 silly resolved     dependencies:
+156 silly resolved      { hooks: '0.2.1',
+156 silly resolved        mongodb: '1.4.3',
+156 silly resolved        ms: '0.1.0',
+156 silly resolved        sliced: '0.0.5',
+156 silly resolved        muri: '0.3.1',
+156 silly resolved        mpromise: '0.4.3',
+156 silly resolved        mpath: '0.1.1',
+156 silly resolved        'regexp-clone': '0.0.1',
+156 silly resolved        mquery: '0.7.0' },
+156 silly resolved     devDependencies:
+156 silly resolved      { mocha: '1.12.0',
+156 silly resolved        'node-static': '0.5.9',
+156 silly resolved        dox: '0.3.1',
+156 silly resolved        jade: '0.26.3',
+156 silly resolved        'highlight.js': '7.0.1',
+156 silly resolved        markdown: '0.3.1',
+156 silly resolved        'promises-aplus-tests': '>= 1.0.2',
+156 silly resolved        tbd: '0.6.4',
+156 silly resolved        benchmark: '1.0.0',
+156 silly resolved        open: '0.0.3',
+156 silly resolved        async: '0.2.5' },
+156 silly resolved     directories: { lib: './lib/mongoose' },
+156 silly resolved     scripts: { test: 'make test' },
+156 silly resolved     main: './index.js',
+156 silly resolved     engines: { node: '>=0.6.19' },
+156 silly resolved     bugs:
+156 silly resolved      { url: 'https://github.com/learnboost/mongoose/issues/new',
+156 silly resolved        email: 'mongoose-orm@googlegroups.com' },
+156 silly resolved     repository: { type: 'git', url: 'git://github.com/LearnBoost/mongoose.git' },
+156 silly resolved     homepage: 'http://mongoosejs.com',
+156 silly resolved     readme: '# Mongoose\n\nMongoose is a [MongoDB](http://www.mongodb.org/) object modeling tool designed to work in an asynchronous environment.\n\n[![Build Status](https://travis-ci.org/LearnBoost/mongoose.png?branch=3.8.x)](https://travis-ci.org/LearnBoost/mongoose)\n\n## Documentation\n\n[mongoosejs.com](http://mongoosejs.com/)\n\n## Support\n\n  - [Stack Overflow](http://stackoverflow.com/questions/tagged/mongoose)\n  - [bug reports](https://github.com/learnboost/mongoose/issues/)\n  - [help forum](http://groups.google.com/group/mongoose-orm)\n  - [MongoDB support](http://www.mongodb.org/display/DOCS/Technical+Support)\n  - (irc) #mongoosejs on freenode\n\n## Plugins\n\nCheck out the [plugins search site](http://plugins.mongoosejs.com/) to see hundreds of related modules from the community.\n\n## Contributors\n\nView all 100+ [contributors](https://github.com/learnboost/mongoose/graphs/contributors). Stand up and be counted as a [contributor](https://github.com/LearnBoost/mongoose/blob/master/CONTRIBUTING.md) too!\n\n## Live Examples\n<a href="https://runnable.com/mongoose" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>\n\n## Installation\n\nFirst install [node.js](http://nodejs.org/) and [mongodb](http://www.mongodb.org/downloads). Then:\n\n```sh\n$ npm install mongoose\n```\n\n## Stability\n\nThe current stable branch is [3.8.x](https://github.com/LearnBoost/mongoose/tree/3.8.x). New (unstable) development always occurs on the [master](https://github.com/LearnBoost/mongoose/tree/master) branch.\n\n## Overview\n\n### Connecting to MongoDB\n\nFirst, we need to define a connection. If your app uses only one database, you should use `mongoose.connect`. If you need to create additional connections, use `mongoose.createConnection`.\n\nBoth `connect` and `createConnection` take a `mongodb://` URI, or the parameters `host, database, port, options`.\n\n```js\nvar mongoose = require(\'mongoose\');\n\nmongoose.connect(\'mongodb://localhost/my_database\');\n```\n\nOnce connected, the `open` event is fired on the `Connection` instance. If you\'re using `mongoose.connect`, the `Connection` is `mongoose.connection`. Otherwise, `mongoose.createConnection` return value is a `Connection`.\n\n**Important!** Mongoose buffers all the commands until it\'s connected to the database. This means that you don\'t have to wait until it connects to MongoDB in order to define models, run queries, etc.\n\n### Defining a Model\n\nModels are defined through the `Schema` interface. \n\n```js\nvar Schema = mongoose.Schema\n  , ObjectId = Schema.ObjectId;\n\nvar BlogPost = new Schema({\n    author    : ObjectId\n  , title     : String\n  , body      : String\n  , date      : Date\n});\n```\n\nAside from defining the structure of your documents and the types of data you\'re storing, a Schema handles the definition of:\n\n* [Validators](http://mongoosejs.com/docs/validation.html) (async and sync)\n* [Defaults](http://mongoosejs.com/docs/api.html#schematype_SchemaType-default)\n* [Getters](http://mongoosejs.com/docs/api.html#schematype_SchemaType-get)\n* [Setters](http://mongoosejs.com/docs/api.html#schematype_SchemaType-set)\n* [Indexes](http://mongoosejs.com/docs/guide.html#indexes)\n* [Middleware](http://mongoosejs.com/docs/middleware.html)\n* [Methods](http://mongoosejs.com/docs/guide.html#methods) definition\n* [Statics](http://mongoosejs.com/docs/guide.html#statics) definition\n* [Plugins](http://mongoosejs.com/docs/plugins.html)\n* [pseudo-JOINs](http://mongoosejs.com/docs/populate.html)\n\nThe following example shows some of these features:\n\n```js\nvar Comment = new Schema({\n    name  :  { type: String, default: \'hahaha\' }\n  , age   :  { type: Number, min: 18, index: true }\n  , bio   :  { type: String, match: /[a-z]/ }\n  , date  :  { type: Date, default: Date.now }\n  , buff  :  Buffer\n});\n\n// a setter\nComment.path(\'name\').set(function (v) {\n  return capitalize(v);\n});\n\n// middleware\nComment.pre(\'save\', function (next) {\n  notify(this.get(\'email\'));\n  next();\n});\n```\n\nTake a look at the example in `examples/schema.js` for an end-to-end example of a typical setup.\n\n### Accessing a Model\n\nOnce we define a model through `mongoose.model(\'ModelName\', mySchema)`, we can access it through the same function\n\n```js\nvar myModel = mongoose.model(\'ModelName\');\n```\n\nOr just do it all at once\n\n```js\nvar MyModel = mongoose.model(\'ModelName\', mySchema);\n```\n\nWe can then instantiate it, and save it:\n\n```js\nvar instance = new MyModel();\ninstance.my.key = \'hello\';\ninstance.save(function (err) {\n  //\n});\n```\n\nOr we can find documents from the same collection\n\n```js\nMyModel.find({}, function (err, docs) {\n  // docs.forEach\n});\n```\n\nYou can also `findOne`, `findById`, `update`, etc. For more details check out [the docs](http://mongoosejs.com/docs/queries.html).\n\n**Important!** If you opened a separate connection using `mongoose.createConnection()` but attempt to access the model through `mongoose.model(\'ModelName\')` it will not work as expected since it is not hooked up to an active db connection. In this case access your model through the connection you created:\n\n```js\nvar conn = mongoose.createConnection(\'your connection string\')\n  , MyModel = conn.model(\'ModelName\', schema)\n  , m = new MyModel;\nm.save(); // works\n```\n\nvs\n\n```js\nvar conn = mongoose.createConnection(\'your connection string\')\n  , MyModel = mongoose.model(\'ModelName\', schema)\n  , m = new MyModel;\nm.save(); // does not work b/c the default connection object was never connected\n```\n\n### Embedded Documents\n\nIn the first example snippet, we defined a key in the Schema that looks like:\n\n```\ncomments: [Comments]\n```\n\nWhere `Comments` is a `Schema` we created. This means that creating embedded documents is as simple as:\n\n```js\n// retrieve my model\nvar BlogPost = mongoose.model(\'BlogPost\');\n\n// create a blog post\nvar post = new BlogPost();\n\n// create a comment\npost.comments.push({ title: \'My comment\' });\n\npost.save(function (err) {\n  if (!err) console.log(\'Success!\');\n});\n```\n\nThe same goes for removing them:\n\n```js\nBlogPost.findById(myId, function (err, post) {\n  if (!err) {\n    post.comments[0].remove();\n    post.save(function (err) {\n      // do something\n    });\n  }\n});\n```\n\nEmbedded documents enjoy all the same features as your models. Defaults, validators, middleware. Whenever an error occurs, it\'s bubbled to the `save()` error callback, so error handling is a snap!\n\nMongoose interacts with your embedded documents in arrays _atomically_, out of the box.\n\n### Middleware\n\nSee the [docs](http://mongoosejs.com/docs/middleware.html) page.\n\n#### Intercepting and mutating method arguments\n\nYou can intercept method arguments via middleware.\n\nFor example, this would allow you to broadcast changes about your Documents every time someone `set`s a path in your Document to a new value:\n\n```js\nschema.pre(\'set\', function (next, path, val, typel) {\n  // `this` is the current Document\n  this.emit(\'set\', path, val);\n\n  // Pass control to the next pre\n  next();\n});\n```\n\nMoreover, you can mutate the incoming `method` arguments so that subsequent middleware see different values for those arguments. To do so, just pass the new values to `next`:\n\n```js\n.pre(method, function firstPre (next, methodArg1, methodArg2) {\n  // Mutate methodArg1\n  next("altered-" + methodArg1.toString(), methodArg2);\n});\n\n// pre declaration is chainable\n.pre(method, function secondPre (next, methodArg1, methodArg2) {\n  console.log(methodArg1);\n  // => \'altered-originalValOfMethodArg1\' \n      \n  console.log(methodArg2);\n  // => \'originalValOfMethodArg2\' \n      \n  // Passing no arguments to `next` automatically passes along the current argument values\n  // i.e., the following `next()` is equivalent to `next(methodArg1, methodArg2)`\n  // and also equivalent to, with the example method arg \n  // values, `next(\'altered-originalValOfMethodArg1\', \'originalValOfMethodArg2\')`\n  next();\n});\n```\n\n#### Schema gotcha\n\n`type`, when used in a schema has special meaning within Mongoose. If your schema requires using `type` as a nested property you must use object notation:\n\n```js\nnew Schema({\n    broken: { type: Boolean }\n  , asset : {\n        name: String\n      , type: String // uh oh, it broke. asset will be interpreted as String\n    }\n});\n\nnew Schema({\n    works: { type: Boolean }\n  , asset : {\n        name: String\n      , type: { type: String } // works. asset is an object with a type property\n    }\n});\n```\n\n### Driver access\n\nThe driver being used defaults to [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) and is directly accessible through `YourModel.collection`. **Note**: using the driver directly bypasses all Mongoose power-tools like validation, getters, setters, hooks, etc.\n\n## API Docs\n\nFind the API docs [here](http://mongoosejs.com/docs/api.html), generated using [dox](http://github.com/visionmedia/dox).\n\n## License\n\nCopyright (c) 2010 LearnBoost &lt;dev@learnboost.com&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\'Software\'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \'AS IS\', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+156 silly resolved     readmeFilename: 'README.md',
+156 silly resolved     _id: 'mongoose@3.8.9',
+156 silly resolved     _shasum: '7c89d8901d281a6baf911e60617a01131b5798b4',
+156 silly resolved     _from: 'mongoose@',
+156 silly resolved     _resolved: 'https://registry.npmjs.org/mongoose/-/mongoose-3.8.9.tgz' } ]
+157 info install mongoose@3.8.9 into D:\Temp
+158 info installOne mongoose@3.8.9
+159 info D:\Temp\node_modules\mongoose unbuild
+160 verbose tar unpack C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package.tgz
+161 silly lockFile 1573b9fd-tar-D-Temp-node-modules-mongoose tar://D:\Temp\node_modules\mongoose
+162 verbose lock tar://D:\Temp\node_modules\mongoose C:\Users\tony\AppData\Roaming\npm-cache\1573b9fd-tar-D-Temp-node-modules-mongoose.lock
+163 silly lockFile 4cdbb824-cache-mongoose-3-8-9-package-tgz tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package.tgz
+164 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package.tgz C:\Users\tony\AppData\Roaming\npm-cache\4cdbb824-cache-mongoose-3-8-9-package-tgz.lock
+165 silly gunzTarPerm modes [ '755', '644' ]
+166 silly gunzTarPerm extractEntry package.json
+167 silly gunzTarPerm extractEntry .npmignore
+168 silly gunzTarPerm extractEntry README.md
+169 silly gunzTarPerm extractEntry static.js
+170 silly gunzTarPerm extractEntry index.js
+171 silly gunzTarPerm extractEntry website.js
+172 silly gunzTarPerm extractEntry .travis.yml
+173 silly gunzTarPerm extractEntry contRun.sh
+174 silly gunzTarPerm extractEntry lib/aggregate.js
+175 silly gunzTarPerm extractEntry lib/statemachine.js
+176 silly gunzTarPerm extractEntry lib/error.js
+177 silly gunzTarPerm extractEntry lib/index.js
+178 silly gunzTarPerm extractEntry lib/utils.js
+179 silly gunzTarPerm extractEntry lib/model.js
+180 silly gunzTarPerm extractEntry lib/collection.js
+181 silly gunzTarPerm extractEntry lib/query.js
+182 silly gunzTarPerm extractEntry lib/queryhelpers.js
+183 silly gunzTarPerm extractEntry lib/querystream.js
+184 silly gunzTarPerm extractEntry lib/document.js
+185 silly gunzTarPerm extractEntry lib/schematype.js
+186 silly gunzTarPerm extractEntry lib/connectionstate.js
+187 silly gunzTarPerm extractEntry lib/schema.js
+188 silly gunzTarPerm extractEntry lib/connection.js
+189 silly gunzTarPerm extractEntry lib/schemadefault.js
+190 silly gunzTarPerm extractEntry lib/internal.js
+191 silly gunzTarPerm extractEntry lib/virtualtype.js
+192 silly gunzTarPerm extractEntry lib/promise.js
+193 silly gunzTarPerm extractEntry lib/schema/array.js
+194 silly gunzTarPerm extractEntry lib/schema/boolean.js
+195 silly gunzTarPerm extractEntry lib/schema/buffer.js
+196 silly gunzTarPerm extractEntry lib/schema/date.js
+197 silly gunzTarPerm extractEntry lib/schema/documentarray.js
+198 silly gunzTarPerm extractEntry lib/schema/index.js
+199 silly gunzTarPerm extractEntry lib/schema/mixed.js
+200 silly gunzTarPerm extractEntry lib/schema/number.js
+201 silly gunzTarPerm extractEntry lib/schema/objectid.js
+202 silly gunzTarPerm extractEntry lib/schema/string.js
+203 silly gunzTarPerm extractEntry lib/error/cast.js
+204 silly gunzTarPerm extractEntry lib/error/divergentArray.js
+205 silly gunzTarPerm extractEntry lib/error/messages.js
+206 silly gunzTarPerm extractEntry lib/error/missingSchema.js
+207 silly gunzTarPerm extractEntry lib/error/overwriteModel.js
+208 silly gunzTarPerm extractEntry lib/error/validation.js
+209 silly gunzTarPerm extractEntry lib/error/validator.js
+210 silly gunzTarPerm extractEntry lib/error/version.js
+211 silly gunzTarPerm extractEntry lib/types/array.js
+212 silly gunzTarPerm extractEntry lib/types/buffer.js
+213 silly gunzTarPerm extractEntry lib/types/documentarray.js
+214 silly gunzTarPerm extractEntry lib/types/embedded.js
+215 silly gunzTarPerm extractEntry lib/types/index.js
+216 silly gunzTarPerm extractEntry lib/types/objectid.js
+217 silly gunzTarPerm extractEntry lib/drivers/SPEC.md
+218 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/binary.js
+219 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/collection.js
+220 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/connection.js
+221 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/objectid.js
+222 silly gunzTarPerm extractEntry History.md
+223 silly gunzTarPerm extractEntry release-items.md
+224 silly gunzTarPerm extractEntry CONTRIBUTING.md
+225 silly gunzTarPerm extractEntry examples/README.md
+226 silly gunzTarPerm extractEntry examples/doc-methods.js
+227 silly gunzTarPerm extractEntry examples/statics/person.js
+228 silly gunzTarPerm extractEntry examples/statics/statics.js
+229 silly gunzTarPerm extractEntry examples/express/README.md
+230 silly gunzTarPerm extractEntry examples/express/connection-sharing/package.json
+231 silly gunzTarPerm extractEntry examples/express/connection-sharing/README.md
+232 silly gunzTarPerm extractEntry examples/express/connection-sharing/app.js
+233 silly gunzTarPerm extractEntry examples/express/connection-sharing/modelA.js
+234 silly gunzTarPerm extractEntry examples/express/connection-sharing/routes.js
+235 silly gunzTarPerm extractEntry examples/geospatial/package.json
+236 silly gunzTarPerm extractEntry examples/geospatial/geoJSONSchema.js
+237 silly gunzTarPerm extractEntry examples/geospatial/geoJSONexample.js
+238 silly gunzTarPerm extractEntry examples/geospatial/geospatial.js
+239 silly gunzTarPerm extractEntry examples/geospatial/person.js
+240 silly gunzTarPerm extractEntry examples/globalschemas/gs_example.js
+241 silly gunzTarPerm extractEntry examples/globalschemas/person.js
+242 silly gunzTarPerm extractEntry examples/lean/package.json
+243 silly gunzTarPerm extractEntry examples/lean/lean.js
+244 silly gunzTarPerm extractEntry examples/lean/person.js
+245 silly gunzTarPerm extractEntry examples/aggregate/package.json
+246 silly gunzTarPerm extractEntry examples/aggregate/aggregate.js
+247 silly gunzTarPerm extractEntry examples/aggregate/person.js
+248 silly gunzTarPerm extractEntry examples/population/population-across-three-collections.js
+249 silly gunzTarPerm extractEntry examples/population/population-basic.js
+250 silly gunzTarPerm extractEntry examples/population/population-of-existing-doc.js
+251 silly gunzTarPerm extractEntry examples/population/population-of-multiple-existing-docs.js
+252 silly gunzTarPerm extractEntry examples/population/population-options.js
+253 silly gunzTarPerm extractEntry examples/population/population-plain-objects.js
+254 silly gunzTarPerm extractEntry examples/promises/package.json
+255 silly gunzTarPerm extractEntry examples/promises/person.js
+256 silly gunzTarPerm extractEntry examples/promises/promise.js
+257 silly gunzTarPerm extractEntry examples/querybuilder/package.json
+258 silly gunzTarPerm extractEntry examples/querybuilder/person.js
+259 silly gunzTarPerm extractEntry examples/querybuilder/querybuilder.js
+260 silly gunzTarPerm extractEntry examples/replicasets/package.json
+261 silly gunzTarPerm extractEntry examples/replicasets/person.js
+262 silly gunzTarPerm extractEntry examples/replicasets/replica-sets.js
+263 silly gunzTarPerm extractEntry examples/schema/schema.js
+264 silly gunzTarPerm extractEntry examples/schema/storing-schemas-as-json/index.js
+265 silly gunzTarPerm extractEntry examples/schema/storing-schemas-as-json/schema.json
+266 silly gunzTarPerm extractEntry examples/mapreduce/package.json
+267 silly gunzTarPerm extractEntry examples/mapreduce/mapreduce.js
+268 silly gunzTarPerm extractEntry examples/mapreduce/person.js
+269 silly lockFile 1573b9fd-tar-D-Temp-node-modules-mongoose tar://D:\Temp\node_modules\mongoose
+270 silly lockFile 1573b9fd-tar-D-Temp-node-modules-mongoose tar://D:\Temp\node_modules\mongoose
+271 silly lockFile 4cdbb824-cache-mongoose-3-8-9-package-tgz tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package.tgz
+272 silly lockFile 4cdbb824-cache-mongoose-3-8-9-package-tgz tar://C:\Users\tony\AppData\Roaming\npm-cache\mongoose\3.8.9\package.tgz
+273 info preinstall mongoose@3.8.9
+274 verbose readDependencies using package.json deps
+275 verbose readDependencies using package.json deps
+276 verbose cache add [ 'hooks@0.2.1', null ]
+277 verbose cache add name=undefined spec="hooks@0.2.1" args=["hooks@0.2.1",null]
+278 verbose parsed url { protocol: null,
+278 verbose parsed url   slashes: null,
+278 verbose parsed url   auth: null,
+278 verbose parsed url   host: null,
+278 verbose parsed url   port: null,
+278 verbose parsed url   hostname: null,
+278 verbose parsed url   hash: null,
+278 verbose parsed url   search: null,
+278 verbose parsed url   query: null,
+278 verbose parsed url   pathname: 'hooks@0.2.1',
+278 verbose parsed url   path: 'hooks@0.2.1',
+278 verbose parsed url   href: 'hooks@0.2.1' }
+279 verbose cache add name="hooks" spec="0.2.1" args=["hooks","0.2.1"]
+280 verbose parsed url { protocol: null,
+280 verbose parsed url   slashes: null,
+280 verbose parsed url   auth: null,
+280 verbose parsed url   host: null,
+280 verbose parsed url   port: null,
+280 verbose parsed url   hostname: null,
+280 verbose parsed url   hash: null,
+280 verbose parsed url   search: null,
+280 verbose parsed url   query: null,
+280 verbose parsed url   pathname: '0.2.1',
+280 verbose parsed url   path: '0.2.1',
+280 verbose parsed url   href: '0.2.1' }
+281 verbose addNamed [ 'hooks', '0.2.1' ]
+282 verbose addNamed [ '0.2.1', '0.2.1' ]
+283 silly lockFile 207ce50b-hooks-0-2-1 hooks@0.2.1
+284 verbose lock hooks@0.2.1 C:\Users\tony\AppData\Roaming\npm-cache\207ce50b-hooks-0-2-1.lock
+285 verbose cache add [ 'mongodb@1.4.3', null ]
+286 verbose cache add name=undefined spec="mongodb@1.4.3" args=["mongodb@1.4.3",null]
+287 verbose parsed url { protocol: null,
+287 verbose parsed url   slashes: null,
+287 verbose parsed url   auth: null,
+287 verbose parsed url   host: null,
+287 verbose parsed url   port: null,
+287 verbose parsed url   hostname: null,
+287 verbose parsed url   hash: null,
+287 verbose parsed url   search: null,
+287 verbose parsed url   query: null,
+287 verbose parsed url   pathname: 'mongodb@1.4.3',
+287 verbose parsed url   path: 'mongodb@1.4.3',
+287 verbose parsed url   href: 'mongodb@1.4.3' }
+288 verbose cache add name="mongodb" spec="1.4.3" args=["mongodb","1.4.3"]
+289 verbose parsed url { protocol: null,
+289 verbose parsed url   slashes: null,
+289 verbose parsed url   auth: null,
+289 verbose parsed url   host: null,
+289 verbose parsed url   port: null,
+289 verbose parsed url   hostname: null,
+289 verbose parsed url   hash: null,
+289 verbose parsed url   search: null,
+289 verbose parsed url   query: null,
+289 verbose parsed url   pathname: '1.4.3',
+289 verbose parsed url   path: '1.4.3',
+289 verbose parsed url   href: '1.4.3' }
+290 verbose addNamed [ 'mongodb', '1.4.3' ]
+291 verbose addNamed [ '1.4.3', '1.4.3' ]
+292 silly lockFile 71be648b-mongodb-1-4-3 mongodb@1.4.3
+293 verbose lock mongodb@1.4.3 C:\Users\tony\AppData\Roaming\npm-cache\71be648b-mongodb-1-4-3.lock
+294 verbose cache add [ 'ms@0.1.0', null ]
+295 verbose cache add name=undefined spec="ms@0.1.0" args=["ms@0.1.0",null]
+296 verbose parsed url { protocol: null,
+296 verbose parsed url   slashes: null,
+296 verbose parsed url   auth: null,
+296 verbose parsed url   host: null,
+296 verbose parsed url   port: null,
+296 verbose parsed url   hostname: null,
+296 verbose parsed url   hash: null,
+296 verbose parsed url   search: null,
+296 verbose parsed url   query: null,
+296 verbose parsed url   pathname: 'ms@0.1.0',
+296 verbose parsed url   path: 'ms@0.1.0',
+296 verbose parsed url   href: 'ms@0.1.0' }
+297 verbose cache add name="ms" spec="0.1.0" args=["ms","0.1.0"]
+298 verbose parsed url { protocol: null,
+298 verbose parsed url   slashes: null,
+298 verbose parsed url   auth: null,
+298 verbose parsed url   host: null,
+298 verbose parsed url   port: null,
+298 verbose parsed url   hostname: null,
+298 verbose parsed url   hash: null,
+298 verbose parsed url   search: null,
+298 verbose parsed url   query: null,
+298 verbose parsed url   pathname: '0.1.0',
+298 verbose parsed url   path: '0.1.0',
+298 verbose parsed url   href: '0.1.0' }
+299 verbose addNamed [ 'ms', '0.1.0' ]
+300 verbose addNamed [ '0.1.0', '0.1.0' ]
+301 silly lockFile 9555626c-ms-0-1-0 ms@0.1.0
+302 verbose lock ms@0.1.0 C:\Users\tony\AppData\Roaming\npm-cache\9555626c-ms-0-1-0.lock
+303 verbose cache add [ 'sliced@0.0.5', null ]
+304 verbose cache add name=undefined spec="sliced@0.0.5" args=["sliced@0.0.5",null]
+305 verbose parsed url { protocol: null,
+305 verbose parsed url   slashes: null,
+305 verbose parsed url   auth: null,
+305 verbose parsed url   host: null,
+305 verbose parsed url   port: null,
+305 verbose parsed url   hostname: null,
+305 verbose parsed url   hash: null,
+305 verbose parsed url   search: null,
+305 verbose parsed url   query: null,
+305 verbose parsed url   pathname: 'sliced@0.0.5',
+305 verbose parsed url   path: 'sliced@0.0.5',
+305 verbose parsed url   href: 'sliced@0.0.5' }
+306 verbose cache add name="sliced" spec="0.0.5" args=["sliced","0.0.5"]
+307 verbose parsed url { protocol: null,
+307 verbose parsed url   slashes: null,
+307 verbose parsed url   auth: null,
+307 verbose parsed url   host: null,
+307 verbose parsed url   port: null,
+307 verbose parsed url   hostname: null,
+307 verbose parsed url   hash: null,
+307 verbose parsed url   search: null,
+307 verbose parsed url   query: null,
+307 verbose parsed url   pathname: '0.0.5',
+307 verbose parsed url   path: '0.0.5',
+307 verbose parsed url   href: '0.0.5' }
+308 verbose addNamed [ 'sliced', '0.0.5' ]
+309 verbose addNamed [ '0.0.5', '0.0.5' ]
+310 silly lockFile 146acdb0-sliced-0-0-5 sliced@0.0.5
+311 verbose lock sliced@0.0.5 C:\Users\tony\AppData\Roaming\npm-cache\146acdb0-sliced-0-0-5.lock
+312 verbose cache add [ 'muri@0.3.1', null ]
+313 verbose cache add name=undefined spec="muri@0.3.1" args=["muri@0.3.1",null]
+314 verbose parsed url { protocol: null,
+314 verbose parsed url   slashes: null,
+314 verbose parsed url   auth: null,
+314 verbose parsed url   host: null,
+314 verbose parsed url   port: null,
+314 verbose parsed url   hostname: null,
+314 verbose parsed url   hash: null,
+314 verbose parsed url   search: null,
+314 verbose parsed url   query: null,
+314 verbose parsed url   pathname: 'muri@0.3.1',
+314 verbose parsed url   path: 'muri@0.3.1',
+314 verbose parsed url   href: 'muri@0.3.1' }
+315 verbose cache add name="muri" spec="0.3.1" args=["muri","0.3.1"]
+316 verbose parsed url { protocol: null,
+316 verbose parsed url   slashes: null,
+316 verbose parsed url   auth: null,
+316 verbose parsed url   host: null,
+316 verbose parsed url   port: null,
+316 verbose parsed url   hostname: null,
+316 verbose parsed url   hash: null,
+316 verbose parsed url   search: null,
+316 verbose parsed url   query: null,
+316 verbose parsed url   pathname: '0.3.1',
+316 verbose parsed url   path: '0.3.1',
+316 verbose parsed url   href: '0.3.1' }
+317 verbose addNamed [ 'muri', '0.3.1' ]
+318 verbose addNamed [ '0.3.1', '0.3.1' ]
+319 silly lockFile 01b66c9e-muri-0-3-1 muri@0.3.1
+320 verbose lock muri@0.3.1 C:\Users\tony\AppData\Roaming\npm-cache\01b66c9e-muri-0-3-1.lock
+321 verbose cache add [ 'mpromise@0.4.3', null ]
+322 verbose cache add name=undefined spec="mpromise@0.4.3" args=["mpromise@0.4.3",null]
+323 verbose parsed url { protocol: null,
+323 verbose parsed url   slashes: null,
+323 verbose parsed url   auth: null,
+323 verbose parsed url   host: null,
+323 verbose parsed url   port: null,
+323 verbose parsed url   hostname: null,
+323 verbose parsed url   hash: null,
+323 verbose parsed url   search: null,
+323 verbose parsed url   query: null,
+323 verbose parsed url   pathname: 'mpromise@0.4.3',
+323 verbose parsed url   path: 'mpromise@0.4.3',
+323 verbose parsed url   href: 'mpromise@0.4.3' }
+324 verbose cache add name="mpromise" spec="0.4.3" args=["mpromise","0.4.3"]
+325 verbose parsed url { protocol: null,
+325 verbose parsed url   slashes: null,
+325 verbose parsed url   auth: null,
+325 verbose parsed url   host: null,
+325 verbose parsed url   port: null,
+325 verbose parsed url   hostname: null,
+325 verbose parsed url   hash: null,
+325 verbose parsed url   search: null,
+325 verbose parsed url   query: null,
+325 verbose parsed url   pathname: '0.4.3',
+325 verbose parsed url   path: '0.4.3',
+325 verbose parsed url   href: '0.4.3' }
+326 verbose addNamed [ 'mpromise', '0.4.3' ]
+327 verbose addNamed [ '0.4.3', '0.4.3' ]
+328 silly lockFile 70229a2d-mpromise-0-4-3 mpromise@0.4.3
+329 verbose lock mpromise@0.4.3 C:\Users\tony\AppData\Roaming\npm-cache\70229a2d-mpromise-0-4-3.lock
+330 verbose cache add [ 'mpath@0.1.1', null ]
+331 verbose cache add name=undefined spec="mpath@0.1.1" args=["mpath@0.1.1",null]
+332 verbose parsed url { protocol: null,
+332 verbose parsed url   slashes: null,
+332 verbose parsed url   auth: null,
+332 verbose parsed url   host: null,
+332 verbose parsed url   port: null,
+332 verbose parsed url   hostname: null,
+332 verbose parsed url   hash: null,
+332 verbose parsed url   search: null,
+332 verbose parsed url   query: null,
+332 verbose parsed url   pathname: 'mpath@0.1.1',
+332 verbose parsed url   path: 'mpath@0.1.1',
+332 verbose parsed url   href: 'mpath@0.1.1' }
+333 verbose cache add name="mpath" spec="0.1.1" args=["mpath","0.1.1"]
+334 verbose parsed url { protocol: null,
+334 verbose parsed url   slashes: null,
+334 verbose parsed url   auth: null,
+334 verbose parsed url   host: null,
+334 verbose parsed url   port: null,
+334 verbose parsed url   hostname: null,
+334 verbose parsed url   hash: null,
+334 verbose parsed url   search: null,
+334 verbose parsed url   query: null,
+334 verbose parsed url   pathname: '0.1.1',
+334 verbose parsed url   path: '0.1.1',
+334 verbose parsed url   href: '0.1.1' }
+335 verbose addNamed [ 'mpath', '0.1.1' ]
+336 verbose addNamed [ '0.1.1', '0.1.1' ]
+337 silly lockFile 7ed304e1-mpath-0-1-1 mpath@0.1.1
+338 verbose lock mpath@0.1.1 C:\Users\tony\AppData\Roaming\npm-cache\7ed304e1-mpath-0-1-1.lock
+339 verbose cache add [ 'regexp-clone@0.0.1', null ]
+340 verbose cache add name=undefined spec="regexp-clone@0.0.1" args=["regexp-clone@0.0.1",null]
+341 verbose parsed url { protocol: null,
+341 verbose parsed url   slashes: null,
+341 verbose parsed url   auth: null,
+341 verbose parsed url   host: null,
+341 verbose parsed url   port: null,
+341 verbose parsed url   hostname: null,
+341 verbose parsed url   hash: null,
+341 verbose parsed url   search: null,
+341 verbose parsed url   query: null,
+341 verbose parsed url   pathname: 'regexp-clone@0.0.1',
+341 verbose parsed url   path: 'regexp-clone@0.0.1',
+341 verbose parsed url   href: 'regexp-clone@0.0.1' }
+342 verbose cache add name="regexp-clone" spec="0.0.1" args=["regexp-clone","0.0.1"]
+343 verbose parsed url { protocol: null,
+343 verbose parsed url   slashes: null,
+343 verbose parsed url   auth: null,
+343 verbose parsed url   host: null,
+343 verbose parsed url   port: null,
+343 verbose parsed url   hostname: null,
+343 verbose parsed url   hash: null,
+343 verbose parsed url   search: null,
+343 verbose parsed url   query: null,
+343 verbose parsed url   pathname: '0.0.1',
+343 verbose parsed url   path: '0.0.1',
+343 verbose parsed url   href: '0.0.1' }
+344 verbose addNamed [ 'regexp-clone', '0.0.1' ]
+345 verbose addNamed [ '0.0.1', '0.0.1' ]
+346 silly lockFile c8264751-regexp-clone-0-0-1 regexp-clone@0.0.1
+347 verbose lock regexp-clone@0.0.1 C:\Users\tony\AppData\Roaming\npm-cache\c8264751-regexp-clone-0-0-1.lock
+348 verbose cache add [ 'mquery@0.7.0', null ]
+349 verbose cache add name=undefined spec="mquery@0.7.0" args=["mquery@0.7.0",null]
+350 verbose parsed url { protocol: null,
+350 verbose parsed url   slashes: null,
+350 verbose parsed url   auth: null,
+350 verbose parsed url   host: null,
+350 verbose parsed url   port: null,
+350 verbose parsed url   hostname: null,
+350 verbose parsed url   hash: null,
+350 verbose parsed url   search: null,
+350 verbose parsed url   query: null,
+350 verbose parsed url   pathname: 'mquery@0.7.0',
+350 verbose parsed url   path: 'mquery@0.7.0',
+350 verbose parsed url   href: 'mquery@0.7.0' }
+351 verbose cache add name="mquery" spec="0.7.0" args=["mquery","0.7.0"]
+352 verbose parsed url { protocol: null,
+352 verbose parsed url   slashes: null,
+352 verbose parsed url   auth: null,
+352 verbose parsed url   host: null,
+352 verbose parsed url   port: null,
+352 verbose parsed url   hostname: null,
+352 verbose parsed url   hash: null,
+352 verbose parsed url   search: null,
+352 verbose parsed url   query: null,
+352 verbose parsed url   pathname: '0.7.0',
+352 verbose parsed url   path: '0.7.0',
+352 verbose parsed url   href: '0.7.0' }
+353 verbose addNamed [ 'mquery', '0.7.0' ]
+354 verbose addNamed [ '0.7.0', '0.7.0' ]
+355 silly lockFile 78950805-mquery-0-7-0 mquery@0.7.0
+356 verbose lock mquery@0.7.0 C:\Users\tony\AppData\Roaming\npm-cache\78950805-mquery-0-7-0.lock
+357 verbose url raw mpath
+358 verbose url resolving [ 'https://registry.npmjs.org/', './mpath' ]
+359 verbose url resolved https://registry.npmjs.org/mpath
+360 info trying registry request attempt 1 at 17:57:36
+361 http GET https://registry.npmjs.org/mpath
+362 verbose url raw sliced
+363 verbose url resolving [ 'https://registry.npmjs.org/', './sliced' ]
+364 verbose url resolved https://registry.npmjs.org/sliced
+365 info trying registry request attempt 1 at 17:57:36
+366 http GET https://registry.npmjs.org/sliced
+367 verbose url raw ms
+368 verbose url resolving [ 'https://registry.npmjs.org/', './ms' ]
+369 verbose url resolved https://registry.npmjs.org/ms
+370 info trying registry request attempt 1 at 17:57:36
+371 http GET https://registry.npmjs.org/ms
+372 verbose url raw hooks
+373 verbose url resolving [ 'https://registry.npmjs.org/', './hooks' ]
+374 verbose url resolved https://registry.npmjs.org/hooks
+375 info trying registry request attempt 1 at 17:57:36
+376 http GET https://registry.npmjs.org/hooks
+377 verbose url raw muri
+378 verbose url resolving [ 'https://registry.npmjs.org/', './muri' ]
+379 verbose url resolved https://registry.npmjs.org/muri
+380 info trying registry request attempt 1 at 17:57:36
+381 http GET https://registry.npmjs.org/muri
+382 verbose url raw mpromise
+383 verbose url resolving [ 'https://registry.npmjs.org/', './mpromise' ]
+384 verbose url resolved https://registry.npmjs.org/mpromise
+385 info trying registry request attempt 1 at 17:57:36
+386 http GET https://registry.npmjs.org/mpromise
+387 verbose url raw mongodb
+388 verbose url resolving [ 'https://registry.npmjs.org/', './mongodb' ]
+389 verbose url resolved https://registry.npmjs.org/mongodb
+390 info trying registry request attempt 1 at 17:57:36
+391 http GET https://registry.npmjs.org/mongodb
+392 verbose url raw regexp-clone
+393 verbose url resolving [ 'https://registry.npmjs.org/', './regexp-clone' ]
+394 verbose url resolved https://registry.npmjs.org/regexp-clone
+395 info trying registry request attempt 1 at 17:57:36
+396 http GET https://registry.npmjs.org/regexp-clone
+397 verbose url raw mquery
+398 verbose url resolving [ 'https://registry.npmjs.org/', './mquery' ]
+399 verbose url resolved https://registry.npmjs.org/mquery
+400 info trying registry request attempt 1 at 17:57:36
+401 http GET https://registry.npmjs.org/mquery
+402 http 200 https://registry.npmjs.org/sliced
+403 silly registry.get cb [ 200,
+403 silly registry.get   { date: 'Tue, 13 May 2014 09:52:44 GMT',
+403 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+403 silly registry.get     etag: '"1GB1UNXUF3ZHA2BDWX1BPWVBN"',
+403 silly registry.get     'content-type': 'application/json',
+403 silly registry.get     via: '1.1 varnish',
+403 silly registry.get     'cache-control': 'max-age=1',
+403 silly registry.get     'content-length': '16869',
+403 silly registry.get     'accept-ranges': 'bytes',
+403 silly registry.get     age: '1593',
+403 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-ty67-TYO',
+403 silly registry.get     'x-cache': 'HIT, MISS',
+403 silly registry.get     'x-cache-hits': '1, 0',
+403 silly registry.get     'x-timer': 'S1399973164.835498095,VS0,VS90,VE175,VE1599849',
+403 silly registry.get     vary: 'Accept',
+403 silly registry.get     'keep-alive': 'timeout=10, max=50',
+403 silly registry.get     connection: 'Keep-Alive' } ]
+404 silly lockFile de0d6290-pmjs-org-sliced-sliced-0-0-5-tgz https://registry.npmjs.org/sliced/-/sliced-0.0.5.tgz
+405 verbose lock https://registry.npmjs.org/sliced/-/sliced-0.0.5.tgz C:\Users\tony\AppData\Roaming\npm-cache\de0d6290-pmjs-org-sliced-sliced-0-0-5-tgz.lock
+406 verbose addRemoteTarball [ 'https://registry.npmjs.org/sliced/-/sliced-0.0.5.tgz',
+406 verbose addRemoteTarball   '5edc044ca4eb6f7816d50ba2fc63e25d8fe4707f' ]
+407 info retry fetch attempt 1 at 17:57:37
+408 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057864-0.47694411175325513\tmp.tgz
+409 http GET https://registry.npmjs.org/sliced/-/sliced-0.0.5.tgz
+410 http 200 https://registry.npmjs.org/muri
+411 silly registry.get cb [ 200,
+411 silly registry.get   { date: 'Tue, 13 May 2014 09:52:44 GMT',
+411 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+411 silly registry.get     etag: '"6FY9L2KR5Z13C748NVFMO5UZK"',
+411 silly registry.get     'content-type': 'application/json',
+411 silly registry.get     via: '1.1 varnish',
+411 silly registry.get     'cache-control': 'max-age=1',
+411 silly registry.get     'content-length': '22512',
+411 silly registry.get     'accept-ranges': 'bytes',
+411 silly registry.get     'x-served-by': 'cache-v43-ASH, cache-ty66-TYO',
+411 silly registry.get     'x-cache': 'HIT, MISS',
+411 silly registry.get     'x-cache-hits': '1, 0',
+411 silly registry.get     'x-timer': 'S1399974387.103202581,VS0,VS87,VE182,VE377619',
+411 silly registry.get     vary: 'Accept',
+411 silly registry.get     'keep-alive': 'timeout=10, max=50',
+411 silly registry.get     connection: 'Keep-Alive' } ]
+412 silly lockFile 03f6556a-ry-npmjs-org-muri-muri-0-3-1-tgz https://registry.npmjs.org/muri/-/muri-0.3.1.tgz
+413 verbose lock https://registry.npmjs.org/muri/-/muri-0.3.1.tgz C:\Users\tony\AppData\Roaming\npm-cache\03f6556a-ry-npmjs-org-muri-muri-0-3-1-tgz.lock
+414 verbose addRemoteTarball [ 'https://registry.npmjs.org/muri/-/muri-0.3.1.tgz',
+414 verbose addRemoteTarball   '861889c5c857f1a43700bee85d50731f61727c9a' ]
+415 info retry fetch attempt 1 at 17:57:37
+416 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057915-0.06603030138649046\tmp.tgz
+417 http GET https://registry.npmjs.org/muri/-/muri-0.3.1.tgz
+418 http 200 https://registry.npmjs.org/ms
+419 silly registry.get cb [ 200,
+419 silly registry.get   { date: 'Tue, 13 May 2014 09:52:44 GMT',
+419 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+419 silly registry.get     etag: '"CSIX4KDO8SND7BCAA6QUDSKNQ"',
+419 silly registry.get     'content-type': 'application/json',
+419 silly registry.get     via: '1.1 varnish',
+419 silly registry.get     'cache-control': 'max-age=1',
+419 silly registry.get     'content-length': '15162',
+419 silly registry.get     'accept-ranges': 'bytes',
+419 silly registry.get     age: '377',
+419 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-ty67-TYO',
+419 silly registry.get     'x-cache': 'HIT, MISS',
+419 silly registry.get     'x-cache-hits': '1, 0',
+419 silly registry.get     'x-timer': 'S1399974387.508173704,VS0,VS83,VE89,VE377251',
+419 silly registry.get     vary: 'Accept',
+419 silly registry.get     'keep-alive': 'timeout=10, max=50',
+419 silly registry.get     connection: 'Keep-Alive' } ]
+420 silly lockFile 8b5d9006-gistry-npmjs-org-ms-ms-0-1-0-tgz https://registry.npmjs.org/ms/-/ms-0.1.0.tgz
+421 verbose lock https://registry.npmjs.org/ms/-/ms-0.1.0.tgz C:\Users\tony\AppData\Roaming\npm-cache\8b5d9006-gistry-npmjs-org-ms-ms-0-1-0-tgz.lock
+422 verbose addRemoteTarball [ 'https://registry.npmjs.org/ms/-/ms-0.1.0.tgz',
+422 verbose addRemoteTarball   'f21fac490daf1d7667fd180fe9077389cc9442b2' ]
+423 info retry fetch attempt 1 at 17:57:37
+424 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057931-0.9764358687680215\tmp.tgz
+425 http GET https://registry.npmjs.org/ms/-/ms-0.1.0.tgz
+426 http 200 https://registry.npmjs.org/mpath
+427 silly registry.get cb [ 200,
+427 silly registry.get   { date: 'Tue, 13 May 2014 09:52:44 GMT',
+427 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+427 silly registry.get     etag: '"6LPLG608V4ZO3LYJYZSNXDL7X"',
+427 silly registry.get     'content-type': 'application/json',
+427 silly registry.get     via: '1.1 varnish',
+427 silly registry.get     'cache-control': 'max-age=1',
+427 silly registry.get     'content-length': '39623',
+427 silly registry.get     'accept-ranges': 'bytes',
+427 silly registry.get     age: '2224',
+427 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-ty68-TYO',
+427 silly registry.get     'x-cache': 'HIT, MISS',
+427 silly registry.get     'x-cache-hits': '1, 0',
+427 silly registry.get     'x-timer': 'S1399972540.806372881,VS0,VS90,VE178,VE2223977',
+427 silly registry.get     vary: 'Accept',
+427 silly registry.get     'keep-alive': 'timeout=10, max=50',
+427 silly registry.get     connection: 'Keep-Alive' } ]
+428 silly lockFile 88623af3--npmjs-org-mpath-mpath-0-1-1-tgz https://registry.npmjs.org/mpath/-/mpath-0.1.1.tgz
+429 verbose lock https://registry.npmjs.org/mpath/-/mpath-0.1.1.tgz C:\Users\tony\AppData\Roaming\npm-cache\88623af3--npmjs-org-mpath-mpath-0-1-1-tgz.lock
+430 verbose addRemoteTarball [ 'https://registry.npmjs.org/mpath/-/mpath-0.1.1.tgz',
+430 verbose addRemoteTarball   '23da852b7c232ee097f4759d29c0ee9cd22d5e46' ]
+431 info retry fetch attempt 1 at 17:57:38
+432 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058260-0.48559198970906436\tmp.tgz
+433 http GET https://registry.npmjs.org/mpath/-/mpath-0.1.1.tgz
+434 http 200 https://registry.npmjs.org/regexp-clone
+435 silly registry.get cb [ 200,
+435 silly registry.get   { date: 'Tue, 13 May 2014 09:52:45 GMT',
+435 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+435 silly registry.get     etag: '"B1O3R05Q8N6B5YYGAJXGXW1C1"',
+435 silly registry.get     'content-type': 'application/json',
+435 silly registry.get     via: '1.1 varnish',
+435 silly registry.get     'cache-control': 'max-age=1',
+435 silly registry.get     'content-length': '2145',
+435 silly registry.get     'accept-ranges': 'bytes',
+435 silly registry.get     age: '840',
+435 silly registry.get     'x-served-by': 'cache-v41-ASH, cache-ty67-TYO',
+435 silly registry.get     'x-cache': 'HIT, MISS',
+435 silly registry.get     'x-cache-hits': '2, 0',
+435 silly registry.get     'x-timer': 'S1399974765.384388447,VS0,VS87,VE87,VE179',
+435 silly registry.get     vary: 'Accept',
+435 silly registry.get     'keep-alive': 'timeout=10, max=49',
+435 silly registry.get     connection: 'Keep-Alive' } ]
+436 silly lockFile c14d1afe-exp-clone-regexp-clone-0-0-1-tgz https://registry.npmjs.org/regexp-clone/-/regexp-clone-0.0.1.tgz
+437 verbose lock https://registry.npmjs.org/regexp-clone/-/regexp-clone-0.0.1.tgz C:\Users\tony\AppData\Roaming\npm-cache\c14d1afe-exp-clone-regexp-clone-0-0-1-tgz.lock
+438 verbose addRemoteTarball [ 'https://registry.npmjs.org/regexp-clone/-/regexp-clone-0.0.1.tgz',
+438 verbose addRemoteTarball   'a7c2e09891fdbf38fbb10d376fb73003e68ac589' ]
+439 info retry fetch attempt 1 at 17:57:38
+440 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058413-0.19726226711645722\tmp.tgz
+441 http GET https://registry.npmjs.org/regexp-clone/-/regexp-clone-0.0.1.tgz
+442 http 200 https://registry.npmjs.org/mpromise
+443 silly registry.get cb [ 200,
+443 silly registry.get   { date: 'Tue, 13 May 2014 09:52:45 GMT',
+443 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+443 silly registry.get     etag: '"EKSULBDR8TYS5IX37OIMI7WOG"',
+443 silly registry.get     'content-type': 'application/json',
+443 silly registry.get     via: '1.1 varnish',
+443 silly registry.get     'cache-control': 'max-age=1',
+443 silly registry.get     'content-length': '16464',
+443 silly registry.get     'accept-ranges': 'bytes',
+443 silly registry.get     age: '378',
+443 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-ty67-TYO',
+443 silly registry.get     'x-cache': 'HIT, MISS',
+443 silly registry.get     'x-cache-hits': '1, 0',
+443 silly registry.get     'x-timer': 'S1399974386.766827345,VS0,VS83,VE165,VE378720',
+443 silly registry.get     vary: 'Accept',
+443 silly registry.get     'keep-alive': 'timeout=10, max=49',
+443 silly registry.get     connection: 'Keep-Alive' } ]
+444 silly lockFile c1e88908--org-mpromise-mpromise-0-4-3-tgz https://registry.npmjs.org/mpromise/-/mpromise-0.4.3.tgz
+445 verbose lock https://registry.npmjs.org/mpromise/-/mpromise-0.4.3.tgz C:\Users\tony\AppData\Roaming\npm-cache\c1e88908--org-mpromise-mpromise-0-4-3-tgz.lock
+446 verbose addRemoteTarball [ 'https://registry.npmjs.org/mpromise/-/mpromise-0.4.3.tgz',
+446 verbose addRemoteTarball   'edc47a75a2a177b0e9382735db52dbec3808cc33' ]
+447 info retry fetch attempt 1 at 17:57:38
+448 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058640-0.14281497499905527\tmp.tgz
+449 http GET https://registry.npmjs.org/mpromise/-/mpromise-0.4.3.tgz
+450 http 200 https://registry.npmjs.org/ms/-/ms-0.1.0.tgz
+451 http 200 https://registry.npmjs.org/mpath/-/mpath-0.1.1.tgz
+452 http 200 https://registry.npmjs.org/sliced/-/sliced-0.0.5.tgz
+453 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058260-0.48559198970906436\tmp.tgz
+454 silly lockFile 8fa78b5b-ng-npm-cache-mpath-0-1-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mpath\0.1.1\package
+455 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\mpath\0.1.1\package C:\Users\tony\AppData\Roaming\npm-cache\8fa78b5b-ng-npm-cache-mpath-0-1-1-package.lock
+456 silly lockFile 66d78a89-8260-0-48559198970906436-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058260-0.48559198970906436\tmp.tgz
+457 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058260-0.48559198970906436\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\66d78a89-8260-0-48559198970906436-tmp-tgz.lock
+458 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057864-0.47694411175325513\tmp.tgz
+459 silly lockFile ddff2b9c-g-npm-cache-sliced-0-0-5-package tar://C:\Users\tony\AppData\Roaming\npm-cache\sliced\0.0.5\package
+460 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\sliced\0.0.5\package C:\Users\tony\AppData\Roaming\npm-cache\ddff2b9c-g-npm-cache-sliced-0-0-5-package.lock
+461 silly lockFile 313bc9ac-7864-0-47694411175325513-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057864-0.47694411175325513\tmp.tgz
+462 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057864-0.47694411175325513\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\313bc9ac-7864-0-47694411175325513-tmp-tgz.lock
+463 silly gunzTarPerm modes [ '755', '644' ]
+464 silly gunzTarPerm modes [ '755', '644' ]
+465 silly gunzTarPerm extractEntry package.json
+466 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+467 silly gunzTarPerm extractEntry package.json
+468 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+469 silly gunzTarPerm extractEntry .npmignore
+470 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+471 silly gunzTarPerm extractEntry README.md
+472 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+473 silly gunzTarPerm extractEntry .npmignore
+474 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+475 silly gunzTarPerm extractEntry README.md
+476 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+477 silly gunzTarPerm extractEntry LICENSE
+478 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+479 silly gunzTarPerm extractEntry index.js
+480 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+481 silly gunzTarPerm extractEntry LICENSE
+482 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+483 silly gunzTarPerm extractEntry bench.js
+484 silly gunzTarPerm modified mode [ 'bench.js', 438, 420 ]
+485 silly gunzTarPerm extractEntry index.js
+486 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+487 silly gunzTarPerm extractEntry .travis.yml
+488 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+489 silly gunzTarPerm extractEntry .travis.yml
+490 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+491 silly gunzTarPerm extractEntry History.md
+492 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+493 silly gunzTarPerm extractEntry component.json
+494 silly gunzTarPerm modified mode [ 'component.json', 438, 420 ]
+495 silly gunzTarPerm extractEntry Makefile
+496 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+497 silly gunzTarPerm extractEntry lib/index.js
+498 silly gunzTarPerm modified mode [ 'lib/index.js', 438, 420 ]
+499 silly gunzTarPerm extractEntry Makefile
+500 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+501 silly gunzTarPerm extractEntry test/index.js
+502 silly gunzTarPerm modified mode [ 'test/index.js', 438, 420 ]
+503 silly gunzTarPerm extractEntry History.md
+504 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+505 silly gunzTarPerm extractEntry test/index.js
+506 silly gunzTarPerm modified mode [ 'test/index.js', 438, 420 ]
+507 silly gunzTarPerm extractEntry lib/sliced.js
+508 silly gunzTarPerm modified mode [ 'lib/sliced.js', 438, 420 ]
+509 silly lockFile ddff2b9c-g-npm-cache-sliced-0-0-5-package tar://C:\Users\tony\AppData\Roaming\npm-cache\sliced\0.0.5\package
+510 silly lockFile ddff2b9c-g-npm-cache-sliced-0-0-5-package tar://C:\Users\tony\AppData\Roaming\npm-cache\sliced\0.0.5\package
+511 silly lockFile 313bc9ac-7864-0-47694411175325513-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057864-0.47694411175325513\tmp.tgz
+512 silly lockFile 313bc9ac-7864-0-47694411175325513-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057864-0.47694411175325513\tmp.tgz
+513 silly lockFile de0d6290-pmjs-org-sliced-sliced-0-0-5-tgz https://registry.npmjs.org/sliced/-/sliced-0.0.5.tgz
+514 silly lockFile de0d6290-pmjs-org-sliced-sliced-0-0-5-tgz https://registry.npmjs.org/sliced/-/sliced-0.0.5.tgz
+515 silly lockFile 146acdb0-sliced-0-0-5 sliced@0.0.5
+516 silly lockFile 146acdb0-sliced-0-0-5 sliced@0.0.5
+517 silly lockFile 8fa78b5b-ng-npm-cache-mpath-0-1-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mpath\0.1.1\package
+518 silly lockFile 8fa78b5b-ng-npm-cache-mpath-0-1-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mpath\0.1.1\package
+519 silly lockFile 66d78a89-8260-0-48559198970906436-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058260-0.48559198970906436\tmp.tgz
+520 silly lockFile 66d78a89-8260-0-48559198970906436-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058260-0.48559198970906436\tmp.tgz
+521 silly lockFile 88623af3--npmjs-org-mpath-mpath-0-1-1-tgz https://registry.npmjs.org/mpath/-/mpath-0.1.1.tgz
+522 silly lockFile 88623af3--npmjs-org-mpath-mpath-0-1-1-tgz https://registry.npmjs.org/mpath/-/mpath-0.1.1.tgz
+523 silly lockFile 7ed304e1-mpath-0-1-1 mpath@0.1.1
+524 silly lockFile 7ed304e1-mpath-0-1-1 mpath@0.1.1
+525 http 200 https://registry.npmjs.org/mquery
+526 silly registry.get cb [ 200,
+526 silly registry.get   { date: 'Tue, 13 May 2014 09:52:45 GMT',
+526 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+526 silly registry.get     etag: '"7M1GXN97556UCSXWVX5IYO8DD"',
+526 silly registry.get     'content-type': 'application/json',
+526 silly registry.get     via: '1.1 varnish',
+526 silly registry.get     'cache-control': 'max-age=1',
+526 silly registry.get     'content-length': '61486',
+526 silly registry.get     'accept-ranges': 'bytes',
+526 silly registry.get     age: '2217',
+526 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-ty68-TYO',
+526 silly registry.get     'x-cache': 'HIT, MISS',
+526 silly registry.get     'x-cache-hits': '1, 0',
+526 silly registry.get     'x-timer': 'S1399972541.002965450,VS0,VS80,VE147,VE2224890',
+526 silly registry.get     vary: 'Accept',
+526 silly registry.get     'keep-alive': 'timeout=10, max=49',
+526 silly registry.get     connection: 'Keep-Alive' } ]
+527 silly lockFile f6881c3c-pmjs-org-mquery-mquery-0-7-0-tgz https://registry.npmjs.org/mquery/-/mquery-0.7.0.tgz
+528 verbose lock https://registry.npmjs.org/mquery/-/mquery-0.7.0.tgz C:\Users\tony\AppData\Roaming\npm-cache\f6881c3c-pmjs-org-mquery-mquery-0-7-0-tgz.lock
+529 verbose addRemoteTarball [ 'https://registry.npmjs.org/mquery/-/mquery-0.7.0.tgz',
+529 verbose addRemoteTarball   '2d205abe097aff0f898d3ad9e43bd031031cdb1e' ]
+530 info retry fetch attempt 1 at 17:57:39
+531 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975059642-0.2886308077722788\tmp.tgz
+532 http GET https://registry.npmjs.org/mquery/-/mquery-0.7.0.tgz
+533 http 200 https://registry.npmjs.org/mpromise/-/mpromise-0.4.3.tgz
+534 http 200 https://registry.npmjs.org/muri/-/muri-0.3.1.tgz
+535 http 200 https://registry.npmjs.org/regexp-clone/-/regexp-clone-0.0.1.tgz
+536 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058413-0.19726226711645722\tmp.tgz
+537 silly lockFile 808a4089-cache-regexp-clone-0-0-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\regexp-clone\0.0.1\package
+538 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\regexp-clone\0.0.1\package C:\Users\tony\AppData\Roaming\npm-cache\808a4089-cache-regexp-clone-0-0-1-package.lock
+539 silly lockFile f2492c48-8413-0-19726226711645722-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058413-0.19726226711645722\tmp.tgz
+540 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058413-0.19726226711645722\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\f2492c48-8413-0-19726226711645722-tmp-tgz.lock
+541 silly gunzTarPerm modes [ '755', '644' ]
+542 silly gunzTarPerm extractEntry package.json
+543 silly gunzTarPerm extractEntry .npmignore
+544 silly gunzTarPerm extractEntry README.md
+545 silly gunzTarPerm extractEntry LICENSE
+546 silly gunzTarPerm extractEntry index.js
+547 silly gunzTarPerm extractEntry .travis.yml
+548 silly gunzTarPerm extractEntry History.md
+549 silly gunzTarPerm extractEntry Makefile
+550 silly gunzTarPerm extractEntry test/index.js
+551 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057931-0.9764358687680215\tmp.tgz
+552 silly lockFile b5d9e7e9-aming-npm-cache-ms-0-1-0-package tar://C:\Users\tony\AppData\Roaming\npm-cache\ms\0.1.0\package
+553 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\ms\0.1.0\package C:\Users\tony\AppData\Roaming\npm-cache\b5d9e7e9-aming-npm-cache-ms-0-1-0-package.lock
+554 silly lockFile 44daea5c-57931-0-9764358687680215-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057931-0.9764358687680215\tmp.tgz
+555 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057931-0.9764358687680215\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\44daea5c-57931-0-9764358687680215-tmp-tgz.lock
+556 silly gunzTarPerm modes [ '755', '644' ]
+557 silly lockFile 808a4089-cache-regexp-clone-0-0-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\regexp-clone\0.0.1\package
+558 silly lockFile 808a4089-cache-regexp-clone-0-0-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\regexp-clone\0.0.1\package
+559 silly gunzTarPerm extractEntry .gitignore
+560 silly lockFile f2492c48-8413-0-19726226711645722-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058413-0.19726226711645722\tmp.tgz
+561 silly lockFile f2492c48-8413-0-19726226711645722-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058413-0.19726226711645722\tmp.tgz
+562 silly gunzTarPerm extractEntry Makefile
+563 silly gunzTarPerm extractEntry ms.js
+564 silly lockFile c14d1afe-exp-clone-regexp-clone-0-0-1-tgz https://registry.npmjs.org/regexp-clone/-/regexp-clone-0.0.1.tgz
+565 silly lockFile c14d1afe-exp-clone-regexp-clone-0-0-1-tgz https://registry.npmjs.org/regexp-clone/-/regexp-clone-0.0.1.tgz
+566 silly lockFile c8264751-regexp-clone-0-0-1 regexp-clone@0.0.1
+567 silly lockFile c8264751-regexp-clone-0-0-1 regexp-clone@0.0.1
+568 silly gunzTarPerm extractEntry package.json
+569 silly gunzTarPerm extractEntry README.md
+570 silly gunzTarPerm extractEntry test/index.html
+571 silly gunzTarPerm extractEntry test/test.js
+572 silly gunzTarPerm extractEntry test/support/jquery.js
+573 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058640-0.14281497499905527\tmp.tgz
+574 silly lockFile 4f505f88-npm-cache-mpromise-0-4-3-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mpromise\0.4.3\package
+575 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\mpromise\0.4.3\package C:\Users\tony\AppData\Roaming\npm-cache\4f505f88-npm-cache-mpromise-0-4-3-package.lock
+576 silly lockFile d4c21c95-8640-0-14281497499905527-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058640-0.14281497499905527\tmp.tgz
+577 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058640-0.14281497499905527\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\d4c21c95-8640-0-14281497499905527-tmp-tgz.lock
+578 silly gunzTarPerm modes [ '755', '644' ]
+579 silly gunzTarPerm extractEntry package.json
+580 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+581 silly gunzTarPerm extractEntry .npmignore
+582 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+583 silly gunzTarPerm extractEntry README.md
+584 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+585 silly gunzTarPerm extractEntry LICENSE
+586 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+587 silly gunzTarPerm extractEntry index.js
+588 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+589 silly gunzTarPerm extractEntry .idea/misc.xml
+590 silly gunzTarPerm modified mode [ '.idea/misc.xml', 438, 420 ]
+591 silly gunzTarPerm extractEntry .idea/.name
+592 silly gunzTarPerm modified mode [ '.idea/.name', 438, 420 ]
+593 silly gunzTarPerm extractEntry .idea/encodings.xml
+594 silly gunzTarPerm modified mode [ '.idea/encodings.xml', 438, 420 ]
+595 silly gunzTarPerm extractEntry .idea/inspectionProfiles/profiles_settings.xml
+596 silly gunzTarPerm modified mode [ '.idea/inspectionProfiles/profiles_settings.xml', 438, 420 ]
+597 silly gunzTarPerm extractEntry .idea/inspectionProfiles/Project_Default.xml
+598 silly gunzTarPerm modified mode [ '.idea/inspectionProfiles/Project_Default.xml', 438, 420 ]
+599 silly gunzTarPerm extractEntry .idea/jsLibraryMappings.xml
+600 silly gunzTarPerm modified mode [ '.idea/jsLibraryMappings.xml', 438, 420 ]
+601 silly gunzTarPerm extractEntry .idea/libraries/Node_js_Dependencies_for_mpromise.xml
+602 silly gunzTarPerm modified mode [ '.idea/libraries/Node_js_Dependencies_for_mpromise.xml',
+602 silly gunzTarPerm   438,
+602 silly gunzTarPerm   420 ]
+603 silly gunzTarPerm extractEntry .idea/codeStyleSettings.xml
+604 silly gunzTarPerm modified mode [ '.idea/codeStyleSettings.xml', 438, 420 ]
+605 silly gunzTarPerm extractEntry .idea/modules.xml
+606 silly gunzTarPerm modified mode [ '.idea/modules.xml', 438, 420 ]
+607 silly gunzTarPerm extractEntry .idea/mpromise.iml
+608 silly gunzTarPerm modified mode [ '.idea/mpromise.iml', 438, 420 ]
+609 silly gunzTarPerm extractEntry .idea/other.xml
+610 silly gunzTarPerm modified mode [ '.idea/other.xml', 438, 420 ]
+611 silly gunzTarPerm extractEntry .idea/scopes/scope_settings.xml
+612 silly gunzTarPerm modified mode [ '.idea/scopes/scope_settings.xml', 438, 420 ]
+613 silly gunzTarPerm extractEntry .idea/vcs.xml
+614 silly gunzTarPerm modified mode [ '.idea/vcs.xml', 438, 420 ]
+615 silly gunzTarPerm extractEntry .idea/workspace.xml
+616 silly gunzTarPerm modified mode [ '.idea/workspace.xml', 438, 420 ]
+617 silly gunzTarPerm extractEntry .travis.yml
+618 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+619 silly gunzTarPerm extractEntry History.md
+620 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+621 silly gunzTarPerm extractEntry lib/promise.js
+622 silly gunzTarPerm modified mode [ 'lib/promise.js', 438, 420 ]
+623 silly gunzTarPerm extractEntry test/promise.domain.test.js
+624 silly gunzTarPerm modified mode [ 'test/promise.domain.test.js', 438, 420 ]
+625 silly gunzTarPerm extractEntry test/promise.test.js
+626 silly gunzTarPerm modified mode [ 'test/promise.test.js', 438, 420 ]
+627 silly gunzTarPerm extractEntry test/promises.Aplus.js
+628 silly gunzTarPerm modified mode [ 'test/promises.Aplus.js', 438, 420 ]
+629 silly lockFile b5d9e7e9-aming-npm-cache-ms-0-1-0-package tar://C:\Users\tony\AppData\Roaming\npm-cache\ms\0.1.0\package
+630 silly lockFile b5d9e7e9-aming-npm-cache-ms-0-1-0-package tar://C:\Users\tony\AppData\Roaming\npm-cache\ms\0.1.0\package
+631 silly lockFile 44daea5c-57931-0-9764358687680215-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057931-0.9764358687680215\tmp.tgz
+632 silly lockFile 44daea5c-57931-0-9764358687680215-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057931-0.9764358687680215\tmp.tgz
+633 silly lockFile 4f505f88-npm-cache-mpromise-0-4-3-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mpromise\0.4.3\package
+634 silly lockFile 4f505f88-npm-cache-mpromise-0-4-3-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mpromise\0.4.3\package
+635 silly lockFile d4c21c95-8640-0-14281497499905527-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058640-0.14281497499905527\tmp.tgz
+636 silly lockFile d4c21c95-8640-0-14281497499905527-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975058640-0.14281497499905527\tmp.tgz
+637 silly lockFile 8b5d9006-gistry-npmjs-org-ms-ms-0-1-0-tgz https://registry.npmjs.org/ms/-/ms-0.1.0.tgz
+638 silly lockFile 8b5d9006-gistry-npmjs-org-ms-ms-0-1-0-tgz https://registry.npmjs.org/ms/-/ms-0.1.0.tgz
+639 silly lockFile 9555626c-ms-0-1-0 ms@0.1.0
+640 silly lockFile 9555626c-ms-0-1-0 ms@0.1.0
+641 silly lockFile c1e88908--org-mpromise-mpromise-0-4-3-tgz https://registry.npmjs.org/mpromise/-/mpromise-0.4.3.tgz
+642 silly lockFile c1e88908--org-mpromise-mpromise-0-4-3-tgz https://registry.npmjs.org/mpromise/-/mpromise-0.4.3.tgz
+643 silly lockFile 70229a2d-mpromise-0-4-3 mpromise@0.4.3
+644 silly lockFile 70229a2d-mpromise-0-4-3 mpromise@0.4.3
+645 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057915-0.06603030138649046\tmp.tgz
+646 silly lockFile a338e712-ing-npm-cache-muri-0-3-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\muri\0.3.1\package
+647 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\muri\0.3.1\package C:\Users\tony\AppData\Roaming\npm-cache\a338e712-ing-npm-cache-muri-0-3-1-package.lock
+648 silly lockFile a3f7b60d-7915-0-06603030138649046-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057915-0.06603030138649046\tmp.tgz
+649 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057915-0.06603030138649046\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\a3f7b60d-7915-0-06603030138649046-tmp-tgz.lock
+650 silly gunzTarPerm modes [ '755', '644' ]
+651 silly gunzTarPerm extractEntry package.json
+652 silly gunzTarPerm extractEntry .npmignore
+653 silly gunzTarPerm extractEntry README.md
+654 silly gunzTarPerm extractEntry LICENSE
+655 silly gunzTarPerm extractEntry index.js
+656 silly gunzTarPerm extractEntry .travis.yml
+657 silly gunzTarPerm extractEntry History.md
+658 silly gunzTarPerm extractEntry Makefile
+659 silly gunzTarPerm extractEntry lib/index.js
+660 silly gunzTarPerm extractEntry test/index.js
+661 silly lockFile a338e712-ing-npm-cache-muri-0-3-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\muri\0.3.1\package
+662 silly lockFile a338e712-ing-npm-cache-muri-0-3-1-package tar://C:\Users\tony\AppData\Roaming\npm-cache\muri\0.3.1\package
+663 silly lockFile a3f7b60d-7915-0-06603030138649046-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057915-0.06603030138649046\tmp.tgz
+664 silly lockFile a3f7b60d-7915-0-06603030138649046-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975057915-0.06603030138649046\tmp.tgz
+665 silly lockFile 03f6556a-ry-npmjs-org-muri-muri-0-3-1-tgz https://registry.npmjs.org/muri/-/muri-0.3.1.tgz
+666 silly lockFile 03f6556a-ry-npmjs-org-muri-muri-0-3-1-tgz https://registry.npmjs.org/muri/-/muri-0.3.1.tgz
+667 silly lockFile 01b66c9e-muri-0-3-1 muri@0.3.1
+668 silly lockFile 01b66c9e-muri-0-3-1 muri@0.3.1
+669 http 200 https://registry.npmjs.org/mquery/-/mquery-0.7.0.tgz
+670 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975059642-0.2886308077722788\tmp.tgz
+671 silly lockFile f213b551-g-npm-cache-mquery-0-7-0-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mquery\0.7.0\package
+672 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\mquery\0.7.0\package C:\Users\tony\AppData\Roaming\npm-cache\f213b551-g-npm-cache-mquery-0-7-0-package.lock
+673 silly lockFile 9fae461c-59642-0-2886308077722788-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975059642-0.2886308077722788\tmp.tgz
+674 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975059642-0.2886308077722788\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\9fae461c-59642-0-2886308077722788-tmp-tgz.lock
+675 silly gunzTarPerm modes [ '755', '644' ]
+676 silly gunzTarPerm extractEntry package.json
+677 silly gunzTarPerm extractEntry .npmignore
+678 silly gunzTarPerm extractEntry README.md
+679 silly gunzTarPerm extractEntry LICENSE
+680 silly gunzTarPerm extractEntry index.js
+681 silly gunzTarPerm extractEntry .travis.yml
+682 silly gunzTarPerm extractEntry History.md
+683 silly gunzTarPerm extractEntry Makefile
+684 silly gunzTarPerm extractEntry lib/env.js
+685 silly gunzTarPerm extractEntry lib/mquery.js
+686 silly gunzTarPerm extractEntry lib/permissions.js
+687 silly gunzTarPerm extractEntry lib/utils.js
+688 silly gunzTarPerm extractEntry lib/collection/collection.js
+689 silly gunzTarPerm extractEntry lib/collection/index.js
+690 silly gunzTarPerm extractEntry lib/collection/node.js
+691 silly gunzTarPerm extractEntry test/env.js
+692 silly gunzTarPerm extractEntry test/index.js
+693 silly gunzTarPerm extractEntry test/utils.test.js
+694 silly gunzTarPerm extractEntry test/collection/browser.js
+695 silly gunzTarPerm extractEntry test/collection/mongo.js
+696 silly gunzTarPerm extractEntry test/collection/node.js
+697 silly lockFile f213b551-g-npm-cache-mquery-0-7-0-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mquery\0.7.0\package
+698 silly lockFile f213b551-g-npm-cache-mquery-0-7-0-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mquery\0.7.0\package
+699 silly lockFile 9fae461c-59642-0-2886308077722788-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975059642-0.2886308077722788\tmp.tgz
+700 silly lockFile 9fae461c-59642-0-2886308077722788-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975059642-0.2886308077722788\tmp.tgz
+701 silly lockFile f6881c3c-pmjs-org-mquery-mquery-0-7-0-tgz https://registry.npmjs.org/mquery/-/mquery-0.7.0.tgz
+702 silly lockFile f6881c3c-pmjs-org-mquery-mquery-0-7-0-tgz https://registry.npmjs.org/mquery/-/mquery-0.7.0.tgz
+703 silly lockFile 78950805-mquery-0-7-0 mquery@0.7.0
+704 silly lockFile 78950805-mquery-0-7-0 mquery@0.7.0
+705 http 200 https://registry.npmjs.org/mongodb
+706 silly registry.get cb [ 200,
+706 silly registry.get   { date: 'Tue, 13 May 2014 09:52:45 GMT',
+706 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+706 silly registry.get     etag: '"C7UO3VKDPGMXRLK21HX6J8GJ7"',
+706 silly registry.get     'content-type': 'application/json',
+706 silly registry.get     via: '1.1 varnish',
+706 silly registry.get     'cache-control': 'max-age=1',
+706 silly registry.get     'content-length': '327532',
+706 silly registry.get     'accept-ranges': 'bytes',
+706 silly registry.get     age: '2',
+706 silly registry.get     'x-served-by': 'cache-v37-ASH, cache-ty66-TYO',
+706 silly registry.get     'x-cache': 'HIT, MISS',
+706 silly registry.get     'x-cache-hits': '1, 0',
+706 silly registry.get     'x-timer': 'S1399974765.364716530,VS0,VS89,VE181,VE606',
+706 silly registry.get     vary: 'Accept',
+706 silly registry.get     'keep-alive': 'timeout=10, max=49',
+706 silly registry.get     connection: 'Keep-Alive' } ]
+707 silly lockFile 2b845e3d-js-org-mongodb-mongodb-1-4-3-tgz https://registry.npmjs.org/mongodb/-/mongodb-1.4.3.tgz
+708 verbose lock https://registry.npmjs.org/mongodb/-/mongodb-1.4.3.tgz C:\Users\tony\AppData\Roaming\npm-cache\2b845e3d-js-org-mongodb-mongodb-1-4-3-tgz.lock
+709 verbose addRemoteTarball [ 'https://registry.npmjs.org/mongodb/-/mongodb-1.4.3.tgz',
+709 verbose addRemoteTarball   '32d4907aa3f1afd6cbaccb694869d1206d5ca52c' ]
+710 info retry fetch attempt 1 at 17:57:42
+711 verbose fetch to= C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975062478-0.4641792217735201\tmp.tgz
+712 http GET https://registry.npmjs.org/mongodb/-/mongodb-1.4.3.tgz
+713 http 200 https://registry.npmjs.org/mongodb/-/mongodb-1.4.3.tgz
+714 verbose tar unpack C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975062478-0.4641792217735201\tmp.tgz
+715 silly lockFile a4b00903--npm-cache-mongodb-1-4-3-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mongodb\1.4.3\package
+716 verbose lock tar://C:\Users\tony\AppData\Roaming\npm-cache\mongodb\1.4.3\package C:\Users\tony\AppData\Roaming\npm-cache\a4b00903--npm-cache-mongodb-1-4-3-package.lock
+717 silly lockFile 7755b326-62478-0-4641792217735201-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975062478-0.4641792217735201\tmp.tgz
+718 verbose lock tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975062478-0.4641792217735201\tmp.tgz C:\Users\tony\AppData\Roaming\npm-cache\7755b326-62478-0-4641792217735201-tmp-tgz.lock
+719 silly gunzTarPerm modes [ '755', '644' ]
+720 silly gunzTarPerm extractEntry package.json
+721 silly gunzTarPerm extractEntry LICENSE
+722 silly gunzTarPerm extractEntry index.js
+723 silly gunzTarPerm extractEntry .travis.yml
+724 silly gunzTarPerm extractEntry CONTRIBUTING.md
+725 silly gunzTarPerm extractEntry Makefile
+726 silly gunzTarPerm extractEntry Readme.md
+727 silly gunzTarPerm extractEntry lib/mongodb/admin.js
+728 silly gunzTarPerm extractEntry lib/mongodb/scope.js
+729 silly gunzTarPerm extractEntry lib/mongodb/mongo_client.js
+730 silly gunzTarPerm extractEntry lib/mongodb/collection.js
+731 silly gunzTarPerm extractEntry lib/mongodb/command_cursor.js
+732 silly gunzTarPerm extractEntry lib/mongodb/index.js
+733 silly gunzTarPerm extractEntry lib/mongodb/db.js
+734 silly gunzTarPerm extractEntry lib/mongodb/aggregation_cursor.js
+735 silly gunzTarPerm extractEntry lib/mongodb/cursorstream.js
+736 silly gunzTarPerm extractEntry lib/mongodb/utils.js
+737 silly gunzTarPerm extractEntry lib/mongodb/cursor.js
+738 silly gunzTarPerm extractEntry lib/mongodb/connection/base.js
+739 silly gunzTarPerm extractEntry lib/mongodb/connection/connection.js
+740 silly gunzTarPerm extractEntry lib/mongodb/connection/connection_pool.js
+741 silly gunzTarPerm extractEntry lib/mongodb/connection/connection_utils.js
+742 silly gunzTarPerm extractEntry lib/mongodb/connection/mongos.js
+743 silly gunzTarPerm extractEntry lib/mongodb/connection/read_preference.js
+744 silly gunzTarPerm extractEntry lib/mongodb/connection/server.js
+745 silly gunzTarPerm extractEntry lib/mongodb/connection/server_capabilities.js
+746 silly gunzTarPerm extractEntry lib/mongodb/connection/url_parser.js
+747 silly gunzTarPerm extractEntry lib/mongodb/connection/repl_set/ha.js
+748 silly gunzTarPerm extractEntry lib/mongodb/connection/repl_set/options.js
+749 silly gunzTarPerm extractEntry lib/mongodb/connection/repl_set/repl_set.js
+750 silly gunzTarPerm extractEntry lib/mongodb/connection/repl_set/repl_set_state.js
+751 silly gunzTarPerm extractEntry lib/mongodb/connection/repl_set/strategies/ping_strategy.js
+752 silly gunzTarPerm extractEntry lib/mongodb/connection/repl_set/strategies/statistics_strategy.js
+753 silly gunzTarPerm extractEntry lib/mongodb/gridfs/chunk.js
+754 silly gunzTarPerm extractEntry lib/mongodb/gridfs/grid.js
+755 silly gunzTarPerm extractEntry lib/mongodb/gridfs/gridstore.js
+756 silly gunzTarPerm extractEntry lib/mongodb/gridfs/readstream.js
+757 silly gunzTarPerm extractEntry lib/mongodb/commands/base_command.js
+758 silly gunzTarPerm extractEntry lib/mongodb/commands/db_command.js
+759 silly gunzTarPerm extractEntry lib/mongodb/commands/delete_command.js
+760 silly gunzTarPerm extractEntry lib/mongodb/commands/get_more_command.js
+761 silly gunzTarPerm extractEntry lib/mongodb/commands/insert_command.js
+762 silly gunzTarPerm extractEntry lib/mongodb/commands/kill_cursor_command.js
+763 silly gunzTarPerm extractEntry lib/mongodb/commands/query_command.js
+764 silly gunzTarPerm extractEntry lib/mongodb/commands/update_command.js
+765 silly gunzTarPerm extractEntry lib/mongodb/collection/aggregation.js
+766 silly gunzTarPerm extractEntry lib/mongodb/collection/commands.js
+767 silly gunzTarPerm extractEntry lib/mongodb/collection/core.js
+768 silly gunzTarPerm extractEntry lib/mongodb/collection/geo.js
+769 silly gunzTarPerm extractEntry lib/mongodb/collection/index.js
+770 silly gunzTarPerm extractEntry lib/mongodb/collection/query.js
+771 silly gunzTarPerm extractEntry lib/mongodb/collection/shared.js
+772 silly gunzTarPerm extractEntry lib/mongodb/collection/batch/common.js
+773 silly gunzTarPerm extractEntry lib/mongodb/collection/batch/ordered.js
+774 silly gunzTarPerm extractEntry lib/mongodb/collection/batch/unordered.js
+775 silly gunzTarPerm extractEntry lib/mongodb/responses/mongo_reply.js
+776 silly gunzTarPerm extractEntry lib/mongodb/auth/mongodb_cr.js
+777 silly gunzTarPerm extractEntry lib/mongodb/auth/mongodb_gssapi.js
+778 silly gunzTarPerm extractEntry lib/mongodb/auth/mongodb_plain.js
+779 silly gunzTarPerm extractEntry lib/mongodb/auth/mongodb_sspi.js
+780 silly gunzTarPerm extractEntry lib/mongodb/auth/mongodb_x509.js
+781 silly lockFile a4b00903--npm-cache-mongodb-1-4-3-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mongodb\1.4.3\package
+782 silly lockFile a4b00903--npm-cache-mongodb-1-4-3-package tar://C:\Users\tony\AppData\Roaming\npm-cache\mongodb\1.4.3\package
+783 silly lockFile 7755b326-62478-0-4641792217735201-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975062478-0.4641792217735201\tmp.tgz
+784 silly lockFile 7755b326-62478-0-4641792217735201-tmp-tgz tar://C:\Users\tony\AppData\Local\Temp\npm-2584-4VlL93TT\1399975062478-0.4641792217735201\tmp.tgz
+785 silly lockFile 2b845e3d-js-org-mongodb-mongodb-1-4-3-tgz https://registry.npmjs.org/mongodb/-/mongodb-1.4.3.tgz
+786 silly lockFile 2b845e3d-js-org-mongodb-mongodb-1-4-3-tgz https://registry.npmjs.org/mongodb/-/mongodb-1.4.3.tgz
+787 silly lockFile 71be648b-mongodb-1-4-3 mongodb@1.4.3
+788 silly lockFile 71be648b-mongodb-1-4-3 mongodb@1.4.3
+789 http 200 https://registry.npmjs.org/hooks
+790 verbose bad json {"_id":"hooks","_rev":"45-24aa92b1d86066ec963b16c4be3c4ef6","name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","dist-tags":{"latest":"0.3.2"},"versions":{"0.0.1":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.0.1","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{"expresso":">= 0.7.2","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_id":"hooks@0.0.1","_engineSupported":true,"_npmVersion":"0.3.0-6","_nodeVersion":"v0.4.0","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"8c8b671930e83a5ff9bacaf09cb3c3657378763e","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.0.1.tgz"}},"0.1.0":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.0","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{"expresso":">= 0.7.2","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_id":"hooks@0.1.0","_engineSupported":true,"_npmVersion":"0.3.0-9","_nodeVersion":"v0.4.0","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"b43e7a2d3708406e5164f6d2ceea80d9c9fae522","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.0.tgz"}},"0.1.1":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.1","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{"underscore":">=1.1.4"},"devDependencies":{"expresso":">= 0.7.3"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_id":"hooks@0.1.1","_engineSupported":true,"_npmVersion":"0.3.15","_nodeVersion":"v0.4.3","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"258bf659f81608bd457012a46d3b0e3afc16043c","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.1.tgz"}},"0.1.2":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.2","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.2","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"23a1a7889479662b79016a6381cdacff6b4eb12f","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.2.tgz"}},"0.1.3":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.3","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.3","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"28b731b077922fbea629865870695bcc6a16aa95","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.3.tgz"}},"0.1.4":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.4","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.4","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"8e9cd1f79090aeca8d391d18cd1de59d63f523bc","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.4.tgz"}},"0.1.5":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.5","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.5","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"7b145c6d01b9904215e32f4e4c632d0b97b30e13","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.5.tgz"}},"0.1.6":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.6","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.6","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"b19ff60ae05bdb7f96aa7df9baf3c5bb45a10fc3","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.6.tgz"}},"0.1.7":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.7","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.7","_engineSupported":true,"_npmVersion":"1.0.9-1","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"1c624f5146a4f8b28344a716750c857cbdcead2b","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.7.tgz"}},"0.1.9":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.9","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_npmJsonOpts":{"file":"/home/briannoguchi/.npm/hooks/0.1.9/package/package.json","wscript":false,"contributors":false,"serverjs":false},"_id":"hooks@0.1.9","_engineSupported":true,"_npmVersion":"1.0.15","_nodeVersion":"v0.4.9","_defaultsLoaded":true,"dist":{"shasum":"5f861def6916a53071d42ba4d0e2da3e76fc04b8","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.9.tgz"}},"0.2.0":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.2.0","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"optionalDependencies":{},"_npmUser":{"name":"bnoguchi","email":"brian.noguchi@gmail.com"},"_id":"hooks@0.2.0","_engineSupported":true,"_npmVersion":"1.1.1","_nodeVersion":"v0.6.11","_defaultsLoaded":true,"dist":{"shasum":"0f43df2d3610eebb1e241d8c8b61b954ad858b9e","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.2.0.tgz"},"readme":"hooks\u000a============\u000a\u000aAdd pre and post middleware hooks to your JavaScript methods.\u000a\u000a## Installation\u000a    npm install hooks\u000a\u000a## Motivation\u000aSuppose you have a JavaScript object with a `save` method.\u000a\u000aIt would be nice to be able to declare code that runs before `save` and after `save`.\u000aFor example, you might want to run validation code before every `save`,\u000aand you might want to dispatch a job to a background job queue after `save`.\u000a\u000aOne might have an urge to hard code this all into `save`, but that turns out to\u000acouple all these pieces of functionality (validation, save, and job creation) more\u000atightly than is necessary. For example, what if someone does not want to do background\u000ajob creation after the logical save? \u000a\u000aIt is nicer to tack on functionality using what we call `pre` and `post` hooks. These\u000aare functions that you define and that you direct to execute before or after particular\u000amethods.\u000a\u000a## Example\u000aWe can use `hooks` to add validation and background jobs in the following way:\u000a\u000a    var hooks = require('hooks')\u000a      , Document = require('./path/to/some/document/constructor');\u000a\u000a    // Add hooks' methods: `hook`, `pre`, and `post`    \u000a    for (var k in hooks) {\u000a      Document[k] = hooks[k];\u000a    }\u000a\u000a    // Define a new method that is able to invoke pre and post middleware\u000a    Document.hook('save', Document.prototype.save);\u000a\u000a    // Define a middleware function to be invoked before 'save'\u000a    Document.pre('save', function validate (next) {\u000a      // The `this` context inside of `pre` and `post` functions\u000a      // is the Document instance\u000a      if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                       // or to the target method itself\u000a      else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a    });\u000a\u000a    // Define a middleware function to be invoked after 'save'\u000a    Document.post('save', function createJob () {\u000a      this.sendToBackgroundQueue();\u000a    });\u000a\u000aIf you already have defined `Document.prototype` methods for which you want pres and posts,\u000athen you do not need to explicitly invoke `Document.hook(...)`. Invoking `Document.pre(methodName, fn)`\u000aor `Document.post(methodName, fn)` will automatically and lazily change `Document.prototype[methodName]`\u000aso that it plays well with `hooks`. An equivalent way to implement the previous example is:\u000a\u000a```javascript\u000avar hooks = require('hooks')\u000a  , Document = require('./path/to/some/document/constructor');\u000a\u000a// Add hooks' methods: `hook`, `pre`, and `post`    \u000afor (var k in hooks) {\u000a  Document[k] = hooks[k];\u000a}\u000a\u000aDocument.prototype.save = function () {\u000a  // ...\u000a};\u000a\u000a// Define a middleware function to be invoked before 'save'\u000aDocument.pre('save', function validate (next) {\u000a  // The `this` context inside of `pre` and `post` functions\u000a  // is the Document instance\u000a  if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                   // or to the target method itself\u000a  else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a});\u000a\u000a// Define a middleware function to be invoked after 'save'\u000aDocument.post('save', function createJob () {\u000a  this.sendToBackgroundQueue();\u000a});\u000a```\u000a\u000a## Pres and Posts as Middleware\u000aWe structure pres and posts as middleware to give you maximum flexibility:\u000a\u000a1. You can define **multiple** pres (or posts) for a single method.\u000a2. These pres (or posts) are then executed as a chain of methods.\u000a3. Any functions in this middleware chain can choose to halt the chain's execution by `next`ing an Error from that middleware function. If this occurs, then none of the other middleware in the chain will execute, and the main method (e.g., `save`) will not execute. This is nice, for example, when we don't want a document to save if it is invalid.\u000a\u000a## Defining multiple pres (or posts)\u000a`pre` is chainable, so you can define multiple pres via:\u000a    Document.pre('save', function (next, halt) {\u000a      console.log(\"hello\");\u000a    }).pre('save', function (next, halt) {\u000a      console.log(\"world\");\u000a    });\u000a\u000aAs soon as one pre finishes executing, the next one will be invoked, and so on.\u000a\u000a## Error Handling\u000aYou can define a default error handler by passing a 2nd function as the 3rd argument to `hook`:\u000a    Document.hook('set', function (path, val) {\u000a      this[path] = val;\u000a    }, function (err) {\u000a      // Handler the error here\u000a      console.error(err);\u000a    });\u000a\u000aThen, we can pass errors to this handler from a pre or post middleware function:\u000a    Document.pre('set', function (next, path, val) {\u000a      next(new Error());\u000a    });\u000a\u000aIf you do not set up a default handler, then `hooks` makes the default handler that just throws the `Error`.\u000a\u000aThe default error handler can be over-rided on a per method invocation basis.\u000a\u000aIf the main method that you are surrounding with pre and post middleware expects its last argument to be a function\u000awith callback signature `function (error, ...)`, then that callback becomes the error handler, over-riding the default\u000aerror handler you may have set up.\u000a   \u000a```javascript\u000aDocument.hook('save', function (callback) {\u000a  // Save logic goes here\u000a  ...\u000a});\u000a\u000avar doc = new Document();\u000adoc.save( function (err, saved) {\u000a  // We can pass err via `next` in any of our pre or post middleware functions\u000a  if (err) console.error(err);\u000a  \u000a  // Rest of callback logic follows ...\u000a});\u000a```\u000a\u000a## Mutating Arguments via Middleware\u000a`pre` and `post` middleware can also accept the intended arguments for the method\u000athey augment. This is useful if you want to mutate the arguments before passing\u000athem along to the next middleware and eventually pass a mutated arguments list to\u000athe main method itself.\u000a\u000aAs a simple example, let's define a method `set` that just sets a key, value pair.\u000aIf we want to namespace the key, we can do so by adding a `pre` middleware hook\u000athat runs before `set`, alters the arguments by namespacing the `key` argument, and passes them onto `set`:\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      next('namespace-' + key, val);\u000a    });\u000a    var doc = new Document();\u000a    doc.set('hello', 'world');\u000a    console.log(doc.hello); // undefined\u000a    console.log(doc['namespace-hello']); // 'world'\u000a\u000aAs you can see above, we pass arguments via `next`.\u000a\u000aIf you are not mutating the arguments, then you can pass zero arguments\u000ato `next`, and the next middleware function will still have access\u000ato the arguments.\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // I have access to key and val here\u000a      next(); // We don't need to pass anything to next\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // And I still have access to the original key and val here\u000a      next();\u000a    });\u000a\u000aFinally, you can add arguments that downstream middleware can also see:\u000a\u000a    // Note that in the definition of `set`, there is no 3rd argument, options\u000a    Document.hook('set', function (key, val) {\u000a      // But...\u000a      var options = arguments[2]; // ...I have access to an options argument\u000a                                  // because of pre function pre2 (defined below)\u000a      console.log(options); // '{debug: true}'\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function pre1 (next, key, val) {\u000a      // I only have access to key and val arguments\u000a      console.log(arguments.length); // 3\u000a      next(key, val, {debug: true});\u000a    });\u000a    Document.pre('set', function pre2 (next, key, val, options) {\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    Document.pre('set', function pre3 (next, key, val, options) {\u000a      // I still have access to key, val, AND the options argument introduced via the preceding middleware\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document()\u000a    doc.set('hey', 'there');\u000a\u000a## Parallel `pre` middleware\u000a\u000aAll middleware up to this point has been \"serial\" middleware -- i.e., middleware whose logic\u000ais executed as a serial chain.\u000a\u000aSome scenarios call for parallel middleware -- i.e., middleware that can wait for several\u000aasynchronous services at once to respond.\u000a\u000aFor instance, you may only want to save a Document only after you have checked\u000athat the Document is valid according to two different remote services.\u000a\u000aWe accomplish asynchronous middleware by adding a second kind of flow control callback\u000a(the only flow control callback so far has been `next`), called `done`.\u000a\u000a- `next` passes control to the next middleware in the chain\u000a- `done` keeps track of how many parallel middleware have invoked `done` and passes\u000a   control to the target method when ALL parallel middleware have invoked `done`. If\u000a   you pass an `Error` to `done`, then the error is handled, and the main method that is\u000a   wrapped by pres and posts will not get invoked.\u000a\u000aWe declare pre middleware that is parallel by passing a 3rd boolean argument to our `pre`\u000adefinition method.\u000a\u000aWe illustrate via the parallel validation example mentioned above:\u000a\u000a    Document.hook('save', function targetFn (callback) {\u000a      // Save logic goes here\u000a      // ...\u000a      // This only gets run once the two `done`s are both invoked via preOne and preTwo.\u000a    });\u000a\u000a                         // true marks this as parallel middleware\u000a    Document.pre('save', true, function preOne (next, doneOne, callback) {\u000a      remoteServiceOne.validate(this.serialize(), function (err, isValid) {\u000a        // The code in here will probably be run after the `next` below this block\u000a        // and could possibly be run after the console.log(\"Hola\") in `preTwo\u000a        if (err) return doneOne(err);\u000a        if (isValid) doneOne();\u000a      });\u000a      next(); // Pass control to the next middleware\u000a    });\u000a    \u000a    // We will suppose that we need 2 different remote services to validate our document\u000a    Document.pre('save', true, function preTwo (next, doneTwo, callback) {\u000a      remoteServiceTwo.validate(this.serialize(), function (err, isValid) {\u000a        if (err) return doneTwo(err);\u000a        if (isValid) doneTwo();\u000a      });\u000a      next();\u000a    });\u000a    \u000a    // While preOne and preTwo are parallel, preThree is a serial pre middleware\u000a    Document.pre('save', function preThree (next, callback) {\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document();\u000a    doc.save( function (err, doc) {\u000a      // Do stuff with the saved doc here...\u000a    });\u000a\u000aIn the above example, flow control may happen in the following way:\u000a\u000a(1) doc.save -> (2) preOne --(next)--> (3) preTwo --(next)--> (4) preThree --(next)--> (wait for dones to invoke) -> (5) doneTwo -> (6) doneOne -> (7) targetFn\u000a\u000aSo what's happening is that:\u000a\u000a1. You call `doc.save(...)`\u000a2. First, your preOne middleware gets executed. It makes a remote call to the validation service and `next()`s to the preTwo middleware.\u000a3. Now, your preTwo middleware gets executed. It makes a remote call to another validation service and `next()`s to the preThree middleware.\u000a4. Your preThree middleware gets executed. It immediately `next()`s. But nothing else gets executing until both `doneOne` and `doneTwo` are invoked inside the callbacks handling the response from the two valiation services.\u000a5. We will suppose that validation remoteServiceTwo returns a response to us first. In this case, we call `doneTwo` inside the callback to remoteServiceTwo.\u000a6. Some fractions of a second later, remoteServiceOne returns a response to us. In this case, we call `doneOne` inside the callback to remoteServiceOne.\u000a7. `hooks` implementation keeps track of how many parallel middleware has been defined per target function. It detects that both asynchronous pre middlewares (`preOne` and `preTwo`) have finally called their `done` functions (`doneOne` and `doneTwo`), so the implementation finally invokes our `targetFn` (i.e., our core `save` business logic).\u000a\u000a## Removing Pres\u000a\u000aYou can remove a particular pre associated with a hook:\u000a\u000a    Document.pre('set', someFn);\u000a    Document.removePre('set', someFn);\u000a\u000aAnd you can also remove all pres associated with a hook:\u000a    Document.removePre('set'); // Removes all declared `pre`s on the hook 'set'\u000a\u000a## Tests\u000aTo run the tests:\u000a    make test\u000a\u000a### Contributors\u000a- [Brian Noguchi](https://github.com/bnoguchi)\u000a\u000a### License\u000aMIT License\u000a\u000a---\u000a### Author\u000aBrian Noguchi\u000a","maintainers":[{"name":"bnoguchi","email":"brian.noguchi@gmail.com"}]},"0.2.1":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.2.1","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"optionalDependencies":{},"_npmUser":{"name":"bnoguchi","email":"brian.noguchi@gmail.com"},"_id":"hooks@0.2.1","_engineSupported":true,"_npmVersion":"1.1.16","_nodeVersion":"v0.6.15","_defaultsLoaded":true,"dist":{"shasum":"0f591b1b344bdcb3df59773f62fbbaf85bf4028b","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.2.1.tgz"},"readme":"hooks\u000a============\u000a\u000aAdd pre and post middleware hooks to your JavaScript methods.\u000a\u000a## Installation\u000a    npm install hooks\u000a\u000a## Motivation\u000aSuppose you have a JavaScript object with a `save` method.\u000a\u000aIt would be nice to be able to declare code that runs before `save` and after `save`.\u000aFor example, you might want to run validation code before every `save`,\u000aand you might want to dispatch a job to a background job queue after `save`.\u000a\u000aOne might have an urge to hard code this all into `save`, but that turns out to\u000acouple all these pieces of functionality (validation, save, and job creation) more\u000atightly than is necessary. For example, what if someone does not want to do background\u000ajob creation after the logical save? \u000a\u000aIt is nicer to tack on functionality using what we call `pre` and `post` hooks. These\u000aare functions that you define and that you direct to execute before or after particular\u000amethods.\u000a\u000a## Example\u000aWe can use `hooks` to add validation and background jobs in the following way:\u000a\u000a    var hooks = require('hooks')\u000a      , Document = require('./path/to/some/document/constructor');\u000a\u000a    // Add hooks' methods: `hook`, `pre`, and `post`    \u000a    for (var k in hooks) {\u000a      Document[k] = hooks[k];\u000a    }\u000a\u000a    // Define a new method that is able to invoke pre and post middleware\u000a    Document.hook('save', Document.prototype.save);\u000a\u000a    // Define a middleware function to be invoked before 'save'\u000a    Document.pre('save', function validate (next) {\u000a      // The `this` context inside of `pre` and `post` functions\u000a      // is the Document instance\u000a      if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                       // or to the target method itself\u000a      else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a    });\u000a\u000a    // Define a middleware function to be invoked after 'save'\u000a    Document.post('save', function createJob () {\u000a      this.sendToBackgroundQueue();\u000a    });\u000a\u000aIf you already have defined `Document.prototype` methods for which you want pres and posts,\u000athen you do not need to explicitly invoke `Document.hook(...)`. Invoking `Document.pre(methodName, fn)`\u000aor `Document.post(methodName, fn)` will automatically and lazily change `Document.prototype[methodName]`\u000aso that it plays well with `hooks`. An equivalent way to implement the previous example is:\u000a\u000a```javascript\u000avar hooks = require('hooks')\u000a  , Document = require('./path/to/some/document/constructor');\u000a\u000a// Add hooks' methods: `hook`, `pre`, and `post`    \u000afor (var k in hooks) {\u000a  Document[k] = hooks[k];\u000a}\u000a\u000aDocument.prototype.save = function () {\u000a  // ...\u000a};\u000a\u000a// Define a middleware function to be invoked before 'save'\u000aDocument.pre('save', function validate (next) {\u000a  // The `this` context inside of `pre` and `post` functions\u000a  // is the Document instance\u000a  if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                   // or to the target method itself\u000a  else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a});\u000a\u000a// Define a middleware function to be invoked after 'save'\u000aDocument.post('save', function createJob () {\u000a  this.sendToBackgroundQueue();\u000a});\u000a```\u000a\u000a## Pres and Posts as Middleware\u000aWe structure pres and posts as middleware to give you maximum flexibility:\u000a\u000a1. You can define **multiple** pres (or posts) for a single method.\u000a2. These pres (or posts) are then executed as a chain of methods.\u000a3. Any functions in this middleware chain can choose to halt the chain's execution by `next`ing an Error from that middleware function. If this occurs, then none of the other middleware in the chain will execute, and the main method (e.g., `save`) will not execute. This is nice, for example, when we don't want a document to save if it is invalid.\u000a\u000a## Defining multiple pres (or posts)\u000a`pre` is chainable, so you can define multiple pres via:\u000a    Document.pre('save', function (next, halt) {\u000a      console.log(\"hello\");\u000a    }).pre('save', function (next, halt) {\u000a      console.log(\"world\");\u000a    });\u000a\u000aAs soon as one pre finishes executing, the next one will be invoked, and so on.\u000a\u000a## Error Handling\u000aYou can define a default error handler by passing a 2nd function as the 3rd argument to `hook`:\u000a    Document.hook('set', function (path, val) {\u000a      this[path] = val;\u000a    }, function (err) {\u000a      // Handler the error here\u000a      console.error(err);\u000a    });\u000a\u000aThen, we can pass errors to this handler from a pre or post middleware function:\u000a    Document.pre('set', function (next, path, val) {\u000a      next(new Error());\u000a    });\u000a\u000aIf you do not set up a default handler, then `hooks` makes the default handler that just throws the `Error`.\u000a\u000aThe default error handler can be over-rided on a per method invocation basis.\u000a\u000aIf the main method that you are surrounding with pre and post middleware expects its last argument to be a function\u000awith callback signature `function (error, ...)`, then that callback becomes the error handler, over-riding the default\u000aerror handler you may have set up.\u000a   \u000a```javascript\u000aDocument.hook('save', function (callback) {\u000a  // Save logic goes here\u000a  ...\u000a});\u000a\u000avar doc = new Document();\u000adoc.save( function (err, saved) {\u000a  // We can pass err via `next` in any of our pre or post middleware functions\u000a  if (err) console.error(err);\u000a  \u000a  // Rest of callback logic follows ...\u000a});\u000a```\u000a\u000a## Mutating Arguments via Middleware\u000a`pre` and `post` middleware can also accept the intended arguments for the method\u000athey augment. This is useful if you want to mutate the arguments before passing\u000athem along to the next middleware and eventually pass a mutated arguments list to\u000athe main method itself.\u000a\u000aAs a simple example, let's define a method `set` that just sets a key, value pair.\u000aIf we want to namespace the key, we can do so by adding a `pre` middleware hook\u000athat runs before `set`, alters the arguments by namespacing the `key` argument, and passes them onto `set`:\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      next('namespace-' + key, val);\u000a    });\u000a    var doc = new Document();\u000a    doc.set('hello', 'world');\u000a    console.log(doc.hello); // undefined\u000a    console.log(doc['namespace-hello']); // 'world'\u000a\u000aAs you can see above, we pass arguments via `next`.\u000a\u000aIf you are not mutating the arguments, then you can pass zero arguments\u000ato `next`, and the next middleware function will still have access\u000ato the arguments.\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // I have access to key and val here\u000a      next(); // We don't need to pass anything to next\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // And I still have access to the original key and val here\u000a      next();\u000a    });\u000a\u000aFinally, you can add arguments that downstream middleware can also see:\u000a\u000a    // Note that in the definition of `set`, there is no 3rd argument, options\u000a    Document.hook('set', function (key, val) {\u000a      // But...\u000a      var options = arguments[2]; // ...I have access to an options argument\u000a                                  // because of pre function pre2 (defined below)\u000a      console.log(options); // '{debug: true}'\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function pre1 (next, key, val) {\u000a      // I only have access to key and val arguments\u000a      console.log(arguments.length); // 3\u000a      next(key, val, {debug: true});\u000a    });\u000a    Document.pre('set', function pre2 (next, key, val, options) {\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    Document.pre('set', function pre3 (next, key, val, options) {\u000a      // I still have access to key, val, AND the options argument introduced via the preceding middleware\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document()\u000a    doc.set('hey', 'there');\u000a\u000a## Parallel `pre` middleware\u000a\u000aAll middleware up to this point has been \"serial\" middleware -- i.e., middleware whose logic\u000ais executed as a serial chain.\u000a\u000aSome scenarios call for parallel middleware -- i.e., middleware that can wait for several\u000aasynchronous services at once to respond.\u000a\u000aFor instance, you may only want to save a Document only after you have checked\u000athat the Document is valid according to two different remote services.\u000a\u000aWe accomplish asynchronous middleware by adding a second kind of flow control callback\u000a(the only flow control callback so far has been `next`), called `done`.\u000a\u000a- `next` passes control to the next middleware in the chain\u000a- `done` keeps track of how many parallel middleware have invoked `done` and passes\u000a   control to the target method when ALL parallel middleware have invoked `done`. If\u000a   you pass an `Error` to `done`, then the error is handled, and the main method that is\u000a   wrapped by pres and posts will not get invoked.\u000a\u000aWe declare pre middleware that is parallel by passing a 3rd boolean argument to our `pre`\u000adefinition method.\u000a\u000aWe illustrate via the parallel validation example mentioned above:\u000a\u000a    Document.hook('save', function targetFn (callback) {\u000a      // Save logic goes here\u000a      // ...\u000a      // This only gets run once the two `done`s are both invoked via preOne and preTwo.\u000a    });\u000a\u000a                         // true marks this as parallel middleware\u000a    Document.pre('save', true, function preOne (next, doneOne, callback) {\u000a      remoteServiceOne.validate(this.serialize(), function (err, isValid) {\u000a        // The code in here will probably be run after the `next` below this block\u000a        // and could possibly be run after the console.log(\"Hola\") in `preTwo\u000a        if (err) return doneOne(err);\u000a        if (isValid) doneOne();\u000a      });\u000a      next(); // Pass control to the next middleware\u000a    });\u000a    \u000a    // We will suppose that we need 2 different remote services to validate our document\u000a    Document.pre('save', true, function preTwo (next, doneTwo, callback) {\u000a      remoteServiceTwo.validate(this.serialize(), function (err, isValid) {\u000a        if (err) return doneTwo(err);\u000a        if (isValid) doneTwo();\u000a      });\u000a      next();\u000a    });\u000a    \u000a    // While preOne and preTwo are parallel, preThree is a serial pre middleware\u000a    Document.pre('save', function preThree (next, callback) {\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document();\u000a    doc.save( function (err, doc) {\u000a      // Do stuff with the saved doc here...\u000a    });\u000a\u000aIn the above example, flow control may happen in the following way:\u000a\u000a(1) doc.save -> (2) preOne --(next)--> (3) preTwo --(next)--> (4) preThree --(next)--> (wait for dones to invoke) -> (5) doneTwo -> (6) doneOne -> (7) targetFn\u000a\u000aSo what's happening is that:\u000a\u000a1. You call `doc.save(...)`\u000a2. First, your preOne middleware gets executed. It makes a remote call to the validation service and `next()`s to the preTwo middleware.\u000a3. Now, your preTwo middleware gets executed. It makes a remote call to another validation service and `next()`s to the preThree middleware.\u000a4. Your preThree middleware gets executed. It immediately `next()`s. But nothing else gets executing until both `doneOne` and `doneTwo` are invoked inside the callbacks handling the response from the two valiation services.\u000a5. We will suppose that validation remoteServiceTwo returns a response to us first. In this case, we call `doneTwo` inside the callback to remoteServiceTwo.\u000a6. Some fractions of a second later, remoteServiceOne returns a response to us. In this case, we call `doneOne` inside the callback to remoteServiceOne.\u000a7. `hooks` implementation keeps track of how many parallel middleware has been defined per target function. It detects that both asynchronous pre middlewares (`preOne` and `preTwo`) have finally called their `done` functions (`doneOne` and `doneTwo`), so the implementation finally invokes our `targetFn` (i.e., our core `save` business logic).\u000a\u000a## Removing Pres\u000a\u000aYou can remove a particular pre associated with a hook:\u000a\u000a    Document.pre('set', someFn);\u000a    Document.removePre('set', someFn);\u000a\u000aAnd you can also remove all pres associated with a hook:\u000a    Document.removePre('set'); // Removes all declared `pre`s on the hook 'set'\u000a\u000a## Tests\u000aTo run the tests:\u000a    make test\u000a\u000a### Contributors\u000a- [Brian Noguchi](https://github.com/bnoguchi)\u000a\u000a### License\u000aMIT License\u000a\u000a---\u000a### Author\u000aBrian Noguchi\u000a","maintainers":[{"name":"bnoguchi","email":"brian.noguchi@gmail.com"}]},"0.3.0":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.3.0","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies
+791 error registry error parsing json
+792 verbose headers { date: 'Tue, 13 May 2014 09:52:44 GMT',
+792 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+792 verbose headers   etag: '"CQCHP5MRADJGPOVQVD22957AH"',
+792 verbose headers   'content-type': 'application/json',
+792 verbose headers   via: '1.1 varnish',
+792 verbose headers   'cache-control': 'max-age=1',
+792 verbose headers   'content-length': '87329',
+792 verbose headers   'accept-ranges': 'bytes',
+792 verbose headers   age: '541',
+792 verbose headers   'x-served-by': 'cache-v36-ASH, cache-ty68-TYO',
+792 verbose headers   'x-cache': 'HIT, MISS',
+792 verbose headers   'x-cache-hits': '1, 0',
+792 verbose headers   'x-timer': 'S1399974764.537028313,VS0,VS77,VE170,VE420',
+792 verbose headers   vary: 'Accept',
+792 verbose headers   'keep-alive': 'timeout=10, max=50',
+792 verbose headers   connection: 'Keep-Alive' }
+793 silly registry.get cb [ 200,
+793 silly registry.get   { date: 'Tue, 13 May 2014 09:52:44 GMT',
+793 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+793 silly registry.get     etag: '"CQCHP5MRADJGPOVQVD22957AH"',
+793 silly registry.get     'content-type': 'application/json',
+793 silly registry.get     via: '1.1 varnish',
+793 silly registry.get     'cache-control': 'max-age=1',
+793 silly registry.get     'content-length': '87329',
+793 silly registry.get     'accept-ranges': 'bytes',
+793 silly registry.get     age: '541',
+793 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-ty68-TYO',
+793 silly registry.get     'x-cache': 'HIT, MISS',
+793 silly registry.get     'x-cache-hits': '1, 0',
+793 silly registry.get     'x-timer': 'S1399974764.537028313,VS0,VS77,VE170,VE420',
+793 silly registry.get     vary: 'Accept',
+793 silly registry.get     'keep-alive': 'timeout=10, max=50',
+793 silly registry.get     connection: 'Keep-Alive' } ]
+794 silly lockFile 207ce50b-hooks-0-2-1 hooks@0.2.1
+795 silly lockFile 207ce50b-hooks-0-2-1 hooks@0.2.1
+796 verbose about to build D:\Temp\node_modules\mongoose
+797 info D:\Temp\node_modules\mongoose unbuild
+798 info preuninstall mongoose@3.8.9
+799 info uninstall mongoose@3.8.9
+800 verbose true,D:\Temp\node_modules,D:\Temp\node_modules unbuild mongoose@3.8.9
+801 info postuninstall mongoose@3.8.9
+802 error SyntaxError: Unexpected token d
+802 error {"_id":"hooks","_rev":"45-24aa92b1d86066ec963b16c4be3c4ef6","name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","dist-tags":{"latest":"0.3.2"},"versions":{"0.0.1":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.0.1","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{"expresso":">= 0.7.2","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_id":"hooks@0.0.1","_engineSupported":true,"_npmVersion":"0.3.0-6","_nodeVersion":"v0.4.0","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"8c8b671930e83a5ff9bacaf09cb3c3657378763e","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.0.1.tgz"}},"0.1.0":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.0","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{"expresso":">= 0.7.2","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_id":"hooks@0.1.0","_engineSupported":true,"_npmVersion":"0.3.0-9","_nodeVersion":"v0.4.0","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"b43e7a2d3708406e5164f6d2ceea80d9c9fae522","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.0.tgz"}},"0.1.1":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.1","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{"underscore":">=1.1.4"},"devDependencies":{"expresso":">= 0.7.3"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_id":"hooks@0.1.1","_engineSupported":true,"_npmVersion":"0.3.15","_nodeVersion":"v0.4.3","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"258bf659f81608bd457012a46d3b0e3afc16043c","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.1.tgz"}},"0.1.2":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.2","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.2","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"23a1a7889479662b79016a6381cdacff6b4eb12f","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.2.tgz"}},"0.1.3":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.3","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.3","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"28b731b077922fbea629865870695bcc6a16aa95","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.3.tgz"}},"0.1.4":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.4","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.4","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"8e9cd1f79090aeca8d391d18cd1de59d63f523bc","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.4.tgz"}},"0.1.5":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.5","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.5","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"7b145c6d01b9904215e32f4e4c632d0b97b30e13","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.5.tgz"}},"0.1.6":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.6","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.6","_engineSupported":true,"_npmVersion":"1.0.3","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"b19ff60ae05bdb7f96aa7df9baf3c5bb45a10fc3","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.6.tgz"}},"0.1.7":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.7","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.x"},"licenses":["MIT"],"_id":"hooks@0.1.7","_engineSupported":true,"_npmVersion":"1.0.9-1","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"1c624f5146a4f8b28344a716750c857cbdcead2b","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.7.tgz"}},"0.1.9":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.1.9","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"_npmJsonOpts":{"file":"/home/briannoguchi/.npm/hooks/0.1.9/package/package.json","wscript":false,"contributors":false,"serverjs":false},"_id":"hooks@0.1.9","_engineSupported":true,"_npmVersion":"1.0.15","_nodeVersion":"v0.4.9","_defaultsLoaded":true,"dist":{"shasum":"5f861def6916a53071d42ba4d0e2da3e76fc04b8","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.1.9.tgz"}},"0.2.0":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.2.0","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"optionalDependencies":{},"_npmUser":{"name":"bnoguchi","email":"brian.noguchi@gmail.com"},"_id":"hooks@0.2.0","_engineSupported":true,"_npmVersion":"1.1.1","_nodeVersion":"v0.6.11","_defaultsLoaded":true,"dist":{"shasum":"0f43df2d3610eebb1e241d8c8b61b954ad858b9e","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.2.0.tgz"},"readme":"hooks\u000a============\u000a\u000aAdd pre and post middleware hooks to your JavaScript methods.\u000a\u000a## Installation\u000a    npm install hooks\u000a\u000a## Motivation\u000aSuppose you have a JavaScript object with a `save` method.\u000a\u000aIt would be nice to be able to declare code that runs before `save` and after `save`.\u000aFor example, you might want to run validation code before every `save`,\u000aand you might want to dispatch a job to a background job queue after `save`.\u000a\u000aOne might have an urge to hard code this all into `save`, but that turns out to\u000acouple all these pieces of functionality (validation, save, and job creation) more\u000atightly than is necessary. For example, what if someone does not want to do background\u000ajob creation after the logical save? \u000a\u000aIt is nicer to tack on functionality using what we call `pre` and `post` hooks. These\u000aare functions that you define and that you direct to execute before or after particular\u000amethods.\u000a\u000a## Example\u000aWe can use `hooks` to add validation and background jobs in the following way:\u000a\u000a    var hooks = require('hooks')\u000a      , Document = require('./path/to/some/document/constructor');\u000a\u000a    // Add hooks' methods: `hook`, `pre`, and `post`    \u000a    for (var k in hooks) {\u000a      Document[k] = hooks[k];\u000a    }\u000a\u000a    // Define a new method that is able to invoke pre and post middleware\u000a    Document.hook('save', Document.prototype.save);\u000a\u000a    // Define a middleware function to be invoked before 'save'\u000a    Document.pre('save', function validate (next) {\u000a      // The `this` context inside of `pre` and `post` functions\u000a      // is the Document instance\u000a      if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                       // or to the target method itself\u000a      else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a    });\u000a\u000a    // Define a middleware function to be invoked after 'save'\u000a    Document.post('save', function createJob () {\u000a      this.sendToBackgroundQueue();\u000a    });\u000a\u000aIf you already have defined `Document.prototype` methods for which you want pres and posts,\u000athen you do not need to explicitly invoke `Document.hook(...)`. Invoking `Document.pre(methodName, fn)`\u000aor `Document.post(methodName, fn)` will automatically and lazily change `Document.prototype[methodName]`\u000aso that it plays well with `hooks`. An equivalent way to implement the previous example is:\u000a\u000a```javascript\u000avar hooks = require('hooks')\u000a  , Document = require('./path/to/some/document/constructor');\u000a\u000a// Add hooks' methods: `hook`, `pre`, and `post`    \u000afor (var k in hooks) {\u000a  Document[k] = hooks[k];\u000a}\u000a\u000aDocument.prototype.save = function () {\u000a  // ...\u000a};\u000a\u000a// Define a middleware function to be invoked before 'save'\u000aDocument.pre('save', function validate (next) {\u000a  // The `this` context inside of `pre` and `post` functions\u000a  // is the Document instance\u000a  if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                   // or to the target method itself\u000a  else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a});\u000a\u000a// Define a middleware function to be invoked after 'save'\u000aDocument.post('save', function createJob () {\u000a  this.sendToBackgroundQueue();\u000a});\u000a```\u000a\u000a## Pres and Posts as Middleware\u000aWe structure pres and posts as middleware to give you maximum flexibility:\u000a\u000a1. You can define **multiple** pres (or posts) for a single method.\u000a2. These pres (or posts) are then executed as a chain of methods.\u000a3. Any functions in this middleware chain can choose to halt the chain's execution by `next`ing an Error from that middleware function. If this occurs, then none of the other middleware in the chain will execute, and the main method (e.g., `save`) will not execute. This is nice, for example, when we don't want a document to save if it is invalid.\u000a\u000a## Defining multiple pres (or posts)\u000a`pre` is chainable, so you can define multiple pres via:\u000a    Document.pre('save', function (next, halt) {\u000a      console.log(\"hello\");\u000a    }).pre('save', function (next, halt) {\u000a      console.log(\"world\");\u000a    });\u000a\u000aAs soon as one pre finishes executing, the next one will be invoked, and so on.\u000a\u000a## Error Handling\u000aYou can define a default error handler by passing a 2nd function as the 3rd argument to `hook`:\u000a    Document.hook('set', function (path, val) {\u000a      this[path] = val;\u000a    }, function (err) {\u000a      // Handler the error here\u000a      console.error(err);\u000a    });\u000a\u000aThen, we can pass errors to this handler from a pre or post middleware function:\u000a    Document.pre('set', function (next, path, val) {\u000a      next(new Error());\u000a    });\u000a\u000aIf you do not set up a default handler, then `hooks` makes the default handler that just throws the `Error`.\u000a\u000aThe default error handler can be over-rided on a per method invocation basis.\u000a\u000aIf the main method that you are surrounding with pre and post middleware expects its last argument to be a function\u000awith callback signature `function (error, ...)`, then that callback becomes the error handler, over-riding the default\u000aerror handler you may have set up.\u000a   \u000a```javascript\u000aDocument.hook('save', function (callback) {\u000a  // Save logic goes here\u000a  ...\u000a});\u000a\u000avar doc = new Document();\u000adoc.save( function (err, saved) {\u000a  // We can pass err via `next` in any of our pre or post middleware functions\u000a  if (err) console.error(err);\u000a  \u000a  // Rest of callback logic follows ...\u000a});\u000a```\u000a\u000a## Mutating Arguments via Middleware\u000a`pre` and `post` middleware can also accept the intended arguments for the method\u000athey augment. This is useful if you want to mutate the arguments before passing\u000athem along to the next middleware and eventually pass a mutated arguments list to\u000athe main method itself.\u000a\u000aAs a simple example, let's define a method `set` that just sets a key, value pair.\u000aIf we want to namespace the key, we can do so by adding a `pre` middleware hook\u000athat runs before `set`, alters the arguments by namespacing the `key` argument, and passes them onto `set`:\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      next('namespace-' + key, val);\u000a    });\u000a    var doc = new Document();\u000a    doc.set('hello', 'world');\u000a    console.log(doc.hello); // undefined\u000a    console.log(doc['namespace-hello']); // 'world'\u000a\u000aAs you can see above, we pass arguments via `next`.\u000a\u000aIf you are not mutating the arguments, then you can pass zero arguments\u000ato `next`, and the next middleware function will still have access\u000ato the arguments.\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // I have access to key and val here\u000a      next(); // We don't need to pass anything to next\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // And I still have access to the original key and val here\u000a      next();\u000a    });\u000a\u000aFinally, you can add arguments that downstream middleware can also see:\u000a\u000a    // Note that in the definition of `set`, there is no 3rd argument, options\u000a    Document.hook('set', function (key, val) {\u000a      // But...\u000a      var options = arguments[2]; // ...I have access to an options argument\u000a                                  // because of pre function pre2 (defined below)\u000a      console.log(options); // '{debug: true}'\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function pre1 (next, key, val) {\u000a      // I only have access to key and val arguments\u000a      console.log(arguments.length); // 3\u000a      next(key, val, {debug: true});\u000a    });\u000a    Document.pre('set', function pre2 (next, key, val, options) {\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    Document.pre('set', function pre3 (next, key, val, options) {\u000a      // I still have access to key, val, AND the options argument introduced via the preceding middleware\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document()\u000a    doc.set('hey', 'there');\u000a\u000a## Parallel `pre` middleware\u000a\u000aAll middleware up to this point has been \"serial\" middleware -- i.e., middleware whose logic\u000ais executed as a serial chain.\u000a\u000aSome scenarios call for parallel middleware -- i.e., middleware that can wait for several\u000aasynchronous services at once to respond.\u000a\u000aFor instance, you may only want to save a Document only after you have checked\u000athat the Document is valid according to two different remote services.\u000a\u000aWe accomplish asynchronous middleware by adding a second kind of flow control callback\u000a(the only flow control callback so far has been `next`), called `done`.\u000a\u000a- `next` passes control to the next middleware in the chain\u000a- `done` keeps track of how many parallel middleware have invoked `done` and passes\u000a   control to the target method when ALL parallel middleware have invoked `done`. If\u000a   you pass an `Error` to `done`, then the error is handled, and the main method that is\u000a   wrapped by pres and posts will not get invoked.\u000a\u000aWe declare pre middleware that is parallel by passing a 3rd boolean argument to our `pre`\u000adefinition method.\u000a\u000aWe illustrate via the parallel validation example mentioned above:\u000a\u000a    Document.hook('save', function targetFn (callback) {\u000a      // Save logic goes here\u000a      // ...\u000a      // This only gets run once the two `done`s are both invoked via preOne and preTwo.\u000a    });\u000a\u000a                         // true marks this as parallel middleware\u000a    Document.pre('save', true, function preOne (next, doneOne, callback) {\u000a      remoteServiceOne.validate(this.serialize(), function (err, isValid) {\u000a        // The code in here will probably be run after the `next` below this block\u000a        // and could possibly be run after the console.log(\"Hola\") in `preTwo\u000a        if (err) return doneOne(err);\u000a        if (isValid) doneOne();\u000a      });\u000a      next(); // Pass control to the next middleware\u000a    });\u000a    \u000a    // We will suppose that we need 2 different remote services to validate our document\u000a    Document.pre('save', true, function preTwo (next, doneTwo, callback) {\u000a      remoteServiceTwo.validate(this.serialize(), function (err, isValid) {\u000a        if (err) return doneTwo(err);\u000a        if (isValid) doneTwo();\u000a      });\u000a      next();\u000a    });\u000a    \u000a    // While preOne and preTwo are parallel, preThree is a serial pre middleware\u000a    Document.pre('save', function preThree (next, callback) {\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document();\u000a    doc.save( function (err, doc) {\u000a      // Do stuff with the saved doc here...\u000a    });\u000a\u000aIn the above example, flow control may happen in the following way:\u000a\u000a(1) doc.save -> (2) preOne --(next)--> (3) preTwo --(next)--> (4) preThree --(next)--> (wait for dones to invoke) -> (5) doneTwo -> (6) doneOne -> (7) targetFn\u000a\u000aSo what's happening is that:\u000a\u000a1. You call `doc.save(...)`\u000a2. First, your preOne middleware gets executed. It makes a remote call to the validation service and `next()`s to the preTwo middleware.\u000a3. Now, your preTwo middleware gets executed. It makes a remote call to another validation service and `next()`s to the preThree middleware.\u000a4. Your preThree middleware gets executed. It immediately `next()`s. But nothing else gets executing until both `doneOne` and `doneTwo` are invoked inside the callbacks handling the response from the two valiation services.\u000a5. We will suppose that validation remoteServiceTwo returns a response to us first. In this case, we call `doneTwo` inside the callback to remoteServiceTwo.\u000a6. Some fractions of a second later, remoteServiceOne returns a response to us. In this case, we call `doneOne` inside the callback to remoteServiceOne.\u000a7. `hooks` implementation keeps track of how many parallel middleware has been defined per target function. It detects that both asynchronous pre middlewares (`preOne` and `preTwo`) have finally called their `done` functions (`doneOne` and `doneTwo`), so the implementation finally invokes our `targetFn` (i.e., our core `save` business logic).\u000a\u000a## Removing Pres\u000a\u000aYou can remove a particular pre associated with a hook:\u000a\u000a    Document.pre('set', someFn);\u000a    Document.removePre('set', someFn);\u000a\u000aAnd you can also remove all pres associated with a hook:\u000a    Document.removePre('set'); // Removes all declared `pre`s on the hook 'set'\u000a\u000a## Tests\u000aTo run the tests:\u000a    make test\u000a\u000a### Contributors\u000a- [Brian Noguchi](https://github.com/bnoguchi)\u000a\u000a### License\u000aMIT License\u000a\u000a---\u000a### Author\u000aBrian Noguchi\u000a","maintainers":[{"name":"bnoguchi","email":"brian.noguchi@gmail.com"}]},"0.2.1":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.2.1","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies":{"expresso":">=0.7.6","should":">=0.2.1","underscore":">=1.1.4"},"engines":{"node":">=0.4.0"},"licenses":["MIT"],"optionalDependencies":{},"_npmUser":{"name":"bnoguchi","email":"brian.noguchi@gmail.com"},"_id":"hooks@0.2.1","_engineSupported":true,"_npmVersion":"1.1.16","_nodeVersion":"v0.6.15","_defaultsLoaded":true,"dist":{"shasum":"0f591b1b344bdcb3df59773f62fbbaf85bf4028b","tarball":"http://registry.npmjs.org/hooks/-/hooks-0.2.1.tgz"},"readme":"hooks\u000a============\u000a\u000aAdd pre and post middleware hooks to your JavaScript methods.\u000a\u000a## Installation\u000a    npm install hooks\u000a\u000a## Motivation\u000aSuppose you have a JavaScript object with a `save` method.\u000a\u000aIt would be nice to be able to declare code that runs before `save` and after `save`.\u000aFor example, you might want to run validation code before every `save`,\u000aand you might want to dispatch a job to a background job queue after `save`.\u000a\u000aOne might have an urge to hard code this all into `save`, but that turns out to\u000acouple all these pieces of functionality (validation, save, and job creation) more\u000atightly than is necessary. For example, what if someone does not want to do background\u000ajob creation after the logical save? \u000a\u000aIt is nicer to tack on functionality using what we call `pre` and `post` hooks. These\u000aare functions that you define and that you direct to execute before or after particular\u000amethods.\u000a\u000a## Example\u000aWe can use `hooks` to add validation and background jobs in the following way:\u000a\u000a    var hooks = require('hooks')\u000a      , Document = require('./path/to/some/document/constructor');\u000a\u000a    // Add hooks' methods: `hook`, `pre`, and `post`    \u000a    for (var k in hooks) {\u000a      Document[k] = hooks[k];\u000a    }\u000a\u000a    // Define a new method that is able to invoke pre and post middleware\u000a    Document.hook('save', Document.prototype.save);\u000a\u000a    // Define a middleware function to be invoked before 'save'\u000a    Document.pre('save', function validate (next) {\u000a      // The `this` context inside of `pre` and `post` functions\u000a      // is the Document instance\u000a      if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                       // or to the target method itself\u000a      else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a    });\u000a\u000a    // Define a middleware function to be invoked after 'save'\u000a    Document.post('save', function createJob () {\u000a      this.sendToBackgroundQueue();\u000a    });\u000a\u000aIf you already have defined `Document.prototype` methods for which you want pres and posts,\u000athen you do not need to explicitly invoke `Document.hook(...)`. Invoking `Document.pre(methodName, fn)`\u000aor `Document.post(methodName, fn)` will automatically and lazily change `Document.prototype[methodName]`\u000aso that it plays well with `hooks`. An equivalent way to implement the previous example is:\u000a\u000a```javascript\u000avar hooks = require('hooks')\u000a  , Document = require('./path/to/some/document/constructor');\u000a\u000a// Add hooks' methods: `hook`, `pre`, and `post`    \u000afor (var k in hooks) {\u000a  Document[k] = hooks[k];\u000a}\u000a\u000aDocument.prototype.save = function () {\u000a  // ...\u000a};\u000a\u000a// Define a middleware function to be invoked before 'save'\u000aDocument.pre('save', function validate (next) {\u000a  // The `this` context inside of `pre` and `post` functions\u000a  // is the Document instance\u000a  if (this.isValid()) next();      // next() passes control to the next middleware\u000a                                   // or to the target method itself\u000a  else next(new Error(\"Invalid\")); // next(error) invokes an error callback\u000a});\u000a\u000a// Define a middleware function to be invoked after 'save'\u000aDocument.post('save', function createJob () {\u000a  this.sendToBackgroundQueue();\u000a});\u000a```\u000a\u000a## Pres and Posts as Middleware\u000aWe structure pres and posts as middleware to give you maximum flexibility:\u000a\u000a1. You can define **multiple** pres (or posts) for a single method.\u000a2. These pres (or posts) are then executed as a chain of methods.\u000a3. Any functions in this middleware chain can choose to halt the chain's execution by `next`ing an Error from that middleware function. If this occurs, then none of the other middleware in the chain will execute, and the main method (e.g., `save`) will not execute. This is nice, for example, when we don't want a document to save if it is invalid.\u000a\u000a## Defining multiple pres (or posts)\u000a`pre` is chainable, so you can define multiple pres via:\u000a    Document.pre('save', function (next, halt) {\u000a      console.log(\"hello\");\u000a    }).pre('save', function (next, halt) {\u000a      console.log(\"world\");\u000a    });\u000a\u000aAs soon as one pre finishes executing, the next one will be invoked, and so on.\u000a\u000a## Error Handling\u000aYou can define a default error handler by passing a 2nd function as the 3rd argument to `hook`:\u000a    Document.hook('set', function (path, val) {\u000a      this[path] = val;\u000a    }, function (err) {\u000a      // Handler the error here\u000a      console.error(err);\u000a    });\u000a\u000aThen, we can pass errors to this handler from a pre or post middleware function:\u000a    Document.pre('set', function (next, path, val) {\u000a      next(new Error());\u000a    });\u000a\u000aIf you do not set up a default handler, then `hooks` makes the default handler that just throws the `Error`.\u000a\u000aThe default error handler can be over-rided on a per method invocation basis.\u000a\u000aIf the main method that you are surrounding with pre and post middleware expects its last argument to be a function\u000awith callback signature `function (error, ...)`, then that callback becomes the error handler, over-riding the default\u000aerror handler you may have set up.\u000a   \u000a```javascript\u000aDocument.hook('save', function (callback) {\u000a  // Save logic goes here\u000a  ...\u000a});\u000a\u000avar doc = new Document();\u000adoc.save( function (err, saved) {\u000a  // We can pass err via `next` in any of our pre or post middleware functions\u000a  if (err) console.error(err);\u000a  \u000a  // Rest of callback logic follows ...\u000a});\u000a```\u000a\u000a## Mutating Arguments via Middleware\u000a`pre` and `post` middleware can also accept the intended arguments for the method\u000athey augment. This is useful if you want to mutate the arguments before passing\u000athem along to the next middleware and eventually pass a mutated arguments list to\u000athe main method itself.\u000a\u000aAs a simple example, let's define a method `set` that just sets a key, value pair.\u000aIf we want to namespace the key, we can do so by adding a `pre` middleware hook\u000athat runs before `set`, alters the arguments by namespacing the `key` argument, and passes them onto `set`:\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      next('namespace-' + key, val);\u000a    });\u000a    var doc = new Document();\u000a    doc.set('hello', 'world');\u000a    console.log(doc.hello); // undefined\u000a    console.log(doc['namespace-hello']); // 'world'\u000a\u000aAs you can see above, we pass arguments via `next`.\u000a\u000aIf you are not mutating the arguments, then you can pass zero arguments\u000ato `next`, and the next middleware function will still have access\u000ato the arguments.\u000a\u000a    Document.hook('set', function (key, val) {\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // I have access to key and val here\u000a      next(); // We don't need to pass anything to next\u000a    });\u000a    Document.pre('set', function (next, key, val) {\u000a      // And I still have access to the original key and val here\u000a      next();\u000a    });\u000a\u000aFinally, you can add arguments that downstream middleware can also see:\u000a\u000a    // Note that in the definition of `set`, there is no 3rd argument, options\u000a    Document.hook('set', function (key, val) {\u000a      // But...\u000a      var options = arguments[2]; // ...I have access to an options argument\u000a                                  // because of pre function pre2 (defined below)\u000a      console.log(options); // '{debug: true}'\u000a      this[key] = val;\u000a    });\u000a    Document.pre('set', function pre1 (next, key, val) {\u000a      // I only have access to key and val arguments\u000a      console.log(arguments.length); // 3\u000a      next(key, val, {debug: true});\u000a    });\u000a    Document.pre('set', function pre2 (next, key, val, options) {\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    Document.pre('set', function pre3 (next, key, val, options) {\u000a      // I still have access to key, val, AND the options argument introduced via the preceding middleware\u000a      console.log(arguments.length); // 4\u000a      console.log(options); // '{ debug: true}'\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document()\u000a    doc.set('hey', 'there');\u000a\u000a## Parallel `pre` middleware\u000a\u000aAll middleware up to this point has been \"serial\" middleware -- i.e., middleware whose logic\u000ais executed as a serial chain.\u000a\u000aSome scenarios call for parallel middleware -- i.e., middleware that can wait for several\u000aasynchronous services at once to respond.\u000a\u000aFor instance, you may only want to save a Document only after you have checked\u000athat the Document is valid according to two different remote services.\u000a\u000aWe accomplish asynchronous middleware by adding a second kind of flow control callback\u000a(the only flow control callback so far has been `next`), called `done`.\u000a\u000a- `next` passes control to the next middleware in the chain\u000a- `done` keeps track of how many parallel middleware have invoked `done` and passes\u000a   control to the target method when ALL parallel middleware have invoked `done`. If\u000a   you pass an `Error` to `done`, then the error is handled, and the main method that is\u000a   wrapped by pres and posts will not get invoked.\u000a\u000aWe declare pre middleware that is parallel by passing a 3rd boolean argument to our `pre`\u000adefinition method.\u000a\u000aWe illustrate via the parallel validation example mentioned above:\u000a\u000a    Document.hook('save', function targetFn (callback) {\u000a      // Save logic goes here\u000a      // ...\u000a      // This only gets run once the two `done`s are both invoked via preOne and preTwo.\u000a    });\u000a\u000a                         // true marks this as parallel middleware\u000a    Document.pre('save', true, function preOne (next, doneOne, callback) {\u000a      remoteServiceOne.validate(this.serialize(), function (err, isValid) {\u000a        // The code in here will probably be run after the `next` below this block\u000a        // and could possibly be run after the console.log(\"Hola\") in `preTwo\u000a        if (err) return doneOne(err);\u000a        if (isValid) doneOne();\u000a      });\u000a      next(); // Pass control to the next middleware\u000a    });\u000a    \u000a    // We will suppose that we need 2 different remote services to validate our document\u000a    Document.pre('save', true, function preTwo (next, doneTwo, callback) {\u000a      remoteServiceTwo.validate(this.serialize(), function (err, isValid) {\u000a        if (err) return doneTwo(err);\u000a        if (isValid) doneTwo();\u000a      });\u000a      next();\u000a    });\u000a    \u000a    // While preOne and preTwo are parallel, preThree is a serial pre middleware\u000a    Document.pre('save', function preThree (next, callback) {\u000a      next();\u000a    });\u000a    \u000a    var doc = new Document();\u000a    doc.save( function (err, doc) {\u000a      // Do stuff with the saved doc here...\u000a    });\u000a\u000aIn the above example, flow control may happen in the following way:\u000a\u000a(1) doc.save -> (2) preOne --(next)--> (3) preTwo --(next)--> (4) preThree --(next)--> (wait for dones to invoke) -> (5) doneTwo -> (6) doneOne -> (7) targetFn\u000a\u000aSo what's happening is that:\u000a\u000a1. You call `doc.save(...)`\u000a2. First, your preOne middleware gets executed. It makes a remote call to the validation service and `next()`s to the preTwo middleware.\u000a3. Now, your preTwo middleware gets executed. It makes a remote call to another validation service and `next()`s to the preThree middleware.\u000a4. Your preThree middleware gets executed. It immediately `next()`s. But nothing else gets executing until both `doneOne` and `doneTwo` are invoked inside the callbacks handling the response from the two valiation services.\u000a5. We will suppose that validation remoteServiceTwo returns a response to us first. In this case, we call `doneTwo` inside the callback to remoteServiceTwo.\u000a6. Some fractions of a second later, remoteServiceOne returns a response to us. In this case, we call `doneOne` inside the callback to remoteServiceOne.\u000a7. `hooks` implementation keeps track of how many parallel middleware has been defined per target function. It detects that both asynchronous pre middlewares (`preOne` and `preTwo`) have finally called their `done` functions (`doneOne` and `doneTwo`), so the implementation finally invokes our `targetFn` (i.e., our core `save` business logic).\u000a\u000a## Removing Pres\u000a\u000aYou can remove a particular pre associated with a hook:\u000a\u000a    Document.pre('set', someFn);\u000a    Document.removePre('set', someFn);\u000a\u000aAnd you can also remove all pres associated with a hook:\u000a    Document.removePre('set'); // Removes all declared `pre`s on the hook 'set'\u000a\u000a## Tests\u000aTo run the tests:\u000a    make test\u000a\u000a### Contributors\u000a- [Brian Noguchi](https://github.com/bnoguchi)\u000a\u000a### License\u000aMIT License\u000a\u000a---\u000a### Author\u000aBrian Noguchi\u000a","maintainers":[{"name":"bnoguchi","email":"brian.noguchi@gmail.com"}]},"0.3.0":{"name":"hooks","description":"Adds pre and post hook functionality to your JavaScript methods.","version":"0.3.0","keywords":["node","hooks","middleware","pre","post"],"homepage":"https://github.com/bnoguchi/hooks-js/","repository":{"type":"git","url":"git://github.com/bnoguchi/hooks-js.git"},"author":{"name":"Brian Noguchi","email":"brian.noguchi@gmail.com","url":"https://github.com/bnoguchi/"},"main":"./hooks.js","directories":{"lib":"."},"scripts":{"test":"make test"},"dependencies":{},"devDependencies
+802 error     at Object.parse (native)
+802 error     at RegClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:239:23)
+802 error     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:211:65)
+802 error     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:123:22)
+802 error     at Request.EventEmitter.emit (events.js:98:17)
+802 error     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:893:14)
+802 error     at Request.EventEmitter.emit (events.js:117:20)
+802 error     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:844:12)
+802 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+802 error     at _stream_readable.js:919:16
+803 error If you need help, you may report this *entire* log,
+803 error including the npm and node versions, at:
+803 error     <http://github.com/npm/npm/issues>
+804 error System Windows_NT 6.1.7601
+805 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "mongoose"
+806 error cwd D:\Temp
+807 error node -v v0.10.28
+808 error npm -v 1.4.9
+809 error type unexpected_token
+810 verbose exit [ 1, true ]

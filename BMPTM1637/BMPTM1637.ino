@@ -67,7 +67,7 @@ void loop()
 
   Serial.println();//line break
 
-  delay(3000); //wait a second and get values again.
+  delay(30000); //wait a second and get values again.
 }
 
 // Stores all of the bmp085's calibration values into global variables
