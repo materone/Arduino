@@ -13,6 +13,8 @@
 // Wiring-S           5         6          4
 // Sanguino          13        14         12
 
+// this is a test fr software serial alter
+
 AltSoftSerial altSerial;
 
 void setup() {
